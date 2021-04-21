@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController {
     
     // MARK: - IBOutlet
 
@@ -15,7 +15,21 @@ class ProfileViewController: UIViewController {
     
     // MARK: - Private Properties
     
-    private lazy var voidZeroController = VoidZeroViewController()
+    private let voidZeroController: ZeroViewController?
+    
+    // MARK: - Initialization
+
+    init(
+        zeroControllerType: ZeroControllerType = .voidController,
+        zeroControllerFactory: ZeroControllerFactoryProtocol = ZeroControllerFactory()
+    ) {
+        self.voidZeroController = zeroControllerFactory.getZeroController(by: zeroControllerType)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Lifecycle
 
@@ -28,17 +42,18 @@ class ProfileViewController: UIViewController {
     // MARK: - Private Methods
     
     private func showVoidZero() {
-        guard let container = dataContainerView else { return }
+        guard let controller = voidZeroController,
+              let container = dataContainerView else { return }
         
-        voidZeroController.delegate = self
-        showChild(voidZeroController, to: container)
+        controller.delegate = self
+        showChild(controller, to: container)
     }
 }
 
-// MARK: - VoidZeroControllerDelegate
+// MARK: - ZeroViewControllerDelegate
 
-extension ProfileViewController: VoidZeroControllerDelegate {
-    func createPost() {
+extension ProfileViewController: ZeroViewControllerDelegate {
+    func handleClickButton() {
         print(#function)
     }
 }

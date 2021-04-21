@@ -7,11 +7,25 @@
 
 import UIKit
 
-class FeedViewController: UIViewController {
+final class FeedViewController: UIViewController {
     
     // MARK: - Private Properties
     
-    private lazy var errorZeroController = ErrorZeroViewController()
+    private let errorZeroController: ZeroViewController?
+    
+    // MARK: - Initialization
+
+    init(
+        zeroControllerType: ZeroControllerType = .errorController,
+        zeroControllerFactory: ZeroControllerFactoryProtocol = ZeroControllerFactory()
+    ) {
+        self.errorZeroController = zeroControllerFactory.getZeroController(by: zeroControllerType)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Lifecycle
 
@@ -26,16 +40,17 @@ class FeedViewController: UIViewController {
     // MARK: - Private Methods
     
     private func showErrorZero() {
-        errorZeroController.delegate = self
+        guard let controller = errorZeroController else { return }
         
-        showChild(errorZeroController, to: view)
+        controller.delegate = self
+        showChild(controller, to: view)
     }
 }
 
-// MARK: - ErrorZeroControllerDelegate
+// MARK: - ZeroViewControllerDelegate
 
-extension FeedViewController: ErrorZeroControllerDelegate {
-    func reload() {
+extension FeedViewController: ZeroViewControllerDelegate {
+    func handleClickButton() {
         print(#function)
     }
 }

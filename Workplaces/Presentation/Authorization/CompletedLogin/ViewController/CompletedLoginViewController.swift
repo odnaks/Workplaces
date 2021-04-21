@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CompletedLoginViewController: UIViewController {
+final class CompletedLoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,10 +19,6 @@ class CompletedLoginViewController: UIViewController {
     @IBAction private func clickContinue(_ sender: Any) {
         view.window?.rootViewController = MainTabBarController()
         view.window?.makeKeyAndVisible()
-    }
-    
-    deinit {
-        print("completed login deinit")
     }
 
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainTabBarController: UITabBarController {
+final class MainTabBarController: UITabBarController {
     
     // MARK: - Private Properties
     
@@ -18,20 +18,18 @@ class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loadTabBar()
+        loadTabBar()
     }
     
     // MARK: - Private Methods
     
     private func loadTabBar() {
         let tabItems: [TabItem] = [.feed, .profile]
-        setupCustomTabBar(tabItems) { controllers in
-            self.viewControllers = controllers
-        }
+        setupCustomTabBar(tabItems)
         selectedIndex = 0
     }
     
-    private func setupCustomTabBar(_ menuItems: [TabItem], completion: @escaping ([UIViewController]) -> Void) {
+    private func setupCustomTabBar(_ menuItems: [TabItem]) {
         tabBar.isHidden = true
         let tabBar = TabBarView(menuItems: menuItems)
         tabBar.translatesAutoresizingMaskIntoConstraints = false
@@ -53,8 +51,8 @@ class MainTabBarController: UITabBarController {
         for i in 0 ..< menuItems.count {
             controllers.append(menuItems[i].viewController)
         }
-        self.view.layoutIfNeeded()
-        completion(controllers)
+        view.layoutIfNeeded()
+        viewControllers = controllers
     }
 }
 

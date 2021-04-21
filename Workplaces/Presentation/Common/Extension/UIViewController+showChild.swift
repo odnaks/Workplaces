@@ -8,7 +8,10 @@
 import UIKit
 
 extension UIViewController {
-    func showChild(_ viewController: UIViewController, to containerView: UIView) {
+    func showChild(
+        _ viewController: UIViewController,
+        to containerView: UIView
+    ) {
         addChild(viewController)
         containerView.addSubview(viewController.view)
         viewController.view.translatesAutoresizingMaskIntoConstraints = false

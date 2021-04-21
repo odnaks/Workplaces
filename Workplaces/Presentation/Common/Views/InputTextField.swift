@@ -29,9 +29,13 @@ final class InputTextField: UITextField {
     
     private func setupUI() {
         borderStyle = .none
-        border.frame = CGRect(x: 0, y: bounds.height - 1, width: bounds.width, height: 1)
-        border.backgroundColor = .orange
-        border.isUserInteractionEnabled = false
+        border.frame = CGRect(
+            x: 0,
+            y: bounds.height - 1,
+            width: bounds.width,
+            height: 1
+        )
+        border.backgroundColor = .lightGreyBlue
         addSubview(border)
         
         setupClearButton()
@@ -53,12 +57,11 @@ final class InputTextField: UITextField {
     }
     
     @objc private func handleEditing() {
-        //        updateLabel()
         updateBorder()
     }
     
     private func updateBorder() {
-        let borderColor: UIColor = isFirstResponder ? .orange : .lightGreyBlue
+        let borderColor: UIColor = isFirstResponder ? .lightGreyBlue : .orange
         UIView.animate(withDuration: 0.25) {
             self.border.backgroundColor = borderColor
         }

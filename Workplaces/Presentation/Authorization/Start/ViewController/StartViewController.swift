@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StartViewController: UIViewController {
+final class StartViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,10 +17,6 @@ class StartViewController: UIViewController {
     
     @IBAction private func clickLogin(_ sender: Any) {
         navigationController?.pushViewController(LoginViewController(), animated: true)
-    }
-    
-    deinit {
-        print("start deinit")
     }
 
 }

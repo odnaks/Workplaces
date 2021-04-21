@@ -7,11 +7,7 @@
 
 import Foundation
 
-protocol ServiceLayerProtocol {
-    var authorizationService: AuthorizationServiceProtocol { get }
-}
-
-final class ServiceLayer: ServiceLayerProtocol {
+final class ServiceLayer {
     
     // MARK: - Shared
     
@@ -19,16 +15,16 @@ final class ServiceLayer: ServiceLayerProtocol {
     
     // MARK: - Public Properties
     
-    var authorizationService: AuthorizationServiceProtocol
-    var feedService: FeedServiceProtocol
-    var profileService: ProfileServiceProtocol
+    let authorizationService: AuthorizationServiceProtocol
+    let feedService: FeedServiceProtocol
+    let profileService: ProfileServiceProtocol
     
     // MARK: - Initialization
 
-    init() {
-        self.authorizationService = AuthorizationService()
-        self.feedService = FeedService()
-        self.profileService = ProfileService()
+    private init() {
+        authorizationService = AuthorizationService()
+        feedService = FeedService()
+        profileService = ProfileService()
     }
     
 }

@@ -7,18 +7,20 @@
 
 import UIKit
 
-private var staticWidth: CGFloat = 176
-private var staticHeight: CGFloat = 60
+private enum TabBarConstants {
+    static let width: CGFloat = 176
+    static let height: CGFloat = 60
+}
 
 protocol TabBarDelegate: class {
     func selectedTab(_ index: Int)
 }
 
-class TabBarView: UIView {
+final class TabBarView: XibView {
     
     // MARK: - IBOutlet
     
-    @IBOutlet private var contentView: UIView?
+    @IBOutlet private var backgroundView: UIView?
     @IBOutlet private var tabViews: [UIButton]?
     
     // MARK: - Private Properties
@@ -31,37 +33,34 @@ class TabBarView: UIView {
     
     // MARK: - Initialization
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        commonInit()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-        commonInit()
-    }
-    
-    private func commonInit() {
-        Bundle.main.loadNibNamed("TabBar", owner: self, options: nil)
-        guard let contentView = contentView else { return }
-        contentView.frame = bounds
-        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        addSubview(contentView)
-    }
-    
-    convenience init(menuItems: [TabItem],
-                     frame: CGRect = CGRect(origin: .zero, size: CGSize(width: staticWidth, height: staticHeight))) {
+    convenience init(
+        menuItems: [TabItem],
+        frame: CGRect = CGRect(
+            origin: .zero,
+            size: CGSize(
+                width: TabBarConstants.width,
+                height: TabBarConstants.height
+            )
+        )
+    ) {
         self.init(frame: frame)
         
         activateTab(tab: activeItem)
     }
     
+    // MARK: - Life Circle
+    
+    override func layoutSubviews() {
+        layer.cornerRadius = 30
+    }
+    
     // MARK: - IBAction
     
     @IBAction private func handleTap(_ sender: UIButton) {
-        switchTab(from: activeItem, to: sender.tag)
+        switchTab(
+            from: activeItem,
+            to: sender.tag
+        )
     }
     
     // MARK: - Private Methods

@@ -16,7 +16,7 @@ extension UIViewController {
                                                 message: serviceError.description, preferredStyle: .alert)
         let closeAction = UIAlertAction(title: "Ок", style: .cancel)
         alertController.addAction(closeAction)
-        self.present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
     
 }

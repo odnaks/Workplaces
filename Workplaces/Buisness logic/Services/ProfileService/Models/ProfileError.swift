@@ -16,7 +16,7 @@ enum ProfileError: ServiceError {
         case .profileError:
             return "Profile Error"
         default:
-            return self.localizedDescription
+            return localizedDescription
         }
     }
 }

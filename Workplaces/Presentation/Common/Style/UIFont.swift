@@ -30,8 +30,10 @@ extension UIFont {
         return sourceIBMPlex(.regular, size: 14)
     }
     
-    private static func sourceIBMPlex(_ name: IBMPlexSansName,
-                                      size: CGFloat) -> UIFont {
+    private static func sourceIBMPlex(
+        _ name: IBMPlexSansName,
+        size: CGFloat
+    ) -> UIFont {
         guard let font = UIFont(name: name.rawValue, size: size) else {
             return UIFont.systemFont(ofSize: size, weight: .regular)
         }

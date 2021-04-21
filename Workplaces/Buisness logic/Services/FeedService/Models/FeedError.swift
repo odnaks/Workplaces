@@ -16,7 +16,7 @@ enum FeedError: ServiceError {
         case .feedError:
             return "Feed Error"
         default:
-            return self.localizedDescription
+            return localizedDescription
         }
     }
 }

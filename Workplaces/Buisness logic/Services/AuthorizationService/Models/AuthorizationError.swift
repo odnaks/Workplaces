@@ -19,7 +19,7 @@ enum AuthorizationError: ServiceError {
         case .passwordError:
             return "Некорректный пароль"
         default:
-            return self.localizedDescription
+            return localizedDescription
         }
     }
 }
