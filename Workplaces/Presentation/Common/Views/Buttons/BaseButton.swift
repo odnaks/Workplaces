@@ -18,7 +18,6 @@ class BaseButton: UIButton {
         setTitleColor(.white, for: .normal)
         backgroundColor = .orange
         layer.cornerRadius = 14
-//        layer.masksToBounds = true
     }
 
 }

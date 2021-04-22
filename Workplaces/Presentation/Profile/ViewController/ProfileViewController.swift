@@ -20,10 +20,9 @@ final class ProfileViewController: UIViewController {
     // MARK: - Initialization
 
     init(
-        zeroControllerType: ZeroControllerType = .voidController,
-        zeroControllerFactory: ZeroControllerFactoryProtocol = ZeroControllerFactory()
+        zeroController: ZeroViewController = ZeroViewController(zeroControllerType: .voidController)
     ) {
-        self.voidZeroController = zeroControllerFactory.getZeroController(by: zeroControllerType)
+        self.voidZeroController = zeroController
         super.init(nibName: nil, bundle: nil)
     }
     

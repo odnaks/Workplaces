@@ -20,14 +20,12 @@
 		F032FC7E2630C6A5001A5292 /* AuthorizationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F032FC7D2630C6A5001A5292 /* AuthorizationServiceProtocol.swift */; };
 		F032FC822630C6CD001A5292 /* FeedServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F032FC812630C6CD001A5292 /* FeedServiceProtocol.swift */; };
 		F032FC852630C6EC001A5292 /* ProfileServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F032FC842630C6EC001A5292 /* ProfileServiceProtocol.swift */; };
-		F032FC8A2630CCD6001A5292 /* ZeroControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F032FC892630CCD6001A5292 /* ZeroControllerFactory.swift */; };
 		F032FC8D2630CD6F001A5292 /* ZeroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F032FC8C2630CD6F001A5292 /* ZeroViewController.swift */; };
 		F032FC972630DB83001A5292 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F032FC962630DB83001A5292 /* BaseButton.swift */; };
 		F032FC9D2630DDBC001A5292 /* SocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F032FC9C2630DDBC001A5292 /* SocialButton.swift */; };
 		F032FCA22630E421001A5292 /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F032FCA12630E421001A5292 /* Labels.swift */; };
+		F03B8F6A26317C5100B4CD9D /* ZeroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F03B8F6926317C5100B4CD9D /* ZeroViewController.xib */; };
 		F0794703262EBAFC0003FE7F /* UIButton+changeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0794702262EBAFC0003FE7F /* UIButton+changeColor.swift */; };
-		F0794710262EC8190003FE7F /* ErrorZeroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F079470F262EC8190003FE7F /* ErrorZeroViewController.xib */; };
-		F0794717262EC8500003FE7F /* VoidZeroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0794716262EC8500003FE7F /* VoidZeroViewController.xib */; };
 		F079471A262ECB9E0003FE7F /* UIViewController+addChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0794719262ECB9E0003FE7F /* UIViewController+addChild.swift */; };
 		F079471E262ECDFB0003FE7F /* UIViewController+showChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079471D262ECDFB0003FE7F /* UIViewController+showChild.swift */; };
 		F0794721262ED1DF0003FE7F /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0794720262ED1DF0003FE7F /* ProfileViewController.xib */; };
@@ -76,14 +74,12 @@
 		F032FC7D2630C6A5001A5292 /* AuthorizationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceProtocol.swift; sourceTree = "<group>"; };
 		F032FC812630C6CD001A5292 /* FeedServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceProtocol.swift; sourceTree = "<group>"; };
 		F032FC842630C6EC001A5292 /* ProfileServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceProtocol.swift; sourceTree = "<group>"; };
-		F032FC892630CCD6001A5292 /* ZeroControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroControllerFactory.swift; sourceTree = "<group>"; };
 		F032FC8C2630CD6F001A5292 /* ZeroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroViewController.swift; sourceTree = "<group>"; };
 		F032FC962630DB83001A5292 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		F032FC9C2630DDBC001A5292 /* SocialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButton.swift; sourceTree = "<group>"; };
 		F032FCA12630E421001A5292 /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
+		F03B8F6926317C5100B4CD9D /* ZeroViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZeroViewController.xib; sourceTree = "<group>"; };
 		F0794702262EBAFC0003FE7F /* UIButton+changeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+changeColor.swift"; sourceTree = "<group>"; };
-		F079470F262EC8190003FE7F /* ErrorZeroViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorZeroViewController.xib; sourceTree = "<group>"; };
-		F0794716262EC8500003FE7F /* VoidZeroViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VoidZeroViewController.xib; sourceTree = "<group>"; };
 		F0794719262ECB9E0003FE7F /* UIViewController+addChild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+addChild.swift"; sourceTree = "<group>"; };
 		F079471D262ECDFB0003FE7F /* UIViewController+showChild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+showChild.swift"; sourceTree = "<group>"; };
 		F0794720262ED1DF0003FE7F /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
@@ -258,7 +254,6 @@
 		F032FC872630CBB5001A5292 /* ZeroController */ = {
 			isa = PBXGroup;
 			children = (
-				F032FC892630CCD6001A5292 /* ZeroControllerFactory.swift */,
 				F032FC8F2630CEA9001A5292 /* Views */,
 				F032FC902630CEB3001A5292 /* ViewController */,
 			);
@@ -268,8 +263,7 @@
 		F032FC8F2630CEA9001A5292 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F0794716262EC8500003FE7F /* VoidZeroViewController.xib */,
-				F079470F262EC8190003FE7F /* ErrorZeroViewController.xib */,
+				F03B8F6926317C5100B4CD9D /* ZeroViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -610,15 +604,14 @@
 				F0F3BCF0262DFF5C005D0658 /* IBMPlexSans-Regular.ttf in Resources */,
 				F0F3BCEC262DFD23005D0658 /* Colors.xcassets in Resources */,
 				F0D9649F262EB57300F2E3CA /* TabBarView.xib in Resources */,
-				F0794717262EC8500003FE7F /* VoidZeroViewController.xib in Resources */,
 				F01AA309262B78D300785D08 /* LaunchScreen.storyboard in Resources */,
 				F01AA306262B78D300785D08 /* Assets.xcassets in Resources */,
 				F0794721262ED1DF0003FE7F /* ProfileViewController.xib in Resources */,
 				F0D9647E262E3D5800F2E3CA /* CompletedLoginViewController.xib in Resources */,
 				F0F3BCFC262E0E3D005D0658 /* IBMPlexSans-Medium.ttf in Resources */,
+				F03B8F6A26317C5100B4CD9D /* ZeroViewController.xib in Resources */,
 				F0D96468262E29E700F2E3CA /* LoginViewController.xib in Resources */,
 				F0D9645F262E17DB00F2E3CA /* StartViewController.xib in Resources */,
-				F0794710262EC8190003FE7F /* ErrorZeroViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -705,7 +698,6 @@
 				F0D9648D262EB19B00F2E3CA /* TabBarView.swift in Sources */,
 				F01AA322262DB35400785D08 /* ServiceLayer.swift in Sources */,
 				F032FCA22630E421001A5292 /* Labels.swift in Sources */,
-				F032FC8A2630CCD6001A5292 /* ZeroControllerFactory.swift in Sources */,
 				F079472D262EDD570003FE7F /* FeedError.swift in Sources */,
 				F032FC822630C6CD001A5292 /* FeedServiceProtocol.swift in Sources */,
 			);

@@ -18,7 +18,6 @@ class SocialButton: UIButton {
         layer.borderWidth = 1
         layer.borderColor = UIColor.lightGreyBlue.cgColor
         layer.cornerRadius = 14
-//        layer.masksToBounds = true
     }
 
 }

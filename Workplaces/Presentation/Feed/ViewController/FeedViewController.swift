@@ -16,10 +16,9 @@ final class FeedViewController: UIViewController {
     // MARK: - Initialization
 
     init(
-        zeroControllerType: ZeroControllerType = .errorController,
-        zeroControllerFactory: ZeroControllerFactoryProtocol = ZeroControllerFactory()
+        zeroControllerFactory: ZeroViewController = ZeroViewController(zeroControllerType: .errorController)
     ) {
-        self.errorZeroController = zeroControllerFactory.getZeroController(by: zeroControllerType)
+        self.errorZeroController = zeroControllerFactory
         super.init(nibName: nil, bundle: nil)
     }
     
