@@ -11,7 +11,6 @@ final class CompletedLoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     // MARK: - IBAction

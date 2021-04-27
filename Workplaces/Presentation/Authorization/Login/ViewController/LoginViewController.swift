@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WorkplacesAPI
 
 final class LoginViewController: UIViewController {
     
@@ -54,18 +55,30 @@ final class LoginViewController: UIViewController {
         
         activityIndicator?.startAnimating()
         
-        autorizationService.authorize(
-            email: email,
-            password: password
-        ) { [weak self] result in
+//        routeToCompletedLogin()
+        
+        let userCredentials = UserCredentials(email: email, password: password)
+        _ = autorizationService.registration(with: userCredentials) { [weak self] result in
             guard let self = self else { return }
+
             self.activityIndicator?.stopAnimating()
             switch result {
             case .success:
-                self.navigationController?.pushViewController(CompletedLoginViewController(), animated: true)
-            case .failure(let serviceError):
-                self.showAlert(with: serviceError)
+                self.routeToCompletedLogin()
+//                self.autorizationService.logout { res in
+//                    print(res)
+//                }
+
+            case .failure(let error):
+                self.showAlert(with: error)
+                
             }
         }
+    }
+    
+    // MARK: - Private Methods
+    
+    private func routeToCompletedLogin() {
+        navigationController?.pushViewController(CompletedLoginViewController(), animated: true)
     }
 }

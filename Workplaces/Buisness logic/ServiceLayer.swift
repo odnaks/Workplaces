@@ -5,7 +5,8 @@
 //  Created by Kseniya Lukoshkina on 19.04.2021.
 //
 
-import Foundation
+import Apexy
+import WorkplacesAPI
 
 final class ServiceLayer {
     
@@ -22,9 +23,23 @@ final class ServiceLayer {
     // MARK: - Initialization
 
     private init() {
-        authorizationService = AuthorizationService()
-        feedService = FeedService()
-        profileService = ProfileService()
+        
+        let credentialsStorage: CredentialsStorageProtocol = CredentialsStorage()
+        
+        let apiClient: Client = AlamofireClient(
+            requestInterceptor: BearerRequestInterceptor(
+                baseURL: URL(string: "https://interns2021.redmadrobot.com/")!,
+                credentialsStorage: credentialsStorage
+            ),
+            configuration: .ephemeral
+        )
+        
+        authorizationService = AuthorizationService(
+            apiClient: apiClient,
+            credentialsStorage: credentialsStorage
+        )
+        feedService = FeedService(apiClient: apiClient)
+        profileService = ProfileService(apiClient: apiClient)
     }
-    
+
 }

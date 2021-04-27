@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WorkplacesAPI
 
 final class ProfileViewController: UIViewController {
     
@@ -15,14 +16,18 @@ final class ProfileViewController: UIViewController {
     
     // MARK: - Private Properties
     
+    private let profileService: ProfileServiceProtocol
     private let voidZeroController: ZeroViewController?
     
     // MARK: - Initialization
 
     init(
+        profileService: ProfileServiceProtocol = ServiceLayer.shared.profileService,
         zeroController: ZeroViewController = ZeroViewController(zeroControllerType: .voidController)
     ) {
+        self.profileService = profileService
         self.voidZeroController = zeroController
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -36,6 +41,7 @@ final class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         showVoidZero()
+        
     }
     
     // MARK: - Private Methods

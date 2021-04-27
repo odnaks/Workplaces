@@ -11,14 +11,18 @@ final class FeedViewController: UIViewController {
     
     // MARK: - Private Properties
     
+    private let feedService: FeedServiceProtocol
     private let errorZeroController: ZeroViewController?
     
     // MARK: - Initialization
 
     init(
+        feedService: FeedServiceProtocol = ServiceLayer.shared.feedService,
         zeroControllerFactory: ZeroViewController = ZeroViewController(zeroControllerType: .errorController)
     ) {
+        self.feedService = feedService
         self.errorZeroController = zeroControllerFactory
+        
         super.init(nibName: nil, bundle: nil)
     }
     

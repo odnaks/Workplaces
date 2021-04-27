@@ -6,14 +6,25 @@
 //
 
 import UIKit
+import WorkplacesAPI
 
 extension UIViewController {
     
     /// Метод для представления UIAlertController
-    /// Принимает сервисную ошибку
-    func showAlert(with serviceError: ServiceError) {
-        let alertController = UIAlertController(title: "Что-то пошло не так",
-                                                message: serviceError.description, preferredStyle: .alert)
+    /// Принимает ошибку, проверяет ее тип и в зависимости
+    /// от него добавляет сообщение на алерт
+    func showAlert(with error: Error) {
+        var message: String?
+        switch error {
+        case is APIError:
+            message = (error as? APIError)?.message
+        default:
+            message = error.localizedDescription
+        }
+        let alertController = UIAlertController(
+            title: "Что-то пошло не так",
+            message: message, preferredStyle: .alert
+        )
         let closeAction = UIAlertAction(title: "Ок", style: .cancel)
         alertController.addAction(closeAction)
         present(alertController, animated: true, completion: nil)
