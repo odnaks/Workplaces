@@ -13,7 +13,7 @@ public struct Post: Decodable {
     
     public let id: String
     public let text: String?
-    public let imageUrl: String?
+    public let imageUrl: URL?
     public let lon: Double?
     public let lat: Double?
     public let author: UserProfile

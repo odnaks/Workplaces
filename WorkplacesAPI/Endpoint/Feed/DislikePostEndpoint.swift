@@ -16,8 +16,9 @@ public struct DislikePostEndpoint: EmptyEndpoint {
     }
     
     public func makeRequest() throws -> URLRequest {
-        guard let url = URL(string: "feed/\(id)/like")
-        else { throw APIError.parametersInvalid }
+        let url = API.feed
+            .appendingPathComponent(id)
+            .appendingPathComponent("like")
         
         return delete(url)
     }

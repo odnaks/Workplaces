@@ -16,7 +16,7 @@ public struct SearchPostEndpoint: JsonEndpoint {
     }
     
     public func makeRequest() throws -> URLRequest {
-        guard let url = URL(string: "search?post=\(postData)")
+        guard let url = API.search.appending("post", value: postData)
         else { throw APIError.parametersInvalid }
         
         return get(url)

@@ -11,9 +11,9 @@ public struct ChangeProfileEndpoint: JsonEndpoint {
     
     public typealias Content = UserProfile
     
-    private let profileChanging: RequstProfile
+    private let profileChanging: RequestProfile
 
-    public init(profile: RequstProfile) {
+    public init(profile: RequestProfile) {
         self.profileChanging = profile
     }
     

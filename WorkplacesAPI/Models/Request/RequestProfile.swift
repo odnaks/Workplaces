@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct RequstProfile: Encodable {
+public struct RequestProfile: Encodable {
     
     // MARK: - Public Properties
     

@@ -15,7 +15,7 @@ public struct UserProfile: Decodable, Identifiable {
     public let firstName: String
     public let lastName: String
     public let nickname: String?
-    public let avatarUrl: String?
-    public let birthDay: String
+    public let avatarUrl: URL?
+    public let birthDay: Date
     
 }

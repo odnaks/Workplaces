@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct RequstPost {
+public struct RequestPost {
     
     // MARK: - Public Properties
     

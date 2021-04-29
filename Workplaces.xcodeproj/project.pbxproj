@@ -20,11 +20,12 @@
 		F022FA6826337CD60035274F /* WorkplacesAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F022FA6126337CD60035274F /* WorkplacesAPI.framework */; };
 		F022FA6926337CD60035274F /* WorkplacesAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F022FA6126337CD60035274F /* WorkplacesAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F02F49722637AFF10052CC5B /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02F49712637AFF10052CC5B /* APIService.swift */; };
-		F02F49802637B2020052CC5B /* CredentialsStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08A6F982636DEE500E4D183 /* CredentialsStorageProtocol.swift */; };
 		F02F49832637B2050052CC5B /* CredentialsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08A6F942636C77C00E4D183 /* CredentialsStorage.swift */; };
 		F02F49862637B2090052CC5B /* ObjectStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08A6F9B2636DF0500E4D183 /* ObjectStorage.swift */; };
 		F02F498A263807C40052CC5B /* URLEndpointConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02F4989263807C30052CC5B /* URLEndpointConstants.swift */; };
 		F02F498E2638171B0052CC5B /* Client+bearerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02F498D2638171B0052CC5B /* Client+bearerRequest.swift */; };
+		F02F49AF2639918D0052CC5B /* DateFormatter+yyyyMMdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02F49AE2639918D0052CC5B /* DateFormatter+yyyyMMdd.swift */; };
+		F02F49B32639AC0F0052CC5B /* URL+appendingQueryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02F49B22639AC0F0052CC5B /* URL+appendingQueryItem.swift */; };
 		F032FC7A2630C49C001A5292 /* XibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F032FC792630C49C001A5292 /* XibView.swift */; };
 		F032FC7E2630C6A5001A5292 /* AuthorizationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F032FC7D2630C6A5001A5292 /* AuthorizationServiceProtocol.swift */; };
 		F032FC822630C6CD001A5292 /* FeedServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F032FC812630C6CD001A5292 /* FeedServiceProtocol.swift */; };
@@ -137,6 +138,8 @@
 		F02F49712637AFF10052CC5B /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		F02F4989263807C30052CC5B /* URLEndpointConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEndpointConstants.swift; sourceTree = "<group>"; };
 		F02F498D2638171B0052CC5B /* Client+bearerRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Client+bearerRequest.swift"; sourceTree = "<group>"; };
+		F02F49AE2639918D0052CC5B /* DateFormatter+yyyyMMdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+yyyyMMdd.swift"; sourceTree = "<group>"; };
+		F02F49B22639AC0F0052CC5B /* URL+appendingQueryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+appendingQueryItem.swift"; sourceTree = "<group>"; };
 		F032FC792630C49C001A5292 /* XibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibView.swift; sourceTree = "<group>"; };
 		F032FC7D2630C6A5001A5292 /* AuthorizationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceProtocol.swift; sourceTree = "<group>"; };
 		F032FC812630C6CD001A5292 /* FeedServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceProtocol.swift; sourceTree = "<group>"; };
@@ -155,7 +158,6 @@
 		F0794742262EE78A0003FE7F /* UIViewController+showAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+showAlert.swift"; sourceTree = "<group>"; };
 		F08212B52637A2B300088257 /* BearerRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BearerRequestInterceptor.swift; sourceTree = "<group>"; };
 		F08A6F942636C77C00E4D183 /* CredentialsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsStorage.swift; sourceTree = "<group>"; };
-		F08A6F982636DEE500E4D183 /* CredentialsStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsStorageProtocol.swift; sourceTree = "<group>"; };
 		F08A6F9B2636DF0500E4D183 /* ObjectStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectStorage.swift; sourceTree = "<group>"; };
 		F0D9645E262E17DB00F2E3CA /* StartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartViewController.xib; sourceTree = "<group>"; };
 		F0D96467262E29E700F2E3CA /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -275,7 +277,7 @@
 				F01AA2FC262B78D100785D08 /* AppDelegate.swift */,
 				F01AA2FE262B78D100785D08 /* SceneDelegate.swift */,
 				F01AA317262D808A00785D08 /* Resources */,
-				F01AA318262D809C00785D08 /* Buisness logic */,
+				F01AA318262D809C00785D08 /* Business logic */,
 				F01AA31A262D80B000785D08 /* Presentation */,
 			);
 			path = Workplaces;
@@ -292,14 +294,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		F01AA318262D809C00785D08 /* Buisness logic */ = {
+		F01AA318262D809C00785D08 /* Business logic */ = {
 			isa = PBXGroup;
 			children = (
 				F032FC7C2630C681001A5292 /* Protocols */,
 				F01AA324262DB3C900785D08 /* Services */,
 				F01AA321262DB35400785D08 /* ServiceLayer.swift */,
 			);
-			path = "Buisness logic";
+			path = "Business logic";
 			sourceTree = "<group>";
 		};
 		F01AA31A262D80B000785D08 /* Presentation */ = {
@@ -411,7 +413,6 @@
 		F08A6F932636C73A00E4D183 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				F08A6F982636DEE500E4D183 /* CredentialsStorageProtocol.swift */,
 				F08A6F942636C77C00E4D183 /* CredentialsStorage.swift */,
 				F08A6F9B2636DF0500E4D183 /* ObjectStorage.swift */,
 			);
@@ -642,6 +643,8 @@
 				F08212B52637A2B300088257 /* BearerRequestInterceptor.swift */,
 				F02F4989263807C30052CC5B /* URLEndpointConstants.swift */,
 				F0F4785E2634C31B003170AD /* Codable.swift */,
+				F02F49B22639AC0F0052CC5B /* URL+appendingQueryItem.swift */,
+				F02F49AE2639918D0052CC5B /* DateFormatter+yyyyMMdd.swift */,
 				F0F478582634C2AD003170AD /* ResponseValidator.swift */,
 				F0F4787F2635F798003170AD /* URLRequestBuildable+postWithQueryIterm.swift */,
 			);
@@ -986,7 +989,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F02F49802637B2020052CC5B /* CredentialsStorageProtocol.swift in Sources */,
 				F0F4788E26360CD0003170AD /* RefreshEndpoint.swift in Sources */,
 				F0F4785C2634C2FA003170AD /* HTTPError.swift in Sources */,
 				F0F4784F2634B143003170AD /* Token.swift in Sources */,
@@ -1006,6 +1008,7 @@
 				F0F4787A2635F539003170AD /* LogoutEndpoint.swift in Sources */,
 				F02F49862637B2090052CC5B /* ObjectStorage.swift in Sources */,
 				F0F478432634AC4E003170AD /* Post.swift in Sources */,
+				F02F49B32639AC0F0052CC5B /* URL+appendingQueryItem.swift in Sources */,
 				F0F4789626361844003170AD /* LikePostEndpoint.swift in Sources */,
 				F02F498A263807C40052CC5B /* URLEndpointConstants.swift in Sources */,
 				F02F49832637B2050052CC5B /* CredentialsStorage.swift in Sources */,
@@ -1019,6 +1022,7 @@
 				F0F478592634C2AD003170AD /* ResponseValidator.swift in Sources */,
 				F0F478A72636273D003170AD /* FriendsEndpoint.swift in Sources */,
 				F0F478802635F798003170AD /* URLRequestBuildable+postWithQueryIterm.swift in Sources */,
+				F02F49AF2639918D0052CC5B /* DateFormatter+yyyyMMdd.swift in Sources */,
 				F0F4789C26361A06003170AD /* FavoriteEndpoint.swift in Sources */,
 				F02F498E2638171B0052CC5B /* Client+bearerRequest.swift in Sources */,
 				F0F4787D2635F57C003170AD /* EmptyEndpoint.swift in Sources */,

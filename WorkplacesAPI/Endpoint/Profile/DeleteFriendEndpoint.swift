@@ -16,8 +16,7 @@ public struct DeleteFriendEndpoint: EmptyEndpoint {
     }
     
     public func makeRequest() throws -> URLRequest {
-        guard let url = URL(string: "me/\(userId)")
-        else { throw APIError.parametersInvalid }
+        let url = API.me.appendingPathComponent(userId)
         
         return delete(url)
     }

@@ -11,9 +11,9 @@ public struct AddPostEndpoint: JsonEndpoint {
     
     public typealias Content = [Post]
     
-    private let newPost: RequstPost
+    private let newPost: RequestPost
 
-    public init(post: RequstPost) {
+    public init(post: RequestPost) {
         self.newPost = post
     }
     

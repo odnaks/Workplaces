@@ -20,14 +20,14 @@ final public class BearerRequestInterceptor: Alamofire.RequestInterceptor {
     /// - Warning: declared as open variable for debug purposes only.
     private var baseURL: URL
 
-    private var credentialsStorage: CredentialsStorageProtocol
+    private var credentialsStorage: CredentialsStorage
     
     /// Creates a `BaseRequestInterceptor` instance with specified Base `URL`.
     ///
     /// - Parameter baseURL: Base `URL` for adapter.
     public init(
         baseURL: URL,
-        credentialsStorage: CredentialsStorageProtocol
+        credentialsStorage: CredentialsStorage
     ) {
         self.baseURL = baseURL
         self.credentialsStorage = credentialsStorage
@@ -58,7 +58,7 @@ final public class BearerRequestInterceptor: Alamofire.RequestInterceptor {
         dueTo error: Error,
         completion: @escaping (RetryResult) -> Void) {
         
-        return completion(.doNotRetryWithError(error))
+        return completion(.doNotRetry)
     }
     
     // MARK: - Private methods
@@ -78,7 +78,7 @@ final public class BearerRequestInterceptor: Alamofire.RequestInterceptor {
     }
     
     private func getToken() -> Token? {
-        return credentialsStorage.getToken()
+        return credentialsStorage.token
     }
 
 }

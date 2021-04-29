@@ -44,13 +44,13 @@ public extension Client {
     
     private func refreshToken(completionHandler: @escaping (Result<Void, Error>) -> Void) {
         let credentialsStorage = CredentialsStorage()
-        let token = credentialsStorage.getToken()
+        let token = credentialsStorage.token
         
         let refreshEndpoint = RefreshEndpoint(token: token)
         _ = request(refreshEndpoint) { result in
             switch result {
             case .success(let token):
-                credentialsStorage.save(token)
+                credentialsStorage.token = token
                 completionHandler(.success(Void()))
             case .failure(let error):
                 completionHandler(.failure(error))

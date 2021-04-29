@@ -20,4 +20,6 @@ public enum API {
     static let me = URL(string: "me")!
     static let friends = URL(string: "me/friends")!
     static let posts = URL(string: "me/posts")!
+    
+    static let search = URL(string: "search")!
 }
