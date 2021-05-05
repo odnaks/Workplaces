@@ -98,6 +98,13 @@
                     <rect key="frame" x="197" y="443" width="20" height="20"/>
                     <color key="color" systemColor="labelColor"/>
                 </activityIndicatorView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MxI-hK-vEF" customClass="LightButton" customModule="Workplaces" customModuleProvider="target">
+                    <rect key="frame" x="16" y="686" width="382" height="56"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="kSS-F7-PME"/>
+                    </constraints>
+                    <state key="normal" title="Перейти к регистрации"/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -108,6 +115,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="kUA-pu-oKN" secondAttribute="trailing" constant="16" id="6Fl-Fy-Fpb"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Yyf-yL-JMI" secondAttribute="trailing" constant="16" id="KSX-Af-Ufg"/>
                 <constraint firstItem="iwR-II-ha2" firstAttribute="trailing" secondItem="Yyf-yL-JMI" secondAttribute="trailing" id="RGI-ro-qPZ"/>
+                <constraint firstItem="MxI-hK-vEF" firstAttribute="leading" secondItem="kUA-pu-oKN" secondAttribute="leading" id="SmG-y2-5db"/>
                 <constraint firstItem="WRt-Hg-Pna" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="a6Z-cY-xPm"/>
                 <constraint firstItem="BLG-Zs-6b7" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="anf-7n-RH5"/>
                 <constraint firstItem="kUA-pu-oKN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="bK4-hB-XL9"/>
@@ -116,6 +124,8 @@
                 <constraint firstItem="Yyf-yL-JMI" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="qLk-04-UiD"/>
                 <constraint firstItem="BLG-Zs-6b7" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="s9v-R9-hth"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="WRt-Hg-Pna" secondAttribute="trailing" id="sho-Ey-4Ot"/>
+                <constraint firstItem="MxI-hK-vEF" firstAttribute="trailing" secondItem="kUA-pu-oKN" secondAttribute="trailing" id="vEN-0O-wrz"/>
+                <constraint firstItem="kUA-pu-oKN" firstAttribute="top" secondItem="MxI-hK-vEF" secondAttribute="bottom" constant="20" id="xt0-5w-NBH"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="75.669642857142847"/>
         </view>

@@ -18,5 +18,4 @@ final class StartViewController: UIViewController {
     @IBAction private func clickLogin(_ sender: Any) {
         navigationController?.pushViewController(LoginViewController(), animated: true)
     }
-
 }

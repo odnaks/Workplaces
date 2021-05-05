@@ -18,7 +18,7 @@ public struct RefreshEndpoint: JsonEndpoint {
     }
     
     public func makeRequest() throws -> URLRequest {
-        let refreshTokenDic = ["token": token?.refreshToken]
+        let refreshTokenDic = ["refresh_token": token?.refreshToken]
         
         let jsonData = try JSONSerialization.data(
             withJSONObject: refreshTokenDic,

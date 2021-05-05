@@ -7,11 +7,20 @@
 
 import Foundation
 
-public struct Token: Codable {
+public struct Token: Codable, Equatable {
     
     // MARK: - Public Properties
     
     public let accessToken: String
     public let refreshToken: String
     
+    // MARK: - Initialization
+    
+    public init(
+        accessToken: String,
+        refreshToken: String
+    ) {
+        self.accessToken = accessToken
+        self.refreshToken = refreshToken
+    }
 }

@@ -39,12 +39,12 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Найди своё место" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x31-sM-Vks" customClass="BodyLargeLabel" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="139.5" y="385.5" width="135" height="21"/>
+                    <rect key="frame" x="139" y="385.5" width="136.5" height="19"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SGA-I6-lwD" customClass="BaseButton" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="16" y="486.5" width="382" height="56"/>
+                    <rect key="frame" x="16" y="484.5" width="382" height="56"/>
                     <color key="backgroundColor" name="orange"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="hth-Wb-Hf4"/>
@@ -57,44 +57,27 @@
                         <action selector="clickLogin:" destination="-1" eventType="touchUpInside" id="Ryj-lQ-5Iy"/>
                     </connections>
                 </button>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GCt-lA-53k">
-                    <rect key="frame" x="16" y="558.5" width="382" height="54"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Sy-Rg-T8c" customClass="SocialButton" customModule="Workplaces" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="122" height="54"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="54" id="PVQ-cV-bbW"/>
-                            </constraints>
-                            <state key="normal" image="google"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qp-5e-FUz" customClass="SocialButton" customModule="Workplaces" customModuleProvider="target">
-                            <rect key="frame" x="130" y="0.0" width="122" height="54"/>
-                            <state key="normal" image="facebook"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6pB-JN-lbG" customClass="SocialButton" customModule="Workplaces" customModuleProvider="target">
-                            <rect key="frame" x="260" y="0.0" width="122" height="54"/>
-                            <state key="normal" image="vk"/>
-                        </button>
-                    </subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIX-2s-ejN" customClass="LightButton" customModule="Workplaces" customModuleProvider="target">
+                    <rect key="frame" x="16" y="560.5" width="382" height="56"/>
                     <constraints>
-                        <constraint firstItem="6qp-5e-FUz" firstAttribute="height" secondItem="0Sy-Rg-T8c" secondAttribute="height" id="5QV-4S-kme"/>
-                        <constraint firstItem="6pB-JN-lbG" firstAttribute="height" secondItem="6qp-5e-FUz" secondAttribute="height" id="BnW-Eb-Cy7"/>
+                        <constraint firstAttribute="height" constant="56" id="UkS-IJ-BP2"/>
                     </constraints>
-                </stackView>
+                    <state key="normal" title="Регистрация по почте"/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="GCt-lA-53k" firstAttribute="trailing" secondItem="SGA-I6-lwD" secondAttribute="trailing" id="2Su-Rv-kUk"/>
-                <constraint firstItem="GCt-lA-53k" firstAttribute="leading" secondItem="SGA-I6-lwD" secondAttribute="leading" id="91v-Fm-IU4"/>
+                <constraint firstItem="aIX-2s-ejN" firstAttribute="trailing" secondItem="SGA-I6-lwD" secondAttribute="trailing" id="6GP-zp-Kpq"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="SGA-I6-lwD" secondAttribute="trailing" constant="16" id="ELW-og-2Ka"/>
                 <constraint firstItem="SGA-I6-lwD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="EWR-r0-LGk"/>
+                <constraint firstItem="aIX-2s-ejN" firstAttribute="top" secondItem="SGA-I6-lwD" secondAttribute="bottom" constant="20" id="GVJ-w5-IGb"/>
+                <constraint firstItem="aIX-2s-ejN" firstAttribute="leading" secondItem="SGA-I6-lwD" secondAttribute="leading" id="Jjv-FH-2z1"/>
                 <constraint firstItem="qfV-OM-YLK" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="KOJ-x6-UZb"/>
                 <constraint firstItem="GgM-3i-UdJ" firstAttribute="top" secondItem="qfV-OM-YLK" secondAttribute="bottom" id="Ksd-up-Tw2"/>
                 <constraint firstItem="x31-sM-Vks" firstAttribute="top" secondItem="GgM-3i-UdJ" secondAttribute="bottom" constant="8" id="MUD-63-SM5"/>
                 <constraint firstItem="GgM-3i-UdJ" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="VfE-VB-SKT"/>
                 <constraint firstItem="x31-sM-Vks" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="hPj-og-i2v"/>
-                <constraint firstItem="GCt-lA-53k" firstAttribute="top" secondItem="SGA-I6-lwD" secondAttribute="bottom" constant="16" id="ikK-Hh-G29"/>
                 <constraint firstItem="qfV-OM-YLK" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="100" id="j32-pl-b1z"/>
                 <constraint firstItem="SGA-I6-lwD" firstAttribute="top" secondItem="x31-sM-Vks" secondAttribute="bottom" constant="80" id="jcb-UZ-sIl"/>
             </constraints>
@@ -102,10 +85,7 @@
         </view>
     </objects>
     <resources>
-        <image name="facebook" width="10.5" height="20"/>
-        <image name="google" width="26" height="24"/>
         <image name="lovingDoodle" width="226" height="170"/>
-        <image name="vk" width="23" height="14"/>
         <namedColor name="orange">
             <color red="0.99607843137254903" green="0.26666666666666666" blue="0.027450980392156862" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

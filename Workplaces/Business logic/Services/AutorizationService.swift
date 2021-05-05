@@ -13,13 +13,13 @@ final class AuthorizationService: AuthorizationServiceProtocol {
     // MARK: - Private Properties
     
     private let apiClient: Client
-    private let credentialsStorage: CredentialsStorage
+    private let credentialsStorage: CredentialsStorageProtocol
     
     // MARK: - Initialization
     
     init(
         apiClient: Client,
-        credentialsStorage: CredentialsStorage
+        credentialsStorage: CredentialsStorageProtocol
     ) {
         self.apiClient = apiClient
         self.credentialsStorage = credentialsStorage
@@ -36,7 +36,7 @@ final class AuthorizationService: AuthorizationServiceProtocol {
             switch result {
             case .success(let token):
                 self.save(token)
-            default:
+            case .failure:
                 break
             }
             completion(result)
@@ -52,7 +52,7 @@ final class AuthorizationService: AuthorizationServiceProtocol {
             switch result {
             case .success(let token):
                 self.save(token)
-            default:
+            case .failure:
                 break
             }
             completion(result)
@@ -75,7 +75,7 @@ final class AuthorizationService: AuthorizationServiceProtocol {
             switch result {
             case .success(let token):
                 self.save(token)
-            default:
+            case .failure:
                 break
             }
             completion(result)

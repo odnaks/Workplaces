@@ -21,17 +21,13 @@ public extension URLRequestBuildable {
         request.setValue("multipart/form-data", forHTTPHeaderField: "Content-Type")
         
         guard let queryItems = queryItems, !queryItems.isEmpty else {
-            return URLRequest(url: url)
+            return request
         }
         
         var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
         components?.queryItems = queryItems
-        
-        guard let queryURL = components?.url else {
-            return URLRequest(url: url)
-        }
 
-        return URLRequest(url: queryURL)
+        return request
     }
     
 }

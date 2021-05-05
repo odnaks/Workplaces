@@ -32,5 +32,9 @@ class XibView: UIView {
         contentView.frame = bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(contentView)
+        
+        commonInit()
     }
+    
+    func commonInit() {}
 }

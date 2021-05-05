@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileMenuView" customModule="Workplaces" customModuleProvider="target">
+            <connections>
+                <outlet property="bgView" destination="iN0-l3-epB" id="0LP-8l-cCR"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="REm-uj-iDq"/>
+                <outletCollection property="buttons" destination="aef-ke-yzf" collectionClass="NSMutableArray" id="IJc-nw-aj8"/>
+                <outletCollection property="buttons" destination="Ctz-kh-uHC" collectionClass="NSMutableArray" id="bEa-q3-U5E"/>
+                <outletCollection property="buttons" destination="Ggb-Eq-gP9" collectionClass="NSMutableArray" id="CmI-hc-qZU"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="343" height="56"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="7gb-eq-vrR">
+                    <rect key="frame" x="34" y="13" width="275" height="30"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aef-ke-yzf" customClass="ProfileMenuButton" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+                            <state key="normal" title="Посты"/>
+                            <connections>
+                                <action selector="clickButton:" destination="-1" eventType="touchUpInside" id="9yo-1L-nqi"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ctz-kh-uHC" customClass="ProfileMenuButton" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="112.5" y="0.0" width="45" height="30"/>
+                            <state key="normal" title="Лайки"/>
+                            <connections>
+                                <action selector="clickButton:" destination="-1" eventType="touchUpInside" id="phw-Vg-Vmp"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ggb-Eq-gP9" customClass="ProfileMenuButton" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="224" y="0.0" width="51" height="30"/>
+                            <state key="normal" title="Друзья"/>
+                            <connections>
+                                <action selector="clickButton:" destination="-1" eventType="touchUpInside" id="Gmo-nj-2u4"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="7gb-eq-vrR" secondAttribute="trailing" constant="34" id="8Aj-q5-6W8"/>
+                <constraint firstItem="7gb-eq-vrR" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="MIA-Vd-MDE"/>
+                <constraint firstItem="7gb-eq-vrR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="34" id="tiQ-zv-vIj"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="309.4202898550725" y="-95.089285714285708"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -9,7 +9,9 @@ import UIKit
 
 extension UIImage {
     static var iconCloseSmall: UIImage { return UIImage(named: #function)! }
+    static var iconAvatar: UIImage { return UIImage(named: #function)! }
     
     static var errorDoodle: UIImage { return UIImage(named: #function)! }
     static var voidDoodle: UIImage { return UIImage(named: #function)! }
+    
 }

@@ -17,17 +17,17 @@ internal enum ResponseValidator {
     ///   - body: The response body.
     /// - Throws: `Error`.
     internal static func validate(_ response: URLResponse?, with body: Data?) throws {
-        try validateAPIResponse(response, with: body)
+        try validateAPIResponse(body)
         try validateHTTPstatus(response)
     }
     
     // MARK: - Private Properties
 
-    private static func validateAPIResponse(_ response: URLResponse?, with body: Data?) throws {
-        guard let data = body else { return }
-        if let error = try? JSONDecoder.default.decode(APIError.self, from: data) {
-            throw error
-        }
+    private static func validateAPIResponse(_ body: Data?) throws {
+        guard let data = body,
+              let error = try? JSONDecoder.default.decode(APIError.self, from: data)
+              else { return }
+        throw error
     }
 
     private static func validateHTTPstatus(_ response: URLResponse?) throws {

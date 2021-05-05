@@ -74,7 +74,6 @@ final public class BearerRequestInterceptor: Alamofire.RequestInterceptor {
         var requestWithBearer = request
         requestWithBearer.addValue("Bearer \(token.accessToken)", forHTTPHeaderField: "Authorization")
         return requestWithBearer
-        
     }
     
     private func getToken() -> Token? {

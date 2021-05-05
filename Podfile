@@ -15,3 +15,10 @@ target 'WorkplacesAPI' do
 	common
 end
 
+target 'WorkplacesTests' do
+	common
+end
+
+target 'WorkplacesAPITests' do
+	common
+end

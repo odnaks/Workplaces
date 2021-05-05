@@ -16,6 +16,12 @@ final class CompletedLoginViewController: UIViewController {
     // MARK: - IBAction
     
     @IBAction private func clickContinue(_ sender: Any) {
+        routeToMain()
+    }
+    
+    // MARK: - Private Methods
+    
+    private func routeToMain() {
         view.window?.rootViewController = MainTabBarController()
         view.window?.makeKeyAndVisible()
     }

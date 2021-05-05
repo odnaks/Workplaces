@@ -11,7 +11,7 @@ public struct DeleteFriendEndpoint: EmptyEndpoint {
     
     private let userId: String
 
-    public init( friendId: String) {
+    public init(friendId: String) {
         self.userId = friendId
     }
     

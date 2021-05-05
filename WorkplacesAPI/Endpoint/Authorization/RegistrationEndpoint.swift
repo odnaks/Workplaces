@@ -18,7 +18,7 @@ public struct RegistrationEndpoint: JsonEndpoint {
     }
     
     public func makeRequest() throws -> URLRequest {
-        let bodyData = try JSONEncoder().encode(userCredentials)
+        let bodyData = try JSONEncoder.default.encode(userCredentials)
         return post(
             API.registration,
             body: HTTPBody.json(bodyData)

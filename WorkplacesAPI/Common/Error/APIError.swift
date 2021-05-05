@@ -8,7 +8,7 @@
 import Foundation
 
 /// Error from API.
-public struct APIError: Decodable, Error {
+public struct APIError: Codable, Error {
 
     // MARK: - Public Properties
     
@@ -28,6 +28,8 @@ public struct APIError: Decodable, Error {
         self.message = message
     }
 }
+
+extension APIError: Equatable {}
 
 // MARK: - General Error Code
 

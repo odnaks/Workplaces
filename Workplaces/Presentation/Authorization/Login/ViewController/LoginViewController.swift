@@ -55,8 +55,6 @@ final class LoginViewController: UIViewController {
         
         activityIndicator?.startAnimating()
         
-//        routeToCompletedLogin()
-        
         let userCredentials = UserCredentials(email: email, password: password)
         _ = autorizationService.registration(with: userCredentials) { [weak self] result in
             guard let self = self else { return }
@@ -65,13 +63,8 @@ final class LoginViewController: UIViewController {
             switch result {
             case .success:
                 self.routeToCompletedLogin()
-//                self.autorizationService.logout { res in
-//                    print(res)
-//                }
-
             case .failure(let error):
                 self.showAlert(with: error)
-                
             }
         }
     }

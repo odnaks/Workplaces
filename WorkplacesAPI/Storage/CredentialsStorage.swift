@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class CredentialsStorage {
+public final class CredentialsStorage: CredentialsStorageProtocol {
     
     // MARK: - Private properties
     
@@ -21,7 +21,7 @@ public final class CredentialsStorage {
         self.storage = storage
     }
     
-    // MARK: - Public methods
+    // MARK: - Public properties
     
     public var token: Token? {
         get {
