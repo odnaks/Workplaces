@@ -16,7 +16,7 @@ enum TabItem: String, CaseIterable {
         case .feed:
             return FeedViewController()
         case .profile:
-            return ProfileViewController()
+            return ProfileViewController(profileFabric: ProfileFabric(listPostsFabric: ListPostsFabric()))
         }
     }
 }

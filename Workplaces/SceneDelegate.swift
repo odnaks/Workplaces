@@ -7,6 +7,12 @@
 
 import UIKit
 
+enum GlobalFlags {
+    static var isTesting: Bool {
+        UserDefaults.standard.bool(forKey: "isTesting")
+    }
+}
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
@@ -16,6 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         willConnectTo session: UISceneSession,
         options connectionOptions: UIScene.ConnectionOptions
     ) {
+        guard !GlobalFlags.isTesting else { return }
+        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let navController = UINavigationController(rootViewController: StartViewController())

@@ -13,7 +13,8 @@ enum ZeroControllerType {
 }
 
 protocol ZeroViewControllerDelegate: class {
-    func handleClickButton()
+    /// метод, вызываемый при нажатии на кнопку на странице
+    func zeroViewController()
 }
 
 final class ZeroViewController: UIViewController {
@@ -57,7 +58,7 @@ final class ZeroViewController: UIViewController {
     // MARK: - IBAction
     
     @IBAction private func clickButton(_ sender: Any) {
-        delegate?.handleClickButton()
+        delegate?.zeroViewController()
     }
     
     // MARK: - Private methods

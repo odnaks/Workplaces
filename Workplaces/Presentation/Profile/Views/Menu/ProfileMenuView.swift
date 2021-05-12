@@ -8,7 +8,9 @@
 import UIKit
 
 protocol ProfileMenuDelegate: class {
-    func changeState(_ state: Int)
+    /// метод, вызываемый при изменения раздела меню.
+    /// принимает newState - порядковый номер выбранного раздела
+    func profileMenu(newState: Int)
 }
 
 final class ProfileMenuView: XibView {
@@ -31,7 +33,7 @@ final class ProfileMenuView: XibView {
         bgView?.layer.masksToBounds = true
         
         updateButtonsState()
-        delegate?.changeState(currentState)
+        delegate?.profileMenu(newState: currentState)
     }
     
     // MARK: - Private Methods
@@ -48,11 +50,13 @@ final class ProfileMenuView: XibView {
         }
     }
     
+    // MARK: - IBAction
+    
     @IBAction private func clickButton(_ sender: UIButton) {
         currentState = sender.tag
         updateButtonsState()
         
-        delegate?.changeState(currentState)
+        delegate?.profileMenu(newState: currentState)
     }
     
 }

@@ -12,7 +12,6 @@ final class MainTabBarController: UITabBarController {
     // MARK: - Private Properties
     
     private var customTabBar: TabBarView?
-    private var tabBarHeight: CGFloat = 67.0
     
     // MARK: - Lifecycle
     
@@ -59,7 +58,7 @@ final class MainTabBarController: UITabBarController {
 // MARK: - TabBarDelegate
 
 extension MainTabBarController: TabBarDelegate {
-    func selectedTab(_ tabIndex: Int) {
-        selectedIndex = tabIndex
+    func tabBar(selectedIndex: Int) {
+        self.selectedIndex = selectedIndex
     }
 }

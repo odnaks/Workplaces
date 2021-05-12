@@ -17,11 +17,11 @@ final class FeedViewController: UIViewController {
     // MARK: - Initialization
 
     init(
-        feedService: FeedServiceProtocol = ServiceLayer.shared.feedService,
-        zeroControllerFactory: ZeroViewController = ZeroViewController(zeroControllerType: .errorController)
+        feedService: FeedServiceProtocol = ServiceLayer.shared.feedService
     ) {
         self.feedService = feedService
-        self.errorZeroController = zeroControllerFactory
+        
+        self.errorZeroController = ZeroViewController(zeroControllerType: .errorController)
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -34,9 +34,9 @@ final class FeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .systemPink
         
+        errorZeroController?.delegate = self
+
         showErrorZero()
     }
     
@@ -45,7 +45,6 @@ final class FeedViewController: UIViewController {
     private func showErrorZero() {
         guard let controller = errorZeroController else { return }
         
-        controller.delegate = self
         showChild(controller, to: view)
     }
 }
@@ -53,7 +52,7 @@ final class FeedViewController: UIViewController {
 // MARK: - ZeroViewControllerDelegate
 
 extension FeedViewController: ZeroViewControllerDelegate {
-    func handleClickButton() {
+    func zeroViewController() {
         print(#function)
     }
 }

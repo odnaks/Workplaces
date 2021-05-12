@@ -45,7 +45,7 @@ final class LoginViewController: UIViewController {
     // MARK: - IBAction
     
     @IBAction private func clickBack(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+        routeToBack()
     }
     
     @IBAction private func clickEnter(_ sender: Any) {
@@ -70,6 +70,10 @@ final class LoginViewController: UIViewController {
     }
     
     // MARK: - Private Methods
+    
+    private func routeToBack() {
+        navigationController?.popViewController(animated: true)
+    }
     
     private func routeToCompletedLogin() {
         navigationController?.pushViewController(CompletedLoginViewController(), animated: true)

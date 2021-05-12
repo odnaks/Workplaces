@@ -13,7 +13,9 @@ private enum TabBarConstants {
 }
 
 protocol TabBarDelegate: class {
-    func selectedTab(_ index: Int)
+    /// метод, вызываемый при смены таба
+    /// принимает selectedIndex - индекс выбранного таба
+    func tabBar(selectedIndex: Int)
 }
 
 final class TabBarView: XibView {
@@ -75,7 +77,7 @@ final class TabBarView: XibView {
         
         tabToActivate.changeColor(.orange)
         activeItem = tab
-        delegate?.selectedTab(tab)
+        delegate?.tabBar(selectedIndex: tab)
     }
     
     private func deactivateTab(tab: Int) {

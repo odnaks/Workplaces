@@ -34,35 +34,35 @@ final class AuthorizationServiceTests: XCTestCase {
     // MARK: - Tests
 
     func testSaveTokenAfterRegistration() throws {
-        mockStorage.hasBeenSet = false
+        mockStorage.token = nil
         
         _ = autorizationService.registration(
             with: UserCredentials.dummyObject,
             completion: { _ in }
         )
         
-        XCTAssertTrue(mockStorage.hasBeenSet)
+        XCTAssertNotNil(mockStorage.token)
     }
     
     func testSaveTokenAfterLogin() throws {
-        mockStorage.hasBeenSet = false
+        mockStorage.token = nil
         
         _ = autorizationService.login(
             with: UserCredentials.dummyObject,
             completion: { _ in }
         )
         
-        XCTAssertTrue(mockStorage.hasBeenSet)
+        XCTAssertNotNil(mockStorage.token)
     }
     
     func testSaveTokenAfterRefresh() throws {
-        mockStorage.hasBeenSet = false
+        mockStorage.token = nil
         
         _ = autorizationService.refresh(
             completion: { _ in }
         )
         
-        XCTAssertTrue(mockStorage.hasBeenSet)
+        XCTAssertNotNil(mockStorage.token)
     }
 
 }

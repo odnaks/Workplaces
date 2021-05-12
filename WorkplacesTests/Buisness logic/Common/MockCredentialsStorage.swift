@@ -11,19 +11,16 @@ class MockCredentialsStorage: CredentialsStorageProtocol {
     
     // MARK: - Public Properties
     
-    public var hasBeenSet: Bool = false
-    
-    // MARK: - Private Properties
-    
-    private var privateToken: Token?
-    
     var token: Token? {
         get {
             return privateToken
         }
         set {
-            hasBeenSet = true
             privateToken = newValue
         }
     }
+    
+    // MARK: - Private Properties
+    
+    private var privateToken: Token?
 }

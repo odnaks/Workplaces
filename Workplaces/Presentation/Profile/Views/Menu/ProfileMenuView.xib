@@ -20,44 +20,49 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="343" height="56"/>
+            <rect key="frame" x="0.0" y="0.0" width="432" height="73"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="7gb-eq-vrR">
-                    <rect key="frame" x="34" y="13" width="275" height="30"/>
+                    <rect key="frame" x="34" y="15" width="364" height="37"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aef-ke-yzf" customClass="ProfileMenuButton" customModule="Workplaces" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+                            <rect key="frame" x="0.0" y="0.0" width="46" height="37"/>
                             <state key="normal" title="Посты"/>
                             <connections>
                                 <action selector="clickButton:" destination="-1" eventType="touchUpInside" id="9yo-1L-nqi"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ctz-kh-uHC" customClass="ProfileMenuButton" customModule="Workplaces" customModuleProvider="target">
-                            <rect key="frame" x="112.5" y="0.0" width="45" height="30"/>
+                            <rect key="frame" x="157" y="0.0" width="45" height="37"/>
                             <state key="normal" title="Лайки"/>
                             <connections>
                                 <action selector="clickButton:" destination="-1" eventType="touchUpInside" id="phw-Vg-Vmp"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ggb-Eq-gP9" customClass="ProfileMenuButton" customModule="Workplaces" customModuleProvider="target">
-                            <rect key="frame" x="224" y="0.0" width="51" height="30"/>
+                            <rect key="frame" x="313" y="0.0" width="51" height="37"/>
                             <state key="normal" title="Друзья"/>
                             <connections>
                                 <action selector="clickButton:" destination="-1" eventType="touchUpInside" id="Gmo-nj-2u4"/>
                             </connections>
                         </button>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="Ggb-Eq-gP9" firstAttribute="height" secondItem="Ctz-kh-uHC" secondAttribute="height" id="JWL-dF-i0T"/>
+                        <constraint firstItem="Ctz-kh-uHC" firstAttribute="height" secondItem="aef-ke-yzf" secondAttribute="height" id="eCw-0N-Mvs"/>
+                    </constraints>
                 </stackView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="7gb-eq-vrR" secondAttribute="bottom" constant="21" id="6qa-pM-6VQ"/>
                 <constraint firstAttribute="trailing" secondItem="7gb-eq-vrR" secondAttribute="trailing" constant="34" id="8Aj-q5-6W8"/>
-                <constraint firstItem="7gb-eq-vrR" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="MIA-Vd-MDE"/>
+                <constraint firstItem="7gb-eq-vrR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="Js4-nU-GPm"/>
                 <constraint firstItem="7gb-eq-vrR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="34" id="tiQ-zv-vIj"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="309.4202898550725" y="-95.089285714285708"/>
+            <point key="canvasLocation" x="270" y="-6"/>
         </view>
     </objects>
     <resources>

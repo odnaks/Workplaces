@@ -8,7 +8,9 @@
 import UIKit
 
 final class CompletedLoginViewController: UIViewController {
-
+    
+    // MARK: - Life Circle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

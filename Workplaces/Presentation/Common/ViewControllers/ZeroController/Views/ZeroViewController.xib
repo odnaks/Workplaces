@@ -85,6 +85,7 @@
                 <constraint firstItem="Fz5-hi-wgg" firstAttribute="trailing" secondItem="Sid-pM-M8n" secondAttribute="trailing" constant="64" id="MJ8-de-mcT"/>
                 <constraint firstItem="Sid-pM-M8n" firstAttribute="centerY" secondItem="Fz5-hi-wgg" secondAttribute="centerY" id="pb0-47-tzx"/>
             </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="137.68115942028987" y="103.79464285714285"/>
         </view>
     </objects>

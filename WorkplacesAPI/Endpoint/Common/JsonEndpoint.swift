@@ -20,6 +20,8 @@ extension JsonEndpoint {
     }
     
     public func validate(_ request: URLRequest?, response: HTTPURLResponse, data: Data?) throws {
-        try ResponseValidator.validate(response, with: data)
+        let validator = ResponseValidator()
+        
+        try validator.validate(response, with: data)
     }
 }

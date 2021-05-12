@@ -11,7 +11,7 @@ public struct PostViewModel {
     
     // MARK: - Public Properties
     
-    let text: String
+    let text: String?
     let address: String?
     let photo: URL?
     let authorNickname: String?
@@ -19,7 +19,7 @@ public struct PostViewModel {
     // MARK: - Initialization
     
     public init(
-        text: String,
+        text: String?,
         address: String? = nil,
         photo: URL? = nil,
         authorNickname: String? = nil

@@ -7,63 +7,48 @@
 
 import UIKit
 
-protocol ListPostsControllerDelegate: class {
-    func getPosts() -> [PostViewModel]?
-}
-
 final class ListPostsViewController: UIViewController {
     
-    // MARK: - Public Properties
+    // MARK: - IBOutlet
     
-    public weak var delegate: ListPostsControllerDelegate?
+    @IBOutlet private weak var tableView: UITableView?
     
     // MARK: - Private Properties
     
-    @IBOutlet private weak var tableView: UITableView?
+    private var dataSource: ListPostsDataSource = ListPostsDataSource()
     private var posts: [PostViewModel]?
+    
+    // MARK: - Public Methods
+    
+    /// Метод для конфигурации постов с переданными данными модели
+    public func configure(with model: [PostViewModel]?) {
+        self.posts = model
+        setupTableViewModel()
+    }
+    
+    // MARK: - Life Circle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupTableView()
-        
-        updateTable()
+    }
+    
+    // MARK: - Private Methods
+    
+    private func setupTableViewModel() {
+        dataSource.viewModel = posts
+        tableView?.reloadData()
     }
     
     private func setupTableView() {
         tableView?.separatorStyle = .none
         tableView?.showsVerticalScrollIndicator = false
-        tableView?.dataSource = self
-        tableView?.delegate = self
+        tableView?.dataSource = dataSource
         tableView?.register(
             UINib(nibName: "\(PostCell.self)", bundle: nil),
-            forCellReuseIdentifier: PostCell.identifier)
-    }
-    
-    private func updateTable() {
-        posts = delegate?.getPosts()
-        tableView?.reloadData()
-    }
-
-}
-
-extension ListPostsViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts?.count ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: PostCell.identifier,
-            for: indexPath
-        ) as? PostCell
-        else { return UITableViewCell() }
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-       return UITableView.automaticDimension
+            forCellReuseIdentifier: PostCell.identifier
+        )
     }
     
 }
