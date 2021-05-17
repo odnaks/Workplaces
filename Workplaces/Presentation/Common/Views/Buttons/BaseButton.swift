@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseButton: UIButton {
+final class BaseButton: UIButton {
 
     // MARK: - Initialization
 

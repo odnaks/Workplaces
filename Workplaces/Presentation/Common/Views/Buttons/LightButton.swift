@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LightButton: UIButton {
+final class LightButton: UIButton {
 
     // MARK: - Initialization
 

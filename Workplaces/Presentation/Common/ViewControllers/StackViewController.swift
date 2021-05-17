@@ -36,6 +36,8 @@ class StackViewController: UIViewController {
         super.init(coder: aDecoder)
     }
     
+    // MARK: - Life Circle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

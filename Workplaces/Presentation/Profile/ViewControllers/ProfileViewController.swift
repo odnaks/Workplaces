@@ -13,13 +13,18 @@ private enum ProfileState: Int {
     case friends
 }
 
-final class ProfileViewController: StackViewController {
+final class ProfileViewController: UIViewController {
+    
+    // MARK: - IBOutlet
+
+    @IBOutlet private weak var profileCardView: ProfileCardView?
+    @IBOutlet private weak var profileMenuView: ProfileMenuView?
+    @IBOutlet private weak var dataContainerView: UIView?
     
     // MARK: - Private Properties
     
     private let profileService: ProfileServiceProtocol
     
-    private let profileCardController: ProfileCardViewController
     private let postsController: ListPostsViewController
     private let likesController: ListPostsViewController
     private let friendsController: FriendsViewController
@@ -27,6 +32,11 @@ final class ProfileViewController: StackViewController {
     
     private var currentState: ProfileState = .posts
     private var currentVC: UIViewController?
+    
+    private var profileModel: ProfileViewModel?
+    private var myPosts: [PostViewModel]?
+    private var likedPosts: [PostViewModel]?
+    private var friends: [FriendViewModel]?
     
     // MARK: - Initialization
 
@@ -38,12 +48,11 @@ final class ProfileViewController: StackViewController {
         
         self.voidZeroController = ZeroViewController(zeroControllerType: .voidController)
         
-        self.profileCardController = profileFabric.getProfileCardViewController()
         self.postsController = profileFabric.getListPostsViewController()
         self.likesController = profileFabric.getListLikedPostsViewController()
         self.friendsController = profileFabric.getFriendsViewController()
         
-        super.init()
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -55,23 +64,15 @@ final class ProfileViewController: StackViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        profileMenuView?.delegate = self
+        profileCardView?.delegate = self
+        
+        changeMainView()
+        
         loadData()
-        setupStack()
     }
     
     // MARK: - Private Methods
-    
-    private func setupStack() {
-        voidZeroController.delegate = self
-        
-        addArrangedViewController(profileCardController)
-        
-        let menu = ProfileMenuView()
-        menu.delegate = self
-        addArrangedSubview(menu)
-        
-        changeMainView()
-    }
     
     private func loadData() {
         loadProfile()
@@ -87,8 +88,8 @@ final class ProfileViewController: StackViewController {
         _ = profileService.getProfile { data in
             switch data {
             case .success(let profile):
-                let profileModel = ProfileViewModel.map(from: profile)
-                self.profileCardController.configure(with: profileModel)
+                self.profileModel = ProfileViewModel.map(from: profile)
+                self.profileCardView?.configure(with: self.profileModel)
             case .failure:
                 break
             }
@@ -99,10 +100,10 @@ final class ProfileViewController: StackViewController {
         _ = profileService.getPosts { data in
             switch data {
             case .success(let posts):
-                let myPosts = posts.map { ProfileViewModel.map(from: $0) }
-                self.postsController.configure(with: myPosts)
+                self.myPosts = posts.map { ProfileViewModel.map(from: $0) }
+                self.postsController.configure(with: self.myPosts)
             case .failure:
-                self.showVoidZero()
+                break
             }
         }
     }
@@ -111,10 +112,10 @@ final class ProfileViewController: StackViewController {
         _ = profileService.getPosts { data in
             switch data {
             case .success(let posts):
-                let likedPosts = posts.map { ProfileViewModel.map(from: $0) }
-                self.likesController.configure(with: likedPosts)
+                self.likedPosts = posts.map { ProfileViewModel.map(from: $0) }
+                self.likesController.configure(with: self.likedPosts)
             case .failure:
-                self.showVoidZero()
+                break
             }
         }
     }
@@ -123,10 +124,10 @@ final class ProfileViewController: StackViewController {
         _ = profileService.getFriends { data in
             switch data {
             case .success(let friends):
-                let friends = friends.map { FriendViewModel.map(from: $0) }
-                self.friendsController.configure(with: friends)
+                self.friends = friends.map { FriendViewModel.map(from: $0) }
+                self.friendsController.configure(with: self.friends)
             case .failure:
-                self.showVoidZero()
+                break
             }
         }
     }
@@ -134,14 +135,15 @@ final class ProfileViewController: StackViewController {
     // MARK: - Childs
     
     private func showVoidZero() {
-        if let currentVC = currentVC {
-            removeArrangedViewController(currentVC)
-        }
-        addArrangedViewController(voidZeroController)
-        currentVC = voidZeroController
+        guard let container = dataContainerView else { return }
+        
+        voidZeroController.delegate = self
+        showChild(voidZeroController, to: container)
     }
-
+    
     private func changeMainView() {
+        guard let container = dataContainerView else { return }
+        
         var willShowViewController: UIViewController {
             switch currentState {
             case .posts:
@@ -152,11 +154,16 @@ final class ProfileViewController: StackViewController {
                 return friendsController
             }
         }
-        if let currentVC = currentVC {
-            removeArrangedViewController(currentVC)
-        }
         
-        addArrangedViewController(willShowViewController)
+        if let currentVC = currentVC {
+            switchChild(
+                viewControllerToHide: currentVC,
+                viewControllerToShow: willShowViewController,
+                containerView: container
+            )
+        } else {
+            showChild(willShowViewController, to: container)
+        }
         currentVC = willShowViewController
     }
     
@@ -187,6 +194,7 @@ extension ProfileViewController: ProfileMenuDelegate {
         currentState = state
         changeMainView()
     }
+    
 }
 
 // MARK: - ZeroViewControllerDelegate

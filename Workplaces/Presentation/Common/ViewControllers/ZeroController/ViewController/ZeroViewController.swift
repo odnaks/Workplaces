@@ -34,6 +34,11 @@ final class ZeroViewController: UIViewController {
     
     private let zeroControllerType: ZeroControllerType
     
+    private var titleText: String?
+    private var subtitleText: String?
+    private var buttonText: String?
+    private var illustrationImage: UIImage?
+    
     // MARK: - Initialization
 
     init(
@@ -49,10 +54,27 @@ final class ZeroViewController: UIViewController {
     
     // MARK: - Life Circle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        navigationController?.navigationBar.isHidden = true
         setupUI()
+    }
+    
+    // MARK: - Public Methods
+    
+    /// метод для конфигурации зеро скрин контроллера.
+    /// дает возможность изменить заголовок, подзаголовок и подпись кнопки
+    public func configure(
+        title: String,
+        subtitle: String? = nil,
+        actionButtonTitle: String,
+        image: UIImage? = nil
+    ) {
+        titleText = title
+        subtitleText = subtitle
+        buttonText = actionButtonTitle
+        illustrationImage = image
     }
     
     // MARK: - IBAction
@@ -66,15 +88,15 @@ final class ZeroViewController: UIViewController {
     private func setupUI() {
         switch zeroControllerType {
         case .errorController:
-            illustrationView?.image = .errorDoodle
-            titleLabel?.text = "Упс..."
-            subtitleLabel?.text = "Что-то пошло не так"
-            actionButton?.titleLabel?.text = "Обновить"
+            illustrationView?.image = illustrationImage ?? .errorDoodle
+            titleLabel?.text = titleText ?? "Упс..."
+            subtitleLabel?.text = subtitleText ?? "Что-то пошло не так"
+            actionButton?.setTitle(buttonText ?? "Обновить", for: .normal)
         case .voidController:
-            illustrationView?.image = .voidDoodle
-            titleLabel?.text = "Пустота"
-            subtitleLabel?.text = "Если молчать, люди никогда не узнают о вас"
-            actionButton?.titleLabel?.text = "Создать пост"
+            illustrationView?.image = illustrationImage ?? .voidDoodle
+            titleLabel?.text = titleText ?? "Пустота"
+            subtitleLabel?.text = subtitleText ?? "Здесь ничего нет"
+            actionButton?.setTitle(buttonText ?? "Создать", for: .normal)
         }
     }
 

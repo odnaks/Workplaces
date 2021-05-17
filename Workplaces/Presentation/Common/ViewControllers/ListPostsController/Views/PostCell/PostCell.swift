@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PostCell: UITableViewCell {
+final class PostCell: UITableViewCell {
     
     // MARK: - Constants
     

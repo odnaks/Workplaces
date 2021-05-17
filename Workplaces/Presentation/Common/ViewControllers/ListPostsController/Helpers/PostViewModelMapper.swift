@@ -7,7 +7,7 @@
 
 import WorkplacesAPI
 
-extension ProfileViewModel {
+extension PostViewModel {
     
     /// Метод для маппинга данных из Post в PostViewModel
     public static func map(from data: Post) -> PostViewModel {

@@ -21,7 +21,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NxV-nN-x2a">
-            <rect key="frame" x="0.0" y="0.0" width="252" height="120"/>
+            <rect key="frame" x="0.0" y="0.0" width="549" height="120"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2M-39-fMs" customClass="HeaderTitleLabel" customModule="Workplaces" customModuleProvider="target">
@@ -73,12 +73,25 @@
                         <constraint firstAttribute="trailing" secondItem="gee-Pg-lZT" secondAttribute="trailing" id="wDP-IQ-BOt"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llK-Zk-w1p">
+                    <rect key="frame" x="505" y="12" width="32" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="U48-Ea-v67"/>
+                        <constraint firstAttribute="width" secondItem="llK-Zk-w1p" secondAttribute="height" multiplier="1:1" id="d8b-pn-TFI"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="iconEdit"/>
+                    <connections>
+                        <action selector="clickEdit:" destination="-1" eventType="touchUpInside" id="13Z-kv-Np4"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="llK-Zk-w1p" firstAttribute="top" secondItem="NxV-nN-x2a" secondAttribute="top" constant="12" id="42r-aZ-Cah"/>
                 <constraint firstItem="yef-Nt-YJ8" firstAttribute="leading" secondItem="NxV-nN-x2a" secondAttribute="leading" constant="12" id="4fk-qw-wUK"/>
                 <constraint firstItem="Uza-lu-6fq" firstAttribute="leading" secondItem="F2M-39-fMs" secondAttribute="leading" id="Ifg-bC-TDA"/>
                 <constraint firstItem="F2M-39-fMs" firstAttribute="leading" secondItem="yef-Nt-YJ8" secondAttribute="trailing" constant="16" id="Y1m-AN-V5L"/>
+                <constraint firstAttribute="trailing" secondItem="llK-Zk-w1p" secondAttribute="trailing" constant="12" id="dAL-Bx-ZDZ"/>
                 <constraint firstItem="yef-Nt-YJ8" firstAttribute="top" secondItem="NxV-nN-x2a" secondAttribute="top" constant="12" id="lQV-kB-O68"/>
                 <constraint firstAttribute="bottom" secondItem="yef-Nt-YJ8" secondAttribute="bottom" constant="12" id="m8p-qR-PwM"/>
                 <constraint firstItem="F2M-39-fMs" firstAttribute="top" secondItem="yef-Nt-YJ8" secondAttribute="top" id="pvH-66-7Hk"/>
@@ -87,11 +100,12 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="915.94202898550736" y="-392.41071428571428"/>
+            <point key="canvasLocation" x="1131.1594202898552" y="-392.41071428571428"/>
         </view>
     </objects>
     <resources>
         <image name="iconAvatar" width="18" height="18"/>
+        <image name="iconEdit" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

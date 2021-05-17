@@ -22,7 +22,6 @@ final class ListPostsFabric {
     
     // MARK: - Public Methods
     
-    // TODO: сразу получать данные из сервиса в зависимости от типа и передавать в контроллер
     /// Метод для получения ListPostsViewController с передаваемым типом постов
     public func getListPostsController(
         from type: ListPostsType

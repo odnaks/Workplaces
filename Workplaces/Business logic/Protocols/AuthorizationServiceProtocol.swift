@@ -18,6 +18,11 @@ protocol AuthorizationServiceProtocol {
         completion: @escaping (Result<Token, Error>) -> Void
     ) -> Progress
     
+    /// Метод для проверки: авторизизован ли пользователь.
+    /// Возвращает True, если авторизирован,
+    /// Иначе - False
+    func checkLogin() -> Bool
+    
     /// Метод для отправки post запроса с email и password (UserCredentials)
     /// для регистрации. В completionHanler возвращает ответ с сервера
     /// Token и сообщение об ошибке

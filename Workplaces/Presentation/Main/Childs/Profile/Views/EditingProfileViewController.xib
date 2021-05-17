@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditingProfileViewController" customModule="Workplaces" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="McP-yY-eXA"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esU-2y-OPZ">
+                    <rect key="frame" x="16" y="60" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="esU-2y-OPZ" secondAttribute="height" multiplier="1:1" id="K6I-Ya-X39"/>
+                        <constraint firstAttribute="height" constant="24" id="SgW-V2-TfN"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="icon24Back"/>
+                    <connections>
+                        <action selector="backClick:" destination="-1" eventType="touchUpInside" id="bI2-yz-n5R"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6s0-Ex-6Pz" customClass="BaseButton" customModule="Workplaces" customModuleProvider="target">
+                    <rect key="frame" x="16" y="746" width="382" height="56"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="lmY-mY-PKf"/>
+                    </constraints>
+                    <state key="normal" title="Сохранить"/>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="6s0-Ex-6Pz" secondAttribute="trailing" constant="16" id="7Bg-Ap-hFj"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="6s0-Ex-6Pz" secondAttribute="bottom" constant="60" id="QKb-Qz-2Hf"/>
+                <constraint firstItem="6s0-Ex-6Pz" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="WpO-zd-Xyn"/>
+                <constraint firstItem="6s0-Ex-6Pz" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="f37-7q-lVV"/>
+                <constraint firstItem="esU-2y-OPZ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="gZc-ca-c8Y"/>
+                <constraint firstItem="esU-2y-OPZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="rtS-j0-reI"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="133.92857142857142"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon24Back" width="24" height="24"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

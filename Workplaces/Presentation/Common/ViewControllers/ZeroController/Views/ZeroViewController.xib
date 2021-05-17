@@ -38,14 +38,14 @@
                                 <constraint firstAttribute="width" secondItem="w96-Dx-qcr" secondAttribute="height" multiplier="1:1" id="xeT-1o-UvE"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Упс..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Yb-FJ-MMF" customClass="HeaderTitleLabel" customModule="Workplaces" customModuleProvider="target">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Упс..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Yb-FJ-MMF" customClass="TitleLabel" customModule="Workplaces" customModuleProvider="target">
                             <rect key="frame" x="97.5" y="200" width="91.5" height="42"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="36"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Что-то пошло не так" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTz-oC-AJZ" customClass="BodyLargeLabel" customModule="Workplaces" customModuleProvider="target">
-                            <rect key="frame" x="66" y="250" width="154" height="19"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Что-то пошло не так" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTz-oC-AJZ" customClass="BodyLargeLabel" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="250" width="286" height="19"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
                             <color key="textColor" name="middleGrey"/>
                             <nil key="highlightedColor"/>
@@ -66,13 +66,14 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="yTz-oC-AJZ" firstAttribute="leading" secondItem="Sid-pM-M8n" secondAttribute="leading" id="5xA-Y3-vth"/>
                         <constraint firstItem="UUb-px-gOS" firstAttribute="centerX" secondItem="Sid-pM-M8n" secondAttribute="centerX" id="7bd-U9-pUc"/>
                         <constraint firstItem="UUb-px-gOS" firstAttribute="top" secondItem="yTz-oC-AJZ" secondAttribute="bottom" constant="24" id="9Ds-TE-zpr"/>
                         <constraint firstItem="5Yb-FJ-MMF" firstAttribute="top" secondItem="w96-Dx-qcr" secondAttribute="bottom" id="D8A-df-O4Q"/>
                         <constraint firstItem="5Yb-FJ-MMF" firstAttribute="centerX" secondItem="Sid-pM-M8n" secondAttribute="centerX" id="KOI-Yh-7f7"/>
                         <constraint firstItem="w96-Dx-qcr" firstAttribute="centerX" secondItem="Sid-pM-M8n" secondAttribute="centerX" id="NIQ-gI-qfl"/>
                         <constraint firstAttribute="bottom" secondItem="UUb-px-gOS" secondAttribute="bottom" id="W1n-XN-Wx8"/>
-                        <constraint firstItem="yTz-oC-AJZ" firstAttribute="centerX" secondItem="Sid-pM-M8n" secondAttribute="centerX" id="hOO-f3-6vK"/>
+                        <constraint firstAttribute="trailing" secondItem="yTz-oC-AJZ" secondAttribute="trailing" id="iN7-fr-tUy"/>
                         <constraint firstItem="w96-Dx-qcr" firstAttribute="top" secondItem="Sid-pM-M8n" secondAttribute="top" id="tWO-YM-GN4"/>
                         <constraint firstItem="yTz-oC-AJZ" firstAttribute="top" secondItem="5Yb-FJ-MMF" secondAttribute="bottom" constant="8" id="yFs-Ws-WLM"/>
                     </constraints>

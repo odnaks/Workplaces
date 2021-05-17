@@ -7,7 +7,17 @@
 
 import UIKit
 
+protocol ProfileCardDelegate: class {
+    /// метод, вызываемый при нажатии на кнопку "изменить"
+    /// принимает button - нажатая кнопка
+    func profileCard(button: UIButton)
+}
+
 final class ProfileCardView: XibView {
+    
+    // MARK: - Public Properties
+    
+    public weak var delegate: ProfileCardDelegate?
     
     // MARK: - IBOutlet
     
@@ -39,6 +49,7 @@ final class ProfileCardView: XibView {
     
     // MARK: - Public Methods
     
+    /// Метод для конфигурации профиля с переданными данными модели
     public func configure(with profile: ProfileViewModel?) {
         guard let profile = profile else { return }
         
@@ -60,5 +71,11 @@ final class ProfileCardView: XibView {
     private func setProfileImage(_ image: URL) {
         profileImageView?.isHidden = false
         profileTmpView?.isHidden = true
+    }
+    
+    // MARK: - IBAction
+    
+    @IBAction private func clickEdit(_ sender: UIButton) {
+        delegate?.profileCard(button: sender)
     }
 }

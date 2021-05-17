@@ -47,7 +47,7 @@ final class AuthorizationService: AuthorizationServiceProtocol {
         with userCredentials: UserCredentials,
         completion: @escaping (Result<Token, Error>) -> Void
     ) -> Progress {
-        let endpoint = RegistrationEndpoint(userCredentials: userCredentials)
+        let endpoint = LoginEndpoint(userCredentials: userCredentials)
         return apiClient.request(endpoint) { result in
             switch result {
             case .success(let token):
@@ -59,11 +59,18 @@ final class AuthorizationService: AuthorizationServiceProtocol {
         }
     }
     
+    public func checkLogin() -> Bool {
+        return !(credentialsStorage.token?.accessToken.isEmpty ?? true)
+    }
+    
     public func logout(
         completion: @escaping (Result<Void, Error>) -> Void
     ) -> Progress {
         let endpoint = LogoutEndpoint()
-        return apiClient.request(endpoint, completionHandler: completion)
+        return apiClient.request(endpoint) { result in
+            
+            completion(result)
+        }
     }
     
     public func refresh(
@@ -86,5 +93,13 @@ final class AuthorizationService: AuthorizationServiceProtocol {
     
     private func save(_ token: Token) {
         credentialsStorage.token = token
+    }
+    
+    private func clean() {
+        let nilToken = Token(
+            accessToken: "",
+            refreshToken: ""
+        )
+        credentialsStorage.token = nilToken
     }
 }

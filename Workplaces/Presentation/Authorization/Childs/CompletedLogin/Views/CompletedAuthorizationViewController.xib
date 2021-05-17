@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="IBMPlexSans-Regular.ttf">
+            <string>IBMPlexSans</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CompletedAuthorizationViewController" customModule="Workplaces" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="cVL-Uj-T8F"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sittingDoodle" translatesAutoresizingMaskIntoConstraints="NO" id="UK2-mg-Qqq">
+                    <rect key="frame" x="107" y="144" width="200" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="Pi3-Sg-6KK"/>
+                        <constraint firstAttribute="width" secondItem="UK2-mg-Qqq" secondAttribute="height" multiplier="1:1" id="zyf-YD-L6Y"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nice to meet you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HkY-se-bxu" customClass="TitleLabel" customModule="Workplaces" customModuleProvider="target">
+                    <rect key="frame" x="70" y="344" width="274.5" height="42"/>
+                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="36"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Теперь ты можешь смотреть и делать публикации  " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RiA-ZX-MA6" customClass="BodyLargeLabel" customModule="Workplaces" customModuleProvider="target">
+                    <rect key="frame" x="50" y="394" width="314" height="37.5"/>
+                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
+                    <color key="textColor" name="middleGrey"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnO-wR-sTE" customClass="BaseButton" customModule="Workplaces" customModuleProvider="target">
+                    <rect key="frame" x="16" y="762" width="382" height="56"/>
+                    <color key="backgroundColor" name="orange"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="t2B-DK-mG1"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
+                    <state key="normal" title="Перейти к ленте">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="clickContinue:" destination="-1" eventType="touchUpInside" id="2EP-EH-V49"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="RiA-ZX-MA6" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="1OW-L6-7SR"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fnO-wR-sTE" secondAttribute="trailing" constant="16" id="1u7-RM-z1r"/>
+                <constraint firstItem="UK2-mg-Qqq" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="100" id="9dT-0O-RWO"/>
+                <constraint firstItem="fnO-wR-sTE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="9xN-lg-yLR"/>
+                <constraint firstItem="RiA-ZX-MA6" firstAttribute="top" secondItem="HkY-se-bxu" secondAttribute="bottom" constant="8" id="Anr-JC-SWa"/>
+                <constraint firstItem="RiA-ZX-MA6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="Enj-ln-Ua0"/>
+                <constraint firstItem="HkY-se-bxu" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Haf-Rd-SHA"/>
+                <constraint firstItem="UK2-mg-Qqq" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="I0x-Jw-SEI"/>
+                <constraint firstItem="HkY-se-bxu" firstAttribute="top" secondItem="UK2-mg-Qqq" secondAttribute="bottom" id="YmW-Z3-4KB"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="fnO-wR-sTE" secondAttribute="bottom" constant="44" id="gKp-rg-CJO"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="RiA-ZX-MA6" secondAttribute="trailing" constant="50" id="uB9-vY-dUf"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="76"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="sittingDoodle" width="200" height="200"/>
+        <namedColor name="middleGrey">
+            <color red="0.63529411764705879" green="0.67450980392156867" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="orange">
+            <color red="0.99607843137254903" green="0.26666666666666666" blue="0.027450980392156862" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

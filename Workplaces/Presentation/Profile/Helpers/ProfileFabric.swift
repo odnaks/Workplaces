@@ -16,11 +16,6 @@ final class ProfileFabric {
     
     // MARK: - Public Methods
     
-    /// Метод для получения ProfileCardViewController
-    public func getProfileCardViewController() -> ProfileCardViewController {
-        return ProfileCardViewController()
-    }
-    
     /// Метод для получения FriendsViewController
     public func getFriendsViewController() -> FriendsViewController {
         return FriendsViewController()
