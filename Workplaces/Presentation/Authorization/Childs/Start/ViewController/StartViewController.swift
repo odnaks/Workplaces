@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol StartViewControllerDelegate: class {
+protocol StartViewControllerDelegate: AnyObject {
     
     /// метод, вызываемый при нажатии на кнопку "логин"
     func startViewControllerToLogin()
@@ -20,9 +20,15 @@ final class StartViewController: UIViewController {
     
     // MARK: - Public Properties
     
-    public weak var delegate: StartViewControllerDelegate?
+    weak var delegate: StartViewControllerDelegate?
 
     // MARK: - Life Circle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.layoutMargins = .standart
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -32,11 +38,11 @@ final class StartViewController: UIViewController {
     
     // MARK: - IBAction
     
-    @IBAction private func clickLogin(_ sender: Any) {
+    @IBAction private func didTapLogin(_ sender: Any) {
         delegate?.startViewControllerToLogin()
     }
     
-    @IBAction private func clickRegistration(_ sender: Any) {
+    @IBAction private func didTapRegistration(_ sender: Any) {
         delegate?.startViewControllerToRegistration()
     }
     

@@ -12,14 +12,14 @@ final class FeedService: APIService, FeedServiceProtocol {
     
     // MARK: - Public Methods
     
-    public func getFeed(
+    func getFeed(
         completion: @escaping (Result<[Post], Error>) -> Void
     ) -> Progress {
         let endpoint = FeedEndpoint()
         return apiClient.bearerRequest(endpoint, completionHandler: completion)
     }
     
-    public func likePost(
+    func likePost(
         with id: String,
         completion: @escaping (Result<Void, Error>) -> Void
     ) -> Progress {
@@ -27,7 +27,7 @@ final class FeedService: APIService, FeedServiceProtocol {
         return apiClient.bearerRequest(endpoint, completionHandler: completion)
     }
     
-    public func dislikePost(
+    func dislikePost(
         with id: String,
         completion: @escaping (Result<Void, Error>) -> Void
     ) -> Progress {
@@ -35,14 +35,14 @@ final class FeedService: APIService, FeedServiceProtocol {
         return apiClient.bearerRequest(endpoint, completionHandler: completion)
     }
     
-    public func getFavorite(
+    func getFavorite(
         completion: @escaping (Result<[Post], Error>) -> Void
     ) -> Progress {
         let endpoint = FavoriteEndpoint()
         return apiClient.bearerRequest(endpoint, completionHandler: completion)
     }
     
-    public func searchPost(
+    func searchPost(
         _ postData: String,
         completion: @escaping (Result<[Post], Error>) -> Void
     ) -> Progress {

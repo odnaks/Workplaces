@@ -74,6 +74,7 @@ final class RootCoordinatingController: UIViewController {
             viewControllerToShow: authorizationCoordinatingController,
             containerView: view
         )
+        authorizationCoordinatingController.routeToStart()
     }
 }
 

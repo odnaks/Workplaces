@@ -14,4 +14,5 @@ extension UIColor {
     static var lightGrey: UIColor { return UIColor(named: #function)! }
     static var lightGreyBlue: UIColor { return UIColor(named: #function)! }
     static var middleGrey: UIColor { return UIColor(named: #function)! }
+    static var shadow: UIColor { return UIColor(named: #function)! }
 }

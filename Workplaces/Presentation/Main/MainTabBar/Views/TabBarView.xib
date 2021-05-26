@@ -29,21 +29,21 @@
                     </constraints>
                     <state key="normal" image="tabHome"/>
                     <connections>
-                        <action selector="clickTab:" destination="-1" eventType="touchUpInside" id="Bv6-n3-SZ6"/>
+                        <action selector="didTapTab:" destination="-1" eventType="touchUpInside" id="Bv6-n3-SZ6"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V28-57-Eyw">
                     <rect key="frame" x="74" y="16" width="28" height="28"/>
                     <state key="normal" image="tabNew"/>
                     <connections>
-                        <action selector="clickNewPost:" destination="-1" eventType="touchUpInside" id="EJV-ew-jyH"/>
+                        <action selector="didTapNewPost:" destination="-1" eventType="touchUpInside" id="EJV-ew-jyH"/>
                     </connections>
                 </button>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceg-pe-72r">
                     <rect key="frame" x="126" y="16" width="28" height="28"/>
                     <state key="normal" image="tabProfile"/>
                     <connections>
-                        <action selector="clickTab:" destination="-1" eventType="touchUpInside" id="eU7-Bb-QyH"/>
+                        <action selector="didTapTab:" destination="-1" eventType="touchUpInside" id="eU7-Bb-QyH"/>
                     </connections>
                 </button>
             </subviews>

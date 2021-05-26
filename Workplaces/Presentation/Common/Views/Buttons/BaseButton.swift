@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class BaseButton: UIButton {
+final class BaseButton: UIButton, Zoomable {
 
     // MARK: - Initialization
 
@@ -18,6 +18,18 @@ final class BaseButton: UIButton {
         setTitleColor(.white, for: .normal)
         backgroundColor = .orange
         layer.cornerRadius = 14
+    }
+    
+    // MARK: - Private properties
+    
+    override var isHighlighted: Bool {
+        didSet {
+            if oldValue == false && isHighlighted {
+                zoomOut()
+            } else if oldValue == true && !isHighlighted {
+                zoomIn()
+            }
+        }
     }
 
 }

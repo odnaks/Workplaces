@@ -12,7 +12,7 @@ open class APIService {
     
     // MARK: - Public Properties
     
-    public let apiClient: Client
+    let apiClient: Client
     
     // MARK: - Initialization
     

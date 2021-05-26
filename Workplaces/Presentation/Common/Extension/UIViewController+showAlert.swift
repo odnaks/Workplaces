@@ -35,7 +35,7 @@ extension UIViewController {
     
 }
 
-public extension Error {
+extension Error {
 
     /// Метод нужен для того чтобы достать ошибку валидации из Alamofire
     func unwrapAFError() -> Error {

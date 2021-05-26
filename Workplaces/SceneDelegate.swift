@@ -26,7 +26,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let listPostsFabric = ListPostsFabric()
         let zeroFabric = ZeroFabric()
         
         let rootViewController = RootCoordinatingController(
@@ -37,22 +36,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 mainFabric: MainFabric(
                     profileFabric: ProfileFabric(
                         myPostsFabric: MyPostsFabric(
-                            zeroFabric: zeroFabric,
-                            listPostsFabric: listPostsFabric
+                            zeroFabric: zeroFabric
                         ),
                         likedPostsFabric: LikedPostsFabric(
-                            zeroFabric: zeroFabric,
-                            listPostsFabric: listPostsFabric
+                            zeroFabric: zeroFabric
                         ),
                         friendsFabric: FriendsFabric(
                             zeroFabric: zeroFabric
                         )
                     ),
                     homeFabric: HomeFabric(
-                        listPostsFabric: listPostsFabric,
                         homeVoidContainerFabric: HomeVoidFabric(
-                            zeroFabric: ZeroFabric()
-                        )
+                            zeroFabric: zeroFabric
+                        ),
+                        zeroFabric: zeroFabric
                     )
                 )
             )

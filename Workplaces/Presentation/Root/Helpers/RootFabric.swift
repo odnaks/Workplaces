@@ -27,14 +27,14 @@ final class RootFabric {
     // MARK: - Public Methods
     
     /// Метод для получения AuthorizationCoordinatingController
-    public func getAuthorizationCoordinatingController() -> AuthorizationCoordinatingController {
+    func getAuthorizationCoordinatingController() -> AuthorizationCoordinatingController {
         return AuthorizationCoordinatingController(
             authorizationFabric: authorizationFabric
         )
     }
     
     /// Метод для получения MainCoordinatingController
-    public func getMainCoordinatingController() -> MainCoordinatingController {
+    func getMainCoordinatingController() -> MainCoordinatingController {
         return MainCoordinatingController(
             mainFabric: mainFabric
         )

@@ -12,32 +12,29 @@ final class MyPostsFabric {
     // MARK: - Private Properties
     
     private let zeroFabric: ZeroFabric
-    private let listPostsFabric: ListPostsFabric
     
     // MARK: - Initialization
     
     init(
-        zeroFabric: ZeroFabric,
-        listPostsFabric: ListPostsFabric
+        zeroFabric: ZeroFabric
     ) {
         self.zeroFabric = zeroFabric
-        self.listPostsFabric = listPostsFabric
     }
     
     // MARK: - Public Methods
     
     /// Метод для получения MyPostsViewController
-    public func getMyPostsViewController() -> ListPostsViewController {
-        return listPostsFabric.getListPostsController(from: .myPosts)
+    func getMyPostsViewController() -> ListPostsViewController {
+        return ListPostsViewController(listPostsType: .myPosts)
     }
     
     /// Метод для получения NewPostViewController
-    public func getNewPostViewController() -> NewPostViewController {
+    func getNewPostViewController() -> NewPostViewController {
         return NewPostViewController()
     }
     
     /// Метод для получения MyPostsVoidController
-    public func getMyPostsVoidController() -> ZeroViewController {
+    func getMyPostsVoidController() -> ZeroViewController {
         return zeroFabric.getMyPostsVoidController()
     }
     

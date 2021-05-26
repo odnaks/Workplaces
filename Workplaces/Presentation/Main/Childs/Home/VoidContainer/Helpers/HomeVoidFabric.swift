@@ -24,17 +24,17 @@ final class HomeVoidFabric {
     // MARK: - Public Methods
     
     /// Метод для получения SearchViewController
-    public func getSearchFriendsViewController() -> SearchFriendsViewController {
+    func getSearchFriendsViewController() -> SearchFriendsViewController {
         return SearchFriendsViewController()
     }
     
     /// Метод для получения FeedVoidController
-    public func getFeedVoidController() -> ZeroViewController {
+    func getFeedVoidController() -> ZeroViewController {
         return zeroFabric.getFeedVoidController()
     }
     
     /// Метод для получения UINavigationController
-    public func getNavigationController() -> UINavigationController {
+    func getNavigationController() -> UINavigationController {
         return UINavigationController()
     }
     

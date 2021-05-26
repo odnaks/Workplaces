@@ -36,7 +36,7 @@ final class MyPostsContainerController: UIViewController {
     // MARK: - Public Methods
     
     /// Метод для конфигурации загруженных постов в таблицу
-    public func configure(with posts: [PostViewModel]) {
+    func configure(with posts: [PostViewModel]) {
         if !posts.isEmpty {
             self.posts = posts
             showListPosts()

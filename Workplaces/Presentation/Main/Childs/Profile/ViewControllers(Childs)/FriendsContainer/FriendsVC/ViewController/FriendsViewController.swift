@@ -11,7 +11,7 @@ final class FriendsViewController: UIViewController {
     
     // MARK: - IBOutlet
     
-    @IBOutlet private weak var tableView: UITableView?
+    @IBOutlet private var tableView: UITableView!
     
     // MARK: - Private Properties
     
@@ -20,7 +20,7 @@ final class FriendsViewController: UIViewController {
     private var friends: [FriendViewModel]?
     
     /// Метод для конфигурации постов с переданными данными модели
-    public func configure(with model: [FriendViewModel]?) {
+    func configure(with model: [FriendViewModel]?) {
         self.friends = model
         setupTableViewModel()
     }
@@ -43,14 +43,13 @@ final class FriendsViewController: UIViewController {
     
     private func setupTableViewModel() {
         dataSource.viewModel = friends
-        tableView?.reloadData()
     }
     
     private func setupTableView() {
-        tableView?.separatorStyle = .none
-        tableView?.showsVerticalScrollIndicator = false
-        tableView?.dataSource = dataSource
-        tableView?.register(
+        tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
+        tableView.dataSource = dataSource
+        tableView.register(
             UINib(nibName: "\(FriendCell.self)", bundle: nil),
             forCellReuseIdentifier: FriendCell.identifier
         )

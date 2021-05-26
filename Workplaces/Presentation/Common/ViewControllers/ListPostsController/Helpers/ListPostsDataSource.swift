@@ -8,7 +8,8 @@
 import UIKit
 
 final class ListPostsDataSource: NSObject {
-    public var viewModel: [PostViewModel]?
+    weak var viewController: ListPostsViewController?
+    var viewModel: [PostViewModel]?
 }
 
 // MARK: - UITableViewDataSource
@@ -27,10 +28,10 @@ extension ListPostsDataSource: UITableViewDataSource {
               let post = viewModel?[indexPath.row]
         else { return UITableViewCell() }
         
+        cell.delegate = viewController
         cell.configure(post)
         
         return cell
-        
     }
     
 }

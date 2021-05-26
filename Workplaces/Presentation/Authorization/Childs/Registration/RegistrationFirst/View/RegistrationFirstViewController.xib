@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegistrationFirstViewController" customModule="Workplaces" customModuleProvider="target">
             <connections>
+                <outlet property="emailTextField" destination="rtF-7w-Jqj" id="Tgh-Ov-N7p"/>
+                <outlet property="passwordTextField" destination="95p-ro-3T0" id="Wux-yc-9iT"/>
                 <outlet property="view" destination="iN0-l3-epB" id="E3y-y9-OCv"/>
             </connections>
         </placeholder>
@@ -19,71 +22,93 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6x3-qN-E9z" customClass="BaseButton" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="16" y="747" width="382" height="56"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UL6-gx-QrE">
+                    <rect key="frame" x="0.0" y="44" width="414" height="4"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cpi-PJ-8JS">
+                            <rect key="frame" x="0.0" y="0.0" width="207" height="4"/>
+                            <color key="backgroundColor" name="orange"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" name="lightGreyBlue"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="56" id="pD7-GJ-Ne0"/>
+                        <constraint firstItem="Cpi-PJ-8JS" firstAttribute="width" secondItem="UL6-gx-QrE" secondAttribute="width" multiplier="0.5" id="5BZ-fL-Xlb"/>
+                        <constraint firstAttribute="height" constant="4" id="HPe-rp-s5z"/>
+                        <constraint firstAttribute="bottom" secondItem="Cpi-PJ-8JS" secondAttribute="bottom" id="SyR-Bq-eTt"/>
+                        <constraint firstItem="Cpi-PJ-8JS" firstAttribute="top" secondItem="UL6-gx-QrE" secondAttribute="top" id="VAd-KC-wW4"/>
+                        <constraint firstItem="Cpi-PJ-8JS" firstAttribute="leading" secondItem="UL6-gx-QrE" secondAttribute="leading" id="f1K-OY-QRF"/>
                     </constraints>
-                    <state key="normal" title="Далее"/>
-                    <connections>
-                        <action selector="clickContinue:" destination="-1" eventType="touchUpInside" id="Suz-4I-wS3"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFn-he-ewn" customClass="LightButton" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="16" y="677" width="382" height="30"/>
-                    <state key="normal" title="Уже зарегистрирован"/>
-                    <connections>
-                        <action selector="clickLogin:" destination="-1" eventType="touchUpInside" id="dND-yk-f0O"/>
-                    </connections>
-                </button>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Никнейм" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xn4-au-TJW" customClass="InputTextField" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="16" y="175" width="382" height="48"/>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Elq-qH-EvW">
+                    <rect key="frame" x="20" y="98" width="374" height="116"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rtF-7w-Jqj" customClass="InputTextField" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="KMU-On-KZu"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="95p-ro-3T0" customClass="InputTextField" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="68" width="374" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="Nyo-T5-NPG"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZNM-eC-AZ2">
+                    <rect key="frame" x="20" y="734" width="374" height="112"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFn-he-ewn" customClass="LightButton" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="56"/>
+                            <state key="normal" title="Уже зарегистрирован"/>
+                            <connections>
+                                <action selector="didTapLogin:" destination="-1" eventType="touchUpInside" id="dND-yk-f0O"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6x3-qN-E9z" customClass="BaseButton" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="56" width="374" height="56"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="56" id="pD7-GJ-Ne0"/>
+                            </constraints>
+                            <state key="normal" title="Далее"/>
+                            <connections>
+                                <action selector="didTapContinue:" destination="-1" eventType="touchUpInside" id="Suz-4I-wS3"/>
+                            </connections>
+                        </button>
+                    </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" constant="48" id="1Sp-r7-AY5"/>
+                        <constraint firstItem="fFn-he-ewn" firstAttribute="height" secondItem="6x3-qN-E9z" secondAttribute="height" id="iFu-BM-RsF"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="95p-ro-3T0" customClass="InputTextField" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="16" y="311" width="382" height="48"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="48" id="Nyo-T5-NPG"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rtF-7w-Jqj" customClass="InputTextField" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="16" y="243" width="382" height="48"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="48" id="KMU-On-KZu"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="xn4-au-TJW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="3bo-4j-rWG"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="6x3-qN-E9z" secondAttribute="trailing" constant="16" id="A0W-O3-j0x"/>
-                <constraint firstItem="rtF-7w-Jqj" firstAttribute="leading" secondItem="xn4-au-TJW" secondAttribute="leading" id="JbJ-YD-KwA"/>
-                <constraint firstItem="6x3-qN-E9z" firstAttribute="top" secondItem="fFn-he-ewn" secondAttribute="bottom" constant="40" id="N2m-AB-l8l"/>
-                <constraint firstItem="95p-ro-3T0" firstAttribute="leading" secondItem="rtF-7w-Jqj" secondAttribute="leading" id="X9U-dg-9Wx"/>
-                <constraint firstItem="6x3-qN-E9z" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="ZvF-a9-pcC"/>
-                <constraint firstItem="fFn-he-ewn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="bJQ-ig-LFq"/>
-                <constraint firstItem="rtF-7w-Jqj" firstAttribute="top" secondItem="xn4-au-TJW" secondAttribute="bottom" constant="20" id="cbD-WI-htr"/>
-                <constraint firstItem="rtF-7w-Jqj" firstAttribute="trailing" secondItem="xn4-au-TJW" secondAttribute="trailing" id="cxG-1T-xn6"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="6x3-qN-E9z" secondAttribute="bottom" constant="59" id="gza-9e-JHa"/>
-                <constraint firstItem="95p-ro-3T0" firstAttribute="trailing" secondItem="rtF-7w-Jqj" secondAttribute="trailing" id="iEz-KI-HXj"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="xn4-au-TJW" secondAttribute="trailing" constant="16" id="llE-Qs-J8l"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fFn-he-ewn" secondAttribute="trailing" constant="16" id="oLm-n4-lu1"/>
-                <constraint firstItem="95p-ro-3T0" firstAttribute="top" secondItem="rtF-7w-Jqj" secondAttribute="bottom" constant="20" id="oep-Og-e0i"/>
-                <constraint firstItem="xn4-au-TJW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="131" id="yDM-EX-LU1"/>
+                <constraint firstAttribute="trailingMargin" secondItem="ZNM-eC-AZ2" secondAttribute="trailing" id="0Y6-kV-tvz"/>
+                <constraint firstItem="UL6-gx-QrE" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="832-rm-TXs"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="UL6-gx-QrE" secondAttribute="trailing" id="AfB-Im-TUF"/>
+                <constraint firstItem="UL6-gx-QrE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Ahi-LD-0Yh"/>
+                <constraint firstAttribute="trailingMargin" secondItem="Elq-qH-EvW" secondAttribute="trailing" id="Dnr-AY-8fq"/>
+                <constraint firstItem="ZNM-eC-AZ2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="JwF-6T-kVs"/>
+                <constraint firstItem="Elq-qH-EvW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="QiM-1U-Dhi"/>
+                <constraint firstItem="Elq-qH-EvW" firstAttribute="top" secondItem="UL6-gx-QrE" secondAttribute="bottom" constant="50" id="Sgm-VU-YnX"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ZNM-eC-AZ2" secondAttribute="bottom" constant="16" id="vi5-uc-YDb"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="109.82142857142857"/>
         </view>
     </objects>
     <resources>
+        <namedColor name="lightGreyBlue">
+            <color red="0.96862745098039216" green="0.97254901960784312" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="orange">
+            <color red="0.99607843137254903" green="0.26666666666666666" blue="0.027450980392156862" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

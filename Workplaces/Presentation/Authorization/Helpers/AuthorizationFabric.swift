@@ -24,29 +24,29 @@ final class AuthorizationFabric {
     // MARK: - Public Methods
     
     /// Метод для получения StartViewController
-    public func getStartViewController() -> StartViewController {
+    func getStartViewController() -> StartViewController {
         return StartViewController()
     }
     
     /// Метод для получения CompletedAuthorizationViewController
-    public func getLoginViewController() -> LoginViewController {
+    func getLoginViewController() -> LoginViewController {
         return LoginViewController()
     }
     
     /// Метод для получения RegistrationContainerController
-    public func getRegistrationContainerController() -> RegistrationContainerController {
+    func getRegistrationContainerController() -> RegistrationContainerController {
         return RegistrationContainerController(
             registrationFabric: registrationFabric
         )
     }
     
     /// Метод для получения CompletedAuthorizationViewController
-    public func getCompletedLoginViewController() -> CompletedAuthorizationViewController {
+    func getCompletedLoginViewController() -> CompletedAuthorizationViewController {
         return CompletedAuthorizationViewController()
     }
     
     /// Метод для получения UINavigationController
-    public func getAuthorizationNavigationController() -> UINavigationController {
+    func getAuthorizationNavigationController() -> UINavigationController {
         return UINavigationController()
     }
     

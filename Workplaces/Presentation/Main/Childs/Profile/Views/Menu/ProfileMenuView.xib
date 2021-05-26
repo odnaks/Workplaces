@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -30,21 +28,21 @@
                             <rect key="frame" x="0.0" y="0.0" width="46" height="37"/>
                             <state key="normal" title="Посты"/>
                             <connections>
-                                <action selector="clickButton:" destination="-1" eventType="touchUpInside" id="9yo-1L-nqi"/>
+                                <action selector="didTapMenuButton:" destination="-1" eventType="touchUpInside" id="9yo-1L-nqi"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ctz-kh-uHC" customClass="ProfileMenuButton" customModule="Workplaces" customModuleProvider="target">
                             <rect key="frame" x="157" y="0.0" width="45" height="37"/>
                             <state key="normal" title="Лайки"/>
                             <connections>
-                                <action selector="clickButton:" destination="-1" eventType="touchUpInside" id="phw-Vg-Vmp"/>
+                                <action selector="didTapMenuButton:" destination="-1" eventType="touchUpInside" id="phw-Vg-Vmp"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ggb-Eq-gP9" customClass="ProfileMenuButton" customModule="Workplaces" customModuleProvider="target">
                             <rect key="frame" x="313" y="0.0" width="51" height="37"/>
                             <state key="normal" title="Друзья"/>
                             <connections>
-                                <action selector="clickButton:" destination="-1" eventType="touchUpInside" id="Gmo-nj-2u4"/>
+                                <action selector="didTapMenuButton:" destination="-1" eventType="touchUpInside" id="Gmo-nj-2u4"/>
                             </connections>
                         </button>
                     </subviews>

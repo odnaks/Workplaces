@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol MainCoordinatingControllerDelegate: class {
+protocol MainCoordinatingControllerDelegate: AnyObject {
     
     /// метод, вызываемый при логауте
     func mainCoordinatingControllerLogout()
@@ -17,7 +17,7 @@ final class MainCoordinatingController: UIViewController {
     
     // MARK: - Public Properties
     
-    public weak var delegate: MainCoordinatingControllerDelegate?
+    weak var delegate: MainCoordinatingControllerDelegate?
     
     // MARK: - Private Properties
     

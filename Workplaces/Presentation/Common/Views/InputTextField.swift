@@ -7,9 +7,26 @@
 
 import UIKit
 
-final class InputTextField: UITextField {
+final class InputTextField: UITextField, Shakeable {
     
-    // MARK: - Subviews
+    enum Status: Int {
+        case normal
+        case withError
+    }
+    
+    // MARK: - Public properties
+    
+    /// текущий статус для текст филда. может быть нормальным и с ошибкой
+    var status: Status = .normal {
+        didSet {
+            updateBorder()
+            if status == .withError {
+                shake()
+            }
+        }
+    }
+    
+    // MARK: - Private properties
     
     private let border = UIView()
     
@@ -38,6 +55,16 @@ final class InputTextField: UITextField {
         border.backgroundColor = .lightGreyBlue
         addSubview(border)
         
+        let placeholderAttribute = NSAttributedString(
+            string: placeholder ?? "",
+            attributes: [
+                NSAttributedString.Key.foregroundColor: UIColor.middleGrey,
+                NSAttributedString.Key.font: UIFont.bodyLarge
+            ]
+        )
+        attributedPlaceholder = placeholderAttribute
+        textColor = .black
+        
         setupClearButton()
         
         addTarget(self, action: #selector(handleEditing), for: .allEditingEvents)
@@ -57,12 +84,15 @@ final class InputTextField: UITextField {
     }
     
     @objc private func handleEditing() {
+        status = .normal
         updateBorder()
     }
     
     private func updateBorder() {
-        let borderColor: UIColor = isFirstResponder ? .lightGreyBlue : .orange
+        let textColor: UIColor = status == .normal ? .black : .orange
+        let borderColor: UIColor = status == .normal ? .lightGreyBlue : .orange
         UIView.animate(withDuration: 0.25) {
+            self.textColor = textColor
             self.border.backgroundColor = borderColor
         }
     }

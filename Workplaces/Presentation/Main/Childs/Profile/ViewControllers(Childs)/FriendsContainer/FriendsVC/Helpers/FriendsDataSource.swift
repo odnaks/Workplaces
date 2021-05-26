@@ -8,7 +8,7 @@
 import UIKit
 
 final class FriendsDataSource: NSObject {
-    public var viewModel: [FriendViewModel]?
+    var viewModel: [FriendViewModel]?
 }
 
 // MARK: - UITableViewDataSource

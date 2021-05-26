@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol NewPostViewControllerDelegate: class {
+protocol NewPostViewControllerDelegate: AnyObject {
     /// метод, вызываемый при нажатии на кнопку запостить
     func newPostViewControllerPost()
 }
@@ -16,7 +16,7 @@ final class NewPostViewController: UIViewController {
     
     // MARK: - Public Properties
     
-    public weak var delegate: NewPostViewControllerDelegate?
+    weak var delegate: NewPostViewControllerDelegate?
     
     // MARK: - Life Circle
     

@@ -12,7 +12,7 @@ private enum TabBarConstants {
     static let height: CGFloat = 60
 }
 
-protocol TabBarDelegate: class {
+protocol TabBarDelegate: AnyObject {
     /// метод, вызываемый при смены таба
     /// принимает selectedIndex - индекс выбранного таба
     func tabBar(selectedIndex: Int)
@@ -25,8 +25,8 @@ final class TabBarView: XibView {
     
     // MARK: - IBOutlet
     
-    @IBOutlet private var backgroundView: UIView?
-    @IBOutlet private var tabViews: [UIButton]?
+    @IBOutlet private var backgroundView: UIView!
+    @IBOutlet private var tabViews: [UIButton]!
     
     // MARK: - Private Properties
     
@@ -34,7 +34,7 @@ final class TabBarView: XibView {
     
     // MARK: - Public Properties
     
-    public weak var delegate: TabBarDelegate?
+    weak var delegate: TabBarDelegate?
     
     // MARK: - Initialization
     
@@ -50,13 +50,14 @@ final class TabBarView: XibView {
     ) {
         self.init(frame: frame)
         
+        setupTabs()
         activateTab(tab: activeItem)
     }
     
     // MARK: - Public Methods
     
     /// Метод для форс смены таба на хоум
-    public func switchToHome() {
+    func switchToHome() {
         switchTab(from: activeItem, to: 0)
     }
     
@@ -68,14 +69,14 @@ final class TabBarView: XibView {
     
     // MARK: - IBAction
     
-    @IBAction private func clickTab(_ sender: UIButton) {
+    @IBAction private func didTapTab(_ sender: UIButton) {
         switchTab(
             from: activeItem,
             to: sender.tag
         )
     }
     
-    @IBAction private func clickNewPost(_ sender: Any) {
+    @IBAction private func didTapNewPost(_ sender: Any) {
         delegate?.tabBarNewPost()
     }
     
@@ -87,17 +88,22 @@ final class TabBarView: XibView {
     }
     
     private func activateTab(tab: Int) {
-        guard let tabToActivate = tabViews?[tab] else { return }
+        let tabToActivate = tabViews[tab]
         
-        tabToActivate.changeColor(.orange)
+        tabToActivate.tintColor = .orange
         activeItem = tab
         delegate?.tabBar(selectedIndex: tab)
     }
     
     private func deactivateTab(tab: Int) {
-        guard let inactiveTab = tabViews?[tab] else { return }
-        
-        inactiveTab.changeColor(.grey)
+        let inactiveTab = tabViews[tab]
+        inactiveTab.tintColor = .grey
+    }
+    
+    private func setupTabs() {
+        for tab in tabViews {
+            tab.tintColor = .grey
+        }
     }
     
 }

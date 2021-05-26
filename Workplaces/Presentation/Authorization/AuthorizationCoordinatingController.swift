@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol AuthorizationCoordinatingControllerDelegate: class {
+protocol AuthorizationCoordinatingControllerDelegate: AnyObject {
     
     /// метод, вызываемый по завершении сценария авторизации
     func authorizationCoordinatingControllerDone()
@@ -17,25 +17,30 @@ final class AuthorizationCoordinatingController: UIViewController {
     
     // MARK: - Public Properties
     
-    public weak var delegate: AuthorizationCoordinatingControllerDelegate?
+    weak var delegate: AuthorizationCoordinatingControllerDelegate?
 
     // MARK: - Private Properties
     
     private let authorizationService: AuthorizationServiceProtocol
+    private let profileService: ProfileServiceProtocol
+    private let authorizationFabric: AuthorizationFabric
     
     private let rootNavigationController: UINavigationController
     private let startViewController: StartViewController
-    private let loginViewController: LoginViewController
-    private let registrationContainerController: RegistrationContainerController
+    private var loginViewController: LoginViewController
+    private var registrationContainerController: RegistrationContainerController
     private let completedLoginViewController: CompletedAuthorizationViewController
     
     // MARK: - Initialization
     
     init(
         authorizationService: AuthorizationServiceProtocol = ServiceLayer.shared.authorizationService,
+        profileService: ProfileServiceProtocol = ServiceLayer.shared.profileService,
         authorizationFabric: AuthorizationFabric
     ) {
         self.authorizationService = authorizationService
+        self.profileService = profileService
+        self.authorizationFabric = authorizationFabric
         
         self.startViewController = authorizationFabric.getStartViewController()
         self.loginViewController = authorizationFabric.getLoginViewController()
@@ -48,6 +53,13 @@ final class AuthorizationCoordinatingController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Public methods
+    
+    /// метод, вызываемый из рутового координейтинг контроллера, когда нужно показать стартовый экран
+    func routeToStart() {
+        rootNavigationController.popToRootViewController(animated: true)
     }
     
     // MARK: - Lifecycle
@@ -70,8 +82,56 @@ final class AuthorizationCoordinatingController: UIViewController {
             case .success:
                 self.routeToCompletedAuthorization()
             case .failure(let error):
-                self.loginViewController.showAlert(with: error)
+                self.showLoginError(error)
             }
+        }
+    }
+    
+    private func registration(_ model: RegistrationViewModel) {
+        let userCredentials = RegistrationViewModel.mapToUserCredentials(from: model)
+        _ = authorizationService.registration(
+            with: userCredentials
+        ) { result in
+            switch result {
+            case .success:
+                self.updateProfile(model)
+            case .failure(let error):
+                self.showRegistrationError(error)
+            }
+        }
+    }
+    
+    private func updateProfile(_ model: RegistrationViewModel) {
+        let requestProfile = RegistrationViewModel.mapToRequestProfile(from: model)
+        _ = profileService.change(requestProfile) { result in
+            switch result {
+            case .success:
+                self.routeToCompletedAuthorization()
+            case .failure:
+                self.showRegistrationError(.defaultError)
+            }
+        }
+    }
+    
+    private func showLoginError(_ error: AuthorizationError) {
+        switch error {
+        case .emailValidationError:
+            self.loginViewController.showEmailError()
+        case .passwordValidationError:
+            self.loginViewController.showPasswordError()
+        default:
+            self.loginViewController.showError()
+        }
+    }
+    
+    private func showRegistrationError(_ error: AuthorizationError) {
+        switch error {
+        case .emailValidationError:
+            self.registrationContainerController.showEmailError()
+        case .passwordValidationError:
+            self.registrationContainerController.showPasswordError()
+        default:
+            self.registrationContainerController.showError()
         }
     }
     
@@ -84,15 +144,17 @@ final class AuthorizationCoordinatingController: UIViewController {
     
     private func showStart() {
         startViewController.delegate = self
-        rootNavigationController.pushViewController(startViewController, animated: false)
+        rootNavigationController.pushViewController(startViewController, animated: true)
     }
     
     private func routeToLogin() {
+        loginViewController = authorizationFabric.getLoginViewController()
         loginViewController.delegate = self
-        rootNavigationController.pushViewController(loginViewController, animated: false)
+        rootNavigationController.pushViewController(loginViewController, animated: true)
     }
     
     private func routeToRegistration() {
+        registrationContainerController = authorizationFabric.getRegistrationContainerController()
         registrationContainerController.delegate = self
         rootNavigationController.pushViewController(registrationContainerController, animated: true)
     }
@@ -123,7 +185,7 @@ extension AuthorizationCoordinatingController: LoginViewControllerDelegate {
     }
     
     func loginViewControllerToRegistration() {
-        rootNavigationController.popViewController(animated: false)
+        rootNavigationController.popToRootViewController(animated: true)
         routeToRegistration()
     }
 }
@@ -131,13 +193,13 @@ extension AuthorizationCoordinatingController: LoginViewControllerDelegate {
 // MARK: - RegistrationContainerControllerDelegate
 
 extension AuthorizationCoordinatingController: RegistrationContainerControllerDelegate {
-    func registrationContainerControllerToLogin() {
-        rootNavigationController.popViewController(animated: false)
-        routeToLogin()
+    func registrationContainerControllerRegistration(with model: RegistrationViewModel) {
+        registration(model)
     }
     
-    func registrationContainerControllerRegistration() {
-        routeToCompletedAuthorization()
+    func registrationContainerControllerToLogin() {
+        rootNavigationController.popToRootViewController(animated: true)
+        routeToLogin()
     }
 }
 

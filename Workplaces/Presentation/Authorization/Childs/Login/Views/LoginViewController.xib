@@ -12,72 +12,83 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Workplaces" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="bOW-t9-8xN" id="pMZ-pK-I7O"/>
                 <outlet property="emailTextField" destination="Yyf-yL-JMI" id="GRV-QC-28c"/>
+                <outlet property="enterButton" destination="kUA-pu-oKN" id="Gpc-46-P09"/>
                 <outlet property="passwordTextField" destination="iwR-II-ha2" id="YbX-Wn-tgE"/>
                 <outlet property="view" destination="iN0-l3-epB" id="NKU-8B-7aJ"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ваш e-mail или логин" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Yyf-yL-JMI" customClass="InputTextField" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="16" y="119" width="382" height="48"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="48" id="MRd-a0-Nyu"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="iwR-II-ha2" customClass="InputTextField" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="16" y="187" width="382" height="48"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="48" id="VYJ-FV-9lg"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUA-pu-oKN" customClass="BaseButton" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="16" y="762" width="382" height="56"/>
-                    <color key="backgroundColor" name="grey"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="56" id="lnR-zc-aZq"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <state key="normal" title="Войти">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                    <connections>
-                        <action selector="clickEnter:" destination="-1" eventType="touchUpInside" id="dax-lH-8Pe"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MxI-hK-vEF" customClass="LightButton" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="16" y="686" width="382" height="56"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="56" id="kSS-F7-PME"/>
-                    </constraints>
-                    <state key="normal" title="Перейти к регистрации"/>
-                    <connections>
-                        <action selector="clickRegistration:" destination="-1" eventType="touchUpInside" id="RYw-eo-rtD"/>
-                    </connections>
-                </button>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="bOW-t9-8xN">
+                    <rect key="frame" x="197" y="443" width="20" height="20"/>
+                </activityIndicatorView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="UoB-Uj-GPL">
+                    <rect key="frame" x="20" y="94" width="374" height="116"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Yyf-yL-JMI" customClass="InputTextField" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="MRd-a0-Nyu"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="iwR-II-ha2" customClass="InputTextField" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="68" width="374" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="VYJ-FV-9lg"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="j9h-ap-dGQ">
+                    <rect key="frame" x="20" y="734" width="374" height="112"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MxI-hK-vEF" customClass="LightButton" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="56"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="56" id="kSS-F7-PME"/>
+                            </constraints>
+                            <state key="normal" title="Перейти к регистрации"/>
+                            <connections>
+                                <action selector="didTapRegistration:" destination="-1" eventType="touchUpInside" id="RYw-eo-rtD"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUA-pu-oKN" customClass="BaseButton" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="56" width="374" height="56"/>
+                            <color key="backgroundColor" name="grey"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="56" id="lnR-zc-aZq"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="Войти">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="didTapEnter:" destination="-1" eventType="touchUpInside" id="dax-lH-8Pe"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="iwR-II-ha2" firstAttribute="top" secondItem="Yyf-yL-JMI" secondAttribute="bottom" constant="20" id="33t-V5-L5J"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="kUA-pu-oKN" secondAttribute="trailing" constant="16" id="6Fl-Fy-Fpb"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Yyf-yL-JMI" secondAttribute="trailing" constant="16" id="KSX-Af-Ufg"/>
-                <constraint firstItem="iwR-II-ha2" firstAttribute="trailing" secondItem="Yyf-yL-JMI" secondAttribute="trailing" id="RGI-ro-qPZ"/>
-                <constraint firstItem="MxI-hK-vEF" firstAttribute="leading" secondItem="kUA-pu-oKN" secondAttribute="leading" id="SmG-y2-5db"/>
-                <constraint firstItem="Yyf-yL-JMI" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="75" id="XZr-iM-Pll"/>
-                <constraint firstItem="kUA-pu-oKN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="bK4-hB-XL9"/>
-                <constraint firstItem="iwR-II-ha2" firstAttribute="leading" secondItem="Yyf-yL-JMI" secondAttribute="leading" id="h7x-FF-noY"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="kUA-pu-oKN" secondAttribute="bottom" constant="44" id="mYW-Rg-OzY"/>
-                <constraint firstItem="Yyf-yL-JMI" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="qLk-04-UiD"/>
-                <constraint firstItem="MxI-hK-vEF" firstAttribute="trailing" secondItem="kUA-pu-oKN" secondAttribute="trailing" id="vEN-0O-wrz"/>
-                <constraint firstItem="kUA-pu-oKN" firstAttribute="top" secondItem="MxI-hK-vEF" secondAttribute="bottom" constant="20" id="xt0-5w-NBH"/>
+                <constraint firstAttribute="trailingMargin" secondItem="j9h-ap-dGQ" secondAttribute="trailing" id="6Pl-H1-tDa"/>
+                <constraint firstItem="bOW-t9-8xN" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="AFy-5e-wjm"/>
+                <constraint firstItem="UoB-Uj-GPL" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="50" id="Grl-Za-c4E"/>
+                <constraint firstItem="bOW-t9-8xN" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Lj9-HJ-wkZ"/>
+                <constraint firstItem="j9h-ap-dGQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="P1p-kW-s5S"/>
+                <constraint firstItem="UoB-Uj-GPL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="Xyz-yY-IYh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="j9h-ap-dGQ" secondAttribute="bottom" constant="16" id="hZe-r3-O4N"/>
+                <constraint firstAttribute="trailingMargin" secondItem="UoB-Uj-GPL" secondAttribute="trailing" id="k9n-Js-w1l"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="75.669642857142847"/>
         </view>

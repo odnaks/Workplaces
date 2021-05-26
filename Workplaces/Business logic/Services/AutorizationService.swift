@@ -27,43 +27,47 @@ final class AuthorizationService: AuthorizationServiceProtocol {
     
     // MARK: - Public Methods
     
-    public func registration(
+    func registration(
         with userCredentials: UserCredentials,
-        completion: @escaping (Result<Token, Error>) -> Void
+        completion: @escaping (Result<Token, AuthorizationError>) -> Void
     ) -> Progress {
         let endpoint = RegistrationEndpoint(userCredentials: userCredentials)
         return apiClient.request(endpoint) { result in
             switch result {
             case .success(let token):
                 self.save(token)
-            case .failure:
-                break
+                completion(.success(token))
+            case .failure(let error):
+                let apiError = error.unwrapAFError()
+                let authorizationError = AuthorizationError.mapToAuthorizationError(from: apiError)
+                completion(.failure(authorizationError))
             }
-            completion(result)
         }
     }
     
-    public func login(
+    func login(
         with userCredentials: UserCredentials,
-        completion: @escaping (Result<Token, Error>) -> Void
+        completion: @escaping (Result<Token, AuthorizationError>) -> Void
     ) -> Progress {
         let endpoint = LoginEndpoint(userCredentials: userCredentials)
         return apiClient.request(endpoint) { result in
             switch result {
             case .success(let token):
                 self.save(token)
-            case .failure:
-                break
+                completion(.success(token))
+            case .failure(let error):
+                let apiError = error.unwrapAFError()
+                let authorizationError = AuthorizationError.mapToAuthorizationError(from: apiError)
+                completion(.failure(authorizationError))
             }
-            completion(result)
         }
     }
     
-    public func checkLogin() -> Bool {
+    func checkLogin() -> Bool {
         return !(credentialsStorage.token?.accessToken.isEmpty ?? true)
     }
     
-    public func logout(
+    func logout(
         completion: @escaping (Result<Void, Error>) -> Void
     ) -> Progress {
         let endpoint = LogoutEndpoint()
@@ -73,7 +77,7 @@ final class AuthorizationService: AuthorizationServiceProtocol {
         }
     }
     
-    public func refresh(
+    func refresh(
         completion: @escaping (Result<Token, Error>) -> Void
     ) -> Progress {
         let token = credentialsStorage.token

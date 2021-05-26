@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ProfileCardDelegate: class {
+protocol ProfileCardDelegate: AnyObject {
     /// метод, вызываемый при нажатии на кнопку "изменить"
     /// принимает button - нажатая кнопка
     func profileCardEdit()
@@ -21,18 +21,18 @@ final class ProfileCardViewController: UIViewController {
 
     // MARK: - Public Properties
     
-    public weak var delegate: ProfileCardDelegate?
+    weak var delegate: ProfileCardDelegate?
     
     // MARK: - IBOutlet
     
-    @IBOutlet private weak var bgView: UIView?
+    @IBOutlet private var bgView: UIView!
     
-    @IBOutlet private weak var profileTmpView: UIView?
-    @IBOutlet private weak var profileImageView: UIImageView?
-    @IBOutlet private weak var profileContainerView: UIView?
+    @IBOutlet private var profileTmpView: UIView!
+    @IBOutlet private var profileImageView: UIImageView!
+    @IBOutlet private var profileContainerView: UIView!
     
-    @IBOutlet private weak var nameTitleLabel: UILabel?
-    @IBOutlet private weak var ageTitleLabel: UILabel?
+    @IBOutlet private var nameTitleLabel: UILabel!
+    @IBOutlet private var ageTitleLabel: UILabel!
     
     // MARK: - Life Circle
     
@@ -45,13 +45,13 @@ final class ProfileCardViewController: UIViewController {
     // MARK: - Public Methods
     
     /// Метод для конфигурации профиля с переданными данными модели
-    public func configure(with profile: ProfileViewModel?) {
+    func configure(with profile: ProfileViewModel?) {
         guard let profile = profile else { return }
         
-        nameTitleLabel?.text = profile.name
+        nameTitleLabel.text = profile.name
         
         if let years = profile.years {
-            ageTitleLabel?.text = "\(years) лет"
+            ageTitleLabel.text = "\(years) лет"
         }
         
         if let image = profile.photo {
@@ -62,31 +62,31 @@ final class ProfileCardViewController: UIViewController {
     // MARK: - Private Methods
     
     private func setupUI() {
-        bgView?.layer.cornerRadius = 24.0
-        bgView?.layer.masksToBounds = true
+        bgView.layer.cornerRadius = 24.0
+        bgView.layer.masksToBounds = true
         
-        profileContainerView?.layer.cornerRadius = 16.0
-        profileContainerView?.layer.masksToBounds = true
+        profileContainerView.layer.cornerRadius = 16.0
+        profileContainerView.layer.masksToBounds = true
         
-        profileImageView?.isHidden = true
-        profileTmpView?.isHidden = false
+        profileImageView.isHidden = true
+        profileTmpView.isHidden = false
         
-        nameTitleLabel?.text = ""
-        ageTitleLabel?.text = ""
+        nameTitleLabel.text = ""
+        ageTitleLabel.text = ""
     }
     
     private func setProfileImage(_ image: URL) {
-        profileImageView?.isHidden = false
-        profileTmpView?.isHidden = true
+        profileImageView.isHidden = false
+        profileTmpView.isHidden = true
     }
     
     // MARK: - IBAction
     
-    @IBAction private func clickEdit(_ sender: UIButton) {
+    @IBAction private func didTapEdit(_ sender: UIButton) {
         delegate?.profileCardEdit()
     }
     
-    @IBAction private func clickLogout(_ sender: Any) {
+    @IBAction private func didTapLogout(_ sender: Any) {
         delegate?.profileCardLogout()
     }
     

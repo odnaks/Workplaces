@@ -12,12 +12,12 @@ final class RegistrationFabric {
     // MARK: - Public Methods
     
     /// Метод для получения RegistrationFirstViewController
-    public func getRegistrationFirstViewController() -> RegistrationFirstViewController {
+    func getRegistrationFirstViewController() -> RegistrationFirstViewController {
         return RegistrationFirstViewController()
     }
     
     /// Метод для получения RegistrationSecondViewController
-    public func getRegistrationSecondViewController() -> RegistrationSecondViewController {
+    func getRegistrationSecondViewController() -> RegistrationSecondViewController {
         return RegistrationSecondViewController()
     }
     

@@ -11,17 +11,20 @@ public struct FriendViewModel {
     
     // MARK: - Public Properties
     
+    let id: String
     let name: String
     let nickname: String?
     let photo: URL?
     
     // MARK: - Initialization
     
-    public init(
+    init(
+        id: String,
         name: String,
         nickname: String? = nil,
         photo: URL? = nil
     ) {
+        self.id = id
         self.name = name
         self.nickname = nickname
         self.photo = photo

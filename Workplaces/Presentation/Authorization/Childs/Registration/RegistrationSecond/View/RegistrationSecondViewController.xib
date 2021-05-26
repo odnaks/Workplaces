@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegistrationSecondViewController" customModule="Workplaces" customModuleProvider="target">
             <connections>
+                <outlet property="dateTextField" destination="3cB-Bn-Kyt" id="dlf-Ir-a7c"/>
+                <outlet property="lastNameTextField" destination="9yQ-3c-E8e" id="aQV-4a-1uJ"/>
+                <outlet property="nameTextField" destination="6r5-ff-c9R" id="n7w-12-nlG"/>
+                <outlet property="nickNameTextField" destination="ieB-kP-M8T" id="UYp-YT-xcd"/>
                 <outlet property="view" destination="Kmi-eD-1vL" id="Pa3-Co-0W3"/>
             </connections>
         </placeholder>
@@ -19,50 +24,94 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WuE-SC-wpM">
+                    <rect key="frame" x="0.0" y="44" width="414" height="4"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DVN-Lp-JZk">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="4"/>
+                            <color key="backgroundColor" name="orange"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" name="lightGreyBlue"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="DVN-Lp-JZk" secondAttribute="bottom" id="1xS-4s-rlo"/>
+                        <constraint firstItem="DVN-Lp-JZk" firstAttribute="leading" secondItem="WuE-SC-wpM" secondAttribute="leading" id="7Ra-lU-kXm"/>
+                        <constraint firstItem="DVN-Lp-JZk" firstAttribute="width" secondItem="WuE-SC-wpM" secondAttribute="width" id="DKD-bN-8RX"/>
+                        <constraint firstAttribute="height" constant="4" id="Qau-fA-euX"/>
+                        <constraint firstItem="DVN-Lp-JZk" firstAttribute="top" secondItem="WuE-SC-wpM" secondAttribute="top" id="uNd-Fe-XAK"/>
+                    </constraints>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xBD-37-YbX">
+                    <rect key="frame" x="20" y="98" width="374" height="252"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Никнейм" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ieB-kP-M8T" customClass="InputTextField" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="RzW-FM-Fv0"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Имя" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6r5-ff-c9R" customClass="InputTextField" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="68" width="374" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="rom-Xw-zXY"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Фамилия" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9yQ-3c-E8e" customClass="InputTextField" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="136" width="374" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="Mmx-Cw-51d"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Дата рождения" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3cB-Bn-Kyt" customClass="InputDateField" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="204" width="374" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="UEE-2x-G8c"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdq-VA-4N8" customClass="BaseButton" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="16" y="747" width="382" height="56"/>
+                    <rect key="frame" x="16" y="790" width="382" height="56"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="xmg-za-YGw"/>
                     </constraints>
                     <state key="normal" title="Зарегистрироваться"/>
                     <connections>
-                        <action selector="clickRegistration:" destination="-1" eventType="touchUpInside" id="Xzh-DS-c8q"/>
+                        <action selector="didTapRegistration:" destination="-1" eventType="touchUpInside" id="Xzh-DS-c8q"/>
                     </connections>
                 </button>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Имя" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6r5-ff-c9R" customClass="InputTextField" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="16" y="175" width="382" height="48"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="48" id="rom-Xw-zXY"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Фамилия" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9yQ-3c-E8e" customClass="InputTextField" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="16" y="243" width="382" height="48"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="48" id="Mmx-Cw-51d"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
             </subviews>
             <viewLayoutGuide key="safeArea" id="C6F-O9-CSy"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="C6F-O9-CSy" firstAttribute="trailing" secondItem="fdq-VA-4N8" secondAttribute="trailing" constant="16" id="2DK-zc-tF5"/>
-                <constraint firstItem="9yQ-3c-E8e" firstAttribute="leading" secondItem="6r5-ff-c9R" secondAttribute="leading" id="6iD-yz-2sp"/>
+                <constraint firstItem="xBD-37-YbX" firstAttribute="leading" secondItem="Kmi-eD-1vL" secondAttribute="leadingMargin" id="350-ol-f9O"/>
                 <constraint firstItem="fdq-VA-4N8" firstAttribute="leading" secondItem="C6F-O9-CSy" secondAttribute="leading" constant="16" id="9X9-QU-BxH"/>
-                <constraint firstItem="9yQ-3c-E8e" firstAttribute="trailing" secondItem="6r5-ff-c9R" secondAttribute="trailing" id="9pH-up-QBQ"/>
-                <constraint firstItem="6r5-ff-c9R" firstAttribute="leading" secondItem="C6F-O9-CSy" secondAttribute="leading" constant="16" id="AjL-CD-VQL"/>
-                <constraint firstItem="C6F-O9-CSy" firstAttribute="trailing" secondItem="6r5-ff-c9R" secondAttribute="trailing" constant="16" id="KzK-Uf-qvM"/>
-                <constraint firstItem="6r5-ff-c9R" firstAttribute="top" secondItem="C6F-O9-CSy" secondAttribute="top" constant="131" id="Nly-2v-apC"/>
-                <constraint firstItem="9yQ-3c-E8e" firstAttribute="top" secondItem="6r5-ff-c9R" secondAttribute="bottom" constant="20" id="aV9-pb-luZ"/>
-                <constraint firstItem="C6F-O9-CSy" firstAttribute="bottom" secondItem="fdq-VA-4N8" secondAttribute="bottom" constant="59" id="dt9-SI-tZD"/>
+                <constraint firstItem="C6F-O9-CSy" firstAttribute="trailing" secondItem="WuE-SC-wpM" secondAttribute="trailing" id="CEq-ws-kSl"/>
+                <constraint firstItem="WuE-SC-wpM" firstAttribute="top" secondItem="C6F-O9-CSy" secondAttribute="top" id="HUb-Qu-4tq"/>
+                <constraint firstItem="C6F-O9-CSy" firstAttribute="leading" secondItem="WuE-SC-wpM" secondAttribute="leading" id="JyC-kY-NxT"/>
+                <constraint firstItem="xBD-37-YbX" firstAttribute="top" secondItem="DVN-Lp-JZk" secondAttribute="bottom" constant="50" id="UnQ-Md-pwT"/>
+                <constraint firstItem="C6F-O9-CSy" firstAttribute="bottom" secondItem="fdq-VA-4N8" secondAttribute="bottom" constant="16" id="dt9-SI-tZD"/>
+                <constraint firstAttribute="trailingMargin" secondItem="xBD-37-YbX" secondAttribute="trailing" id="fVw-4p-ZHk"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="110"/>
+            <point key="canvasLocation" x="137.68115942028987" y="109.82142857142857"/>
         </view>
     </objects>
     <resources>
+        <namedColor name="lightGreyBlue">
+            <color red="0.96862745098039216" green="0.97254901960784312" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="orange">
+            <color red="0.99607843137254903" green="0.26666666666666666" blue="0.027450980392156862" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

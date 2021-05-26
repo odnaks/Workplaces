@@ -25,7 +25,7 @@ final class EditingProfileViewController: UIViewController {
     
     // MARK: - IBAction
     
-    @IBAction private func backClick(_ sender: Any) {
+    @IBAction private func didTapBack(_ sender: Any) {
         routeToBack()
     }
 }

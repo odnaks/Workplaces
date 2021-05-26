@@ -24,17 +24,17 @@ final class FriendsFabric {
     // MARK: - Public Methods
     
     /// Метод для получения FriendsViewController
-    public func getFriendsViewController() -> FriendsViewController {
+    func getFriendsViewController() -> FriendsViewController {
         return FriendsViewController()
     }
     
     /// Метод для получения SearchFriendsViewController
-    public func getSearchFriendsViewController() -> SearchFriendsViewController {
+    func getSearchFriendsViewController() -> SearchFriendsViewController {
         return SearchFriendsViewController()
     }
     
     /// Метод для получения FriendsVoidController
-    public func getFriendsVoidController() -> ZeroViewController {
+    func getFriendsVoidController() -> ZeroViewController {
         return zeroFabric.getFriendsVoidController()
     }
     

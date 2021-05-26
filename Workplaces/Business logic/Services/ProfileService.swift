@@ -12,14 +12,14 @@ final class ProfileService: APIService, ProfileServiceProtocol {
     
     // MARK: - Public Methods
     
-    public func getProfile(
+    func getProfile(
         completion: @escaping (Result<UserProfile, Error>) -> Void
     ) -> Progress {
         let endpoint = ProfileEndpoint()
         return apiClient.bearerRequest(endpoint, completionHandler: completion)
     }
     
-    public func change(
+    func change(
         _ profile: RequestProfile,
         completion: @escaping (Result<UserProfile, Error>) -> Void
     ) -> Progress {
@@ -27,14 +27,14 @@ final class ProfileService: APIService, ProfileServiceProtocol {
         return apiClient.bearerRequest(endpoint, completionHandler: completion)
     }
     
-    public func getFriends(
+    func getFriends(
         completion: @escaping (Result<[UserProfile], Error>) -> Void
     ) -> Progress {
         let endpoint = FriendsEndpoint()
         return apiClient.bearerRequest(endpoint, completionHandler: completion)
     }
     
-    public func addFriend(
+    func addFriend(
         with id: String,
         completion: @escaping (Result<Void, Error>) -> Void
     ) -> Progress {
@@ -42,7 +42,7 @@ final class ProfileService: APIService, ProfileServiceProtocol {
         return apiClient.bearerRequest(endpoint, completionHandler: completion)
     }
     
-    public func deleteFriend(
+    func deleteFriend(
         with id: String,
         completion: @escaping (Result<Void, Error>) -> Void
     ) -> Progress {
@@ -50,14 +50,14 @@ final class ProfileService: APIService, ProfileServiceProtocol {
         return apiClient.bearerRequest(endpoint, completionHandler: completion)
     }
     
-    public func getPosts(
+    func getPosts(
         completion: @escaping (Result<[Post], Error>) -> Void
     ) -> Progress {
         let endpoint = ProfilePostsEndpoint()
         return apiClient.bearerRequest(endpoint, completionHandler: completion)
     }
     
-    public func addPost(
+    func addPost(
         _ post: RequestPost,
         completion: @escaping (Result<[Post], Error>) -> Void
     ) -> Progress {
@@ -65,7 +65,7 @@ final class ProfileService: APIService, ProfileServiceProtocol {
         return apiClient.bearerRequest(endpoint, completionHandler: completion)
     }
     
-    public func searchUser(
+    func searchUser(
         _ userData: String,
         completion: @escaping (Result<[UserProfile], Error>) -> Void
     ) -> Progress {

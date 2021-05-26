@@ -15,20 +15,19 @@ final class FriendCell: UITableViewCell {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var bgView: UIView?
-    @IBOutlet private weak var nameLabel: UILabel?
-    @IBOutlet private weak var nicknameLabel: UILabel?
+    @IBOutlet private var nameLabel: UILabel!
+    @IBOutlet private var nicknameLabel: UILabel!
     
-    @IBOutlet private weak var profileTmpView: UIView?
-    @IBOutlet private weak var profileImageView: UIImageView?
-    @IBOutlet private weak var profileContainerView: UIView?
+    @IBOutlet private var profileTmpView: UIView!
+    @IBOutlet private var profileImageView: UIImageView!
+    @IBOutlet private var profileContainerView: UIView!
     
     // MARK: - Public Methods
     
     /// Метод для конфигурации ячейки друга с переданными данными модели
-    public func configure(_ model: FriendViewModel) {
-        nameLabel?.text = model.name
-        nicknameLabel?.text = model.nickname
+    func configure(_ model: FriendViewModel) {
+        nameLabel.text = model.name
+        nicknameLabel.text = model.nickname
     }
     
     // MARK: - Life Circle
@@ -36,8 +35,8 @@ final class FriendCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        bgView?.layer.cornerRadius = 24
-        profileContainerView?.layer.cornerRadius = 16
-        profileContainerView?.layer.masksToBounds = true
+        backgroundView?.layer.cornerRadius = 24
+        profileContainerView.layer.cornerRadius = 16
+        profileContainerView.layer.masksToBounds = true
     }
 }

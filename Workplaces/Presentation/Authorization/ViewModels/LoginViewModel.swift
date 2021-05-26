@@ -7,7 +7,7 @@
 
 import UIKit
 
-public struct LoginViewModel {
+struct LoginViewModel {
     
     // MARK: - Public Properties
     
@@ -16,7 +16,7 @@ public struct LoginViewModel {
     
     // MARK: - Initialization
     
-    public init(
+    init(
         email: String,
         password: String
     ) {

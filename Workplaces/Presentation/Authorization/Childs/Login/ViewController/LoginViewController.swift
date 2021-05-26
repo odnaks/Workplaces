@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol LoginViewControllerDelegate: class {
+protocol LoginViewControllerDelegate: AnyObject {
     
     /// метод, вызываемый при нажатии на кнопку "войти"
     func loginViewController(with model: LoginViewModel)
@@ -20,17 +20,47 @@ final class LoginViewController: UIViewController {
     
     // MARK: - Public properties
     
-    public weak var delegate: LoginViewControllerDelegate?
+    weak var delegate: LoginViewControllerDelegate?
     
     // MARK: - IBOutlet
     
-    @IBOutlet private weak var emailTextField: InputTextField?
-    @IBOutlet private weak var passwordTextField: InputTextField?
+    @IBOutlet private var emailTextField: InputTextField!
+    @IBOutlet private var passwordTextField: InputTextField!
+    @IBOutlet private var enterButton: UIButton!
+    @IBOutlet private var activityIndicator: UIActivityIndicatorView!
+    
+    // MARK: - Public methods
+    
+    /// Метод, вызываемый при получении с сервера ошибки о валидации email
+    func showEmailError() {
+        activityIndicator?.stopAnimating()
+        emailTextField.status = .withError
+    }
+    
+    /// Метод, вызываемый при получении с сервера ошибки о валидации пароля
+    func showPasswordError() {
+        activityIndicator?.stopAnimating()
+        passwordTextField.status = .withError
+    }
+    
+    /// Метод, вызываемый при получении с сервера ошибки
+    func showError() {
+        activityIndicator?.stopAnimating()
+        emailTextField.status = .withError
+        passwordTextField.status = .withError
+    }
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.layoutMargins = .standart
+        setupBackNavItem(with: "Вход")
+        setupKeyboardObservers()
+        activityIndicator?.stopAnimating()
+        
+        setupTextFields()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,22 +69,30 @@ final class LoginViewController: UIViewController {
         navigationController?.navigationBar.isHidden = false
     }
     
+    // MARK: - Private methods
+    
+    private func setupTextFields() {
+        emailTextField.textContentType = .emailAddress
+        passwordTextField.textContentType = .password
+        passwordTextField.isSecureTextEntry = true
+    }
+    
     // MARK: - IBAction
     
-    @IBAction private func clickEnter(_ sender: Any) {
-        guard let email = emailTextField?.text,
-              let password = passwordTextField?.text
+    @IBAction private func didTapEnter(_ sender: Any) {
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text
         else { return }
         
         let loginViewModel = LoginViewModel(
             email: email,
             password: password
         )
-        
+        activityIndicator?.startAnimating()
         delegate?.loginViewController(with: loginViewModel)
     }
     
-    @IBAction private func clickRegistration(_ sender: Any) {
+    @IBAction private func didTapRegistration(_ sender: Any) {
         delegate?.loginViewControllerToRegistration()
     }
 }

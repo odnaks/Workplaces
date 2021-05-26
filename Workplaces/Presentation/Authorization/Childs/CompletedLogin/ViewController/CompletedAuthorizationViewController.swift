@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol CompletedAuthorizationViewControllerDelegate: class {
+protocol CompletedAuthorizationViewControllerDelegate: AnyObject {
     
     /// метод, вызываемый при нажатии на кнопку "перейти к ленте"
     func completedAuthorizationViewControllerDone()
@@ -17,7 +17,11 @@ final class CompletedAuthorizationViewController: UIViewController {
     
     // MARK: - Public Properties
     
-    public weak var delegate: CompletedAuthorizationViewControllerDelegate?
+    weak var delegate: CompletedAuthorizationViewControllerDelegate?
+    
+    // MARK: - IBOutlet
+    
+    @IBOutlet private var illustrationImageView: UIImageView!
     
     // MARK: - Life Circle
     
@@ -25,11 +29,14 @@ final class CompletedAuthorizationViewController: UIViewController {
         super.viewWillAppear(animated)
         
         navigationController?.navigationBar.isHidden = true
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        
+        illustrationImageView.gravitate()
     }
     
     // MARK: - IBAction
     
-    @IBAction private func clickContinue(_ sender: Any) {
+    @IBAction private func didTapContinue(_ sender: Any) {
         delegate?.completedAuthorizationViewControllerDone()
     }
 

@@ -26,13 +26,13 @@ class StackViewController: UIViewController {
     
     // MARK: - Initialization
     
-    public init() {
+    init() {
         super.init(nibName: nil, bundle: nil)
         
         setupStackView()
     }
     
-    public required init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -53,27 +53,26 @@ class StackViewController: UIViewController {
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
             stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
             stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0),
-            stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
-            stackView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor)
+            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
         ])
     }
     
     // MARK: - Public Methods
     
     /// Добавляет childViewController в stackView
-    public func addArrangedViewController(_ child: UIViewController) {
+    func addArrangedViewController(_ child: UIViewController) {
         arrangedViewControllers.append(child)
         add(child)
     }
     
     /// Добавляет childViewController в stackView с заданием высоты
-    public func addArrangedViewController(_ child: UIViewController, height: CGFloat) {
+    func addArrangedViewController(_ child: UIViewController, height: CGFloat) {
         arrangedViewControllers.append(child)
         add(child, height: height)
     }
     
     /// удаляет childViewController из stackView
-    public func removeArrangedViewController(_ child: UIViewController) {
+    func removeArrangedViewController(_ child: UIViewController) {
         guard let index = arrangedViewControllers.firstIndex(of: child)
         else { return }
         
@@ -82,12 +81,12 @@ class StackViewController: UIViewController {
     }
     
     /// Добавляет view в stackView
-    public func addArrangedSubview(_ view: UIView) {
+    func addArrangedSubview(_ view: UIView) {
         stackView.addArrangedSubview(view)
     }
     
     /// Добавляет view в stackView c заданием высоты view
-    public func addArrangedSubview(_ view: UIView, height: CGFloat) {
+    func addArrangedSubview(_ view: UIView, height: CGFloat) {
         view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([view.heightAnchor.constraint(equalToConstant: height)])
         stackView.addArrangedSubview(view)

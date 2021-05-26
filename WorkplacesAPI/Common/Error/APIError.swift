@@ -12,14 +12,14 @@ public struct APIError: Codable, Error {
 
     // MARK: - Public Properties
     
-    public let code: String
+    public let code: Code
     public let description: String?
     public let message: String?
 
     // MARK: - Initialization
     
     public init(
-        code: String,
+        code: Code,
         description: String? = nil,
         message: String? = nil
     ) {
@@ -27,6 +27,7 @@ public struct APIError: Codable, Error {
         self.description = description
         self.message = message
     }
+    
 }
 
 extension APIError: Equatable {}
@@ -36,6 +37,5 @@ extension APIError: Equatable {}
 extension APIError {
     
     /// Invalid Parameters Error
-    public static let parametersInvalid = APIError(code: "INVALID_PARAMETERS", message: "Paramenters invalid")
-
+    public static let parametersInvalid = APIError(code: .unknownError, message: "Paramenters invalid")
 }

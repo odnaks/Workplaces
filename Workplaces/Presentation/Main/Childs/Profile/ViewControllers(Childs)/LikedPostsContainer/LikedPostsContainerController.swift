@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol LikedPostsContainerControllerDelegate: class {
+protocol LikedPostsContainerControllerDelegate: AnyObject {
     
     /// метод, вызываемый при нажатии на кнопку "перейти к ленте"
     func likedPostsContainerControllerToHome()
@@ -18,7 +18,7 @@ final class LikedPostsContainerController: UIViewController {
     
     // MARK: - Public properties
     
-    public weak var delegate: LikedPostsContainerControllerDelegate?
+    weak var delegate: LikedPostsContainerControllerDelegate?
 
     // MARK: - Private Properties
     
@@ -45,7 +45,7 @@ final class LikedPostsContainerController: UIViewController {
     // MARK: - Public Methods
     
     /// Метод для конфигурации загруженных постов в таблицу
-    public func configure(with posts: [PostViewModel]) {
+    func configure(with posts: [PostViewModel]) {
         if !posts.isEmpty {
             self.posts = posts
             showListPosts()

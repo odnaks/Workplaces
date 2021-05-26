@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
+        
+        setNavigationBar()
         return true
     }
     
@@ -27,6 +29,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         options: UIScene.ConnectionOptions
     ) -> UISceneConfiguration {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+    }
+    
+    // MARK: - Private Methods
+    
+    private func setNavigationBar() {
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().tintColor = UIColor.grey
+        UINavigationBar.appearance().barTintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [
+            .foregroundColor: UIColor.black,
+            .font: UIFont.bodyLarge
+        ]
+        UINavigationBar.appearance().shadowImage = .imageWithColor(color: .lightGreyBlue)
     }
     
 }

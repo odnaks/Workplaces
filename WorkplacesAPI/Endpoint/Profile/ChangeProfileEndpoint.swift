@@ -5,6 +5,7 @@
 //  Created by Kseniya Lukoshkina on 26.04.2021.
 //
 
+import Alamofire
 import Apexy
 
 public struct ChangeProfileEndpoint: JsonEndpoint {
@@ -18,10 +19,15 @@ public struct ChangeProfileEndpoint: JsonEndpoint {
     }
     
     public func makeRequest() throws -> URLRequest {
-        let bodyData = try JSONEncoder.default.encode(profileChanging)
+        let multipartForm = MultipartFormData()
+        multipartForm.append(profileChanging.firstName?.data(using: .utf8) ?? Data(), withName: "first_name")
+        multipartForm.append(profileChanging.lastName?.data(using: .utf8) ?? Data(), withName: "last_name")
+        multipartForm.append(profileChanging.nickname?.data(using: .utf8) ?? Data(), withName: "nickname")
+        multipartForm.append(profileChanging.birthDay?.data(using: .utf8) ?? Data(), withName: "birth_day")
+        
         return patch(
             API.me,
-            body: HTTPBody.json(bodyData)
+            body: HTTPBody.multipart(try multipartForm.encode(), boundary: multipartForm.boundary)
         )
     }
 

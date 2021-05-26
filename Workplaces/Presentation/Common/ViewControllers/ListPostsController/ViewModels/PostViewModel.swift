@@ -7,26 +7,32 @@
 
 import Foundation
 
-public struct PostViewModel {
+struct PostViewModel {
     
     // MARK: - Public Properties
     
+    let id: String
     let text: String?
     let address: String?
     let photo: URL?
     let authorNickname: String?
+    let isLiked: Bool
     
     // MARK: - Initialization
     
-    public init(
+    init(
+        id: String,
         text: String?,
         address: String? = nil,
         photo: URL? = nil,
-        authorNickname: String? = nil
+        authorNickname: String? = nil,
+        isLiked: Bool = false
     ) {
+        self.id = id
         self.text = text
         self.address = address
         self.photo = photo
         self.authorNickname = authorNickname
+        self.isLiked = isLiked
     }
 }

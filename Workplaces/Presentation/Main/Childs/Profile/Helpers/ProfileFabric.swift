@@ -30,22 +30,22 @@ final class ProfileFabric {
     // MARK: - Public Methods
     
     /// Метод для получения ProfileCardViewController
-    public func getProfileCardViewController() -> ProfileCardViewController {
+    func getProfileCardViewController() -> ProfileCardViewController {
         return ProfileCardViewController()
     }
     
     /// Метод для получения MyPostsContainerController
-    public func getMyPostsContainerController() -> MyPostsContainerController {
+    func getMyPostsContainerController() -> MyPostsContainerController {
         return MyPostsContainerController(myPostsFabric: myPostsFabric)
     }
     
     /// Метод для получения LikedPostsContainerController
-    public func getLikedPostsContainerController() -> LikedPostsContainerController {
+    func getLikedPostsContainerController() -> LikedPostsContainerController {
         return LikedPostsContainerController(likedPostsFabric: likedPostsFabric)
     }
     
     /// Метод для полученияFriendsContainerController
-    public func getFriendsContainerController() -> FriendsContainerController {
+    func getFriendsContainerController() -> FriendsContainerController {
         return FriendsContainerController(friendsFabric: friendsFabric)
     }
 }

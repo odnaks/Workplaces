@@ -11,7 +11,7 @@ class XibView: UIView {
     
     // MARK: - IBOutlet
     
-    @IBOutlet private var contentView: UIView?
+    @IBOutlet private var contentView: UIView!
     
     // MARK: - Initialization
     
@@ -28,7 +28,6 @@ class XibView: UIView {
     func xibSetup() {
         let nibName = String(describing: type(of: self))
         Bundle.main.loadNibNamed(nibName, owner: self, options: nil)
-        guard let contentView = contentView else { return }
         contentView.frame = bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(contentView)

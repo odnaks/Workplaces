@@ -7,29 +7,79 @@
 
 import UIKit
 
-protocol RegistrationFirstViewControllerDelegate: class {
+protocol RegistrationFirstViewControllerDelegate: AnyObject {
     
     /// метод, вызываемый при нажатии на кнопку "логин"
     func registrationFirstViewControllerToLogin()
     
     /// метод, вызываемый при нажатии на кнопку "далее"
-    func registrationFirstViewControllerContinue()
+    func registrationFirstViewControllerContinue(with email: String, and password: String)
 }
 
 final class RegistrationFirstViewController: UIViewController {
     
+    // MARK: - IBOutlet
+    
+    @IBOutlet private var emailTextField: InputTextField!
+    @IBOutlet private var passwordTextField: InputTextField!
+    
     // MARK: - Public Properties
     
-    public weak var delegate: RegistrationFirstViewControllerDelegate?
+    weak var delegate: RegistrationFirstViewControllerDelegate?
     
+    // MARK: - Public methods
+    
+    /// Метод, вызываемый при получении с сервера ошибки о валидации email
+    func showEmailError() {
+        emailTextField.status = .withError
+    }
+    
+    /// Метод, вызываемый при получении с сервера ошибки о валидации пароля
+    func showPasswordError() {
+        passwordTextField.status = .withError
+    }
+    
+    /// Метод, вызываемый при получении с сервера ошибки
+    func showError() {
+        showEmailError()
+        showPasswordError()
+    }
+    
+    // MARK: - Life Circle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.layoutMargins = .standart
+        setupBackNavItem(with: "Регистрация")
+        setupKeyboardObservers()
+        
+        setupTextFields()
+    }
+    
+    // MARK: - Private methods
+    
+    private func setupTextFields() {
+        emailTextField.textContentType = .emailAddress
+        passwordTextField.textContentType = .password
+        passwordTextField.isSecureTextEntry = true
+    }
+
     // MARK: - IBAction
     
-    @IBAction private func clickLogin(_ sender: Any) {
+    @IBAction private func didTapLogin(_ sender: Any) {
         delegate?.registrationFirstViewControllerToLogin()
     }
     
-    @IBAction private func clickContinue(_ sender: Any) {
-        delegate?.registrationFirstViewControllerContinue()
+    @IBAction private func didTapContinue(_ sender: Any) {
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text
+        else {
+              showError()
+              return
+        }
+        
+        delegate?.registrationFirstViewControllerContinue(with: email, and: password)
     }
     
 }

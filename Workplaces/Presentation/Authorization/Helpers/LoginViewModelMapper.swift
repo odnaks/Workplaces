@@ -10,7 +10,7 @@ import WorkplacesAPI
 extension LoginViewModel {
     
     /// Метод для маппинга данных из LoginViewModel в UserCredentials
-    public static func mapToUserCredentials(from data: LoginViewModel) -> UserCredentials {
+    static func mapToUserCredentials(from data: LoginViewModel) -> UserCredentials {
         return UserCredentials(
             email: data.email,
             password: data.password

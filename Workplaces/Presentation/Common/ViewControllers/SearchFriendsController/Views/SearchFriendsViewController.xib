@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchFriendsViewController" customModule="Workplaces" customModuleProvider="target">
+            <connections>
+                <outlet property="searchBar" destination="ixY-Du-Yoc" id="JxR-zu-oDi"/>
+                <outlet property="tableView" destination="eT1-aw-6zT" id="HJ8-2Y-VUv"/>
+                <outlet property="view" destination="iN0-l3-epB" id="YeG-E0-QEB"/>
+                <outlet property="voidLabel" destination="49v-DW-3iO" id="hhw-nF-xBo"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ixY-Du-Yoc" customClass="SearchBar" customModule="Workplaces" customModuleProvider="target">
+                    <rect key="frame" x="16" y="68" width="382" height="56"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eT1-aw-6zT">
+                    <rect key="frame" x="20" y="144" width="374" height="752"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Начните вводить имя или никнейм вашего друга" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="49v-DW-3iO" customClass="BodyLargeLabel" customModule="Workplaces" customModuleProvider="target">
+                    <rect key="frame" x="50" y="156" width="314" height="41"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="eT1-aw-6zT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="6ft-oq-CtH"/>
+                <constraint firstItem="ixY-Du-Yoc" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="24" id="DKi-Dn-gpx"/>
+                <constraint firstItem="ixY-Du-Yoc" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" constant="4" id="Dm9-pY-tcN"/>
+                <constraint firstItem="eT1-aw-6zT" firstAttribute="top" secondItem="ixY-Du-Yoc" secondAttribute="bottom" constant="20" id="HaX-FN-rlq"/>
+                <constraint firstAttribute="leadingMargin" secondItem="ixY-Du-Yoc" secondAttribute="leading" constant="4" id="Qyw-jr-IXl"/>
+                <constraint firstItem="49v-DW-3iO" firstAttribute="top" secondItem="ixY-Du-Yoc" secondAttribute="bottom" constant="32" id="VqF-l1-egL"/>
+                <constraint firstItem="49v-DW-3iO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" constant="30" id="Ziy-rB-i6R"/>
+                <constraint firstAttribute="bottom" secondItem="eT1-aw-6zT" secondAttribute="bottom" id="iCs-SX-Xgu"/>
+                <constraint firstAttribute="trailingMargin" secondItem="49v-DW-3iO" secondAttribute="trailing" constant="30" id="qhT-MP-tIa"/>
+                <constraint firstAttribute="trailingMargin" secondItem="eT1-aw-6zT" secondAttribute="trailing" id="yXJ-AQ-Dba"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="101.78571428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

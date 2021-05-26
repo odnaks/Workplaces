@@ -8,43 +8,49 @@
 import UIKit
 
 enum ZeroControllerType {
-    case errorController
-    case voidController
+    case error
+    case void
 }
 
-protocol ZeroViewControllerDelegate: class {
+protocol ZeroViewControllerDelegate: AnyObject {
     /// метод, вызываемый при нажатии на кнопку на странице
     func zeroViewController()
 }
 
 final class ZeroViewController: UIViewController {
     
-    // MARK: - IBOutlet
-    
-    @IBOutlet private weak var illustrationView: UIImageView?
-    @IBOutlet private weak var titleLabel: UILabel?
-    @IBOutlet private weak var subtitleLabel: UILabel?
-    @IBOutlet private weak var actionButton: UIButton?
-    
     // MARK: - Public Properties
     
-    public weak var delegate: ZeroViewControllerDelegate?
+    weak var delegate: ZeroViewControllerDelegate?
+    
+    // MARK: - IBOutlet
+    
+    @IBOutlet private var stackView: UIStackView!
+    @IBOutlet private var illustrationView: UIImageView!
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var subtitleLabel: UILabel!
+    @IBOutlet private var actionButton: UIButton!
     
     // MARK: - Private Properties
     
     private let zeroControllerType: ZeroControllerType
-    
-    private var titleText: String?
-    private var subtitleText: String?
-    private var buttonText: String?
-    private var illustrationImage: UIImage?
+    private let titleText: String
+    private let subtitleText: String
+    private let buttonText: String
     
     // MARK: - Initialization
 
     init(
-        zeroControllerType: ZeroControllerType = .voidController
+        zeroControllerType: ZeroControllerType = .void,
+        titleText: String = "Упс...",
+        subtitleText: String = "Что-то пошло не так",
+        buttonText: String = "Обновить"
     ) {
         self.zeroControllerType = zeroControllerType
+        self.titleText = titleText
+        self.subtitleText = subtitleText
+        self.buttonText = buttonText
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -54,6 +60,13 @@ final class ZeroViewController: UIViewController {
     
     // MARK: - Life Circle
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.layoutMargins = .zeroScreen
+        setupUI()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -61,43 +74,25 @@ final class ZeroViewController: UIViewController {
         setupUI()
     }
     
-    // MARK: - Public Methods
-    
-    /// метод для конфигурации зеро скрин контроллера.
-    /// дает возможность изменить заголовок, подзаголовок и подпись кнопки
-    public func configure(
-        title: String,
-        subtitle: String? = nil,
-        actionButtonTitle: String,
-        image: UIImage? = nil
-    ) {
-        titleText = title
-        subtitleText = subtitle
-        buttonText = actionButtonTitle
-        illustrationImage = image
-    }
-    
     // MARK: - IBAction
     
-    @IBAction private func clickButton(_ sender: Any) {
+    @IBAction private func didTapButton(_ sender: Any) {
         delegate?.zeroViewController()
     }
     
     // MARK: - Private methods
     
     private func setupUI() {
-        switch zeroControllerType {
-        case .errorController:
-            illustrationView?.image = illustrationImage ?? .errorDoodle
-            titleLabel?.text = titleText ?? "Упс..."
-            subtitleLabel?.text = subtitleText ?? "Что-то пошло не так"
-            actionButton?.setTitle(buttonText ?? "Обновить", for: .normal)
-        case .voidController:
-            illustrationView?.image = illustrationImage ?? .voidDoodle
-            titleLabel?.text = titleText ?? "Пустота"
-            subtitleLabel?.text = subtitleText ?? "Здесь ничего нет"
-            actionButton?.setTitle(buttonText ?? "Создать", for: .normal)
-        }
+        illustrationView.image = zeroControllerType == .error ? .errorDoodle : .voidDoodle
+        titleLabel.text = titleText
+        subtitleLabel.text = subtitleText
+        actionButton.setTitle(buttonText, for: .normal)
+        setupStackSpacings()
+    }
+    
+    private func setupStackSpacings() {
+        stackView.setCustomSpacing(8.0, after: titleLabel)
+        stackView.setCustomSpacing(24.0, after: subtitleLabel)
     }
 
 }

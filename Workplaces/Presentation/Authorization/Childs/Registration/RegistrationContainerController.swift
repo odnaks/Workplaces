@@ -7,25 +7,26 @@
 
 import UIKit
 
-protocol RegistrationContainerControllerDelegate: class {
+protocol RegistrationContainerControllerDelegate: AnyObject {
     
     /// метод, вызываемый при нажатии на кнопку "логин"
     func registrationContainerControllerToLogin()
     
     /// метод, вызываемый при нажатии на кнопку "регистрация"
-    func registrationContainerControllerRegistration()
+    func registrationContainerControllerRegistration(with model: RegistrationViewModel)
 }
 
 final class RegistrationContainerController: UIViewController {
     
     // MARK: - Public Properties
     
-    public weak var delegate: RegistrationContainerControllerDelegate?
+    weak var delegate: RegistrationContainerControllerDelegate?
     
     // MARK: - Private Properties
     
     private let registrationFirstViewController: RegistrationFirstViewController
     private let registrationSecondViewController: RegistrationSecondViewController
+    private var registrationViewModel: RegistrationViewModel?
     
     // MARK: - Initialization
     
@@ -42,6 +43,26 @@ final class RegistrationContainerController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Public methods
+    
+    /// Метод, вызываемый при получении с сервера ошибки о валидации email
+    func showEmailError() {
+        routeToFirst()
+        registrationFirstViewController.showEmailError()
+    }
+    
+    /// Метод, вызываемый при получении с сервера ошибки о валидации пароля
+    func showPasswordError() {
+        routeToFirst()
+        registrationFirstViewController.showPasswordError()
+    }
+    
+    /// Метод, вызываемый при получении с сервера ошибки
+    func showError() {
+        routeToFirst()
+        registrationFirstViewController.showError()
+    }
+    
     // MARK: - Life Circle
     
     override func viewDidLoad() {
@@ -49,6 +70,7 @@ final class RegistrationContainerController: UIViewController {
         
         setupChilds()
         showFirst()
+        setupBackNavItem(with: "Регистрация")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,25 +93,41 @@ final class RegistrationContainerController: UIViewController {
     private func routeToSecond() {
         navigationController?.pushViewController(registrationSecondViewController, animated: true)
     }
+    
+    private func routeToFirst() {
+        navigationController?.popViewController(animated: true)
+    }
 
 }
 
 // MARK: - RegistrationFirstViewControllerDelegate
 
 extension RegistrationContainerController: RegistrationFirstViewControllerDelegate {
-    func registrationFirstViewControllerToLogin() {
-        delegate?.registrationContainerControllerToLogin()
+    func registrationFirstViewControllerContinue(with email: String, and password: String) {
+        registrationViewModel = RegistrationViewModel(email: email, password: password)
+        routeToSecond()
     }
     
-    func registrationFirstViewControllerContinue() {
-        routeToSecond()
+    func registrationFirstViewControllerToLogin() {
+        delegate?.registrationContainerControllerToLogin()
     }
 }
 
 // MARK: - RegistrationSecondViewControllerDelegate
 
 extension RegistrationContainerController: RegistrationSecondViewControllerDelegate {
-    func registrationSecondViewControllerRegistration() {
-        delegate?.registrationContainerControllerRegistration()
+    func registrationSecondViewControllerRegistration(
+        nickName: String?,
+        firstName: String?,
+        lastName: String?,
+        birthday: Date?
+    ) {
+        guard var model = registrationViewModel else { return }
+        model.nickName = nickName
+        model.firstName = firstName
+        model.lastName = lastName
+        model.birthday = birthday
+        
+        delegate?.registrationContainerControllerRegistration(with: model)
     }
 }

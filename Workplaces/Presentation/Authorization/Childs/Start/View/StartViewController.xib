@@ -21,68 +21,72 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lovingDoodle" translatesAutoresizingMaskIntoConstraints="NO" id="qfV-OM-YLK">
-                    <rect key="frame" x="107" y="144" width="200" height="200"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="qfV-OM-YLK" secondAttribute="height" multiplier="1:1" id="POM-bL-zDv"/>
-                        <constraint firstAttribute="width" constant="200" id="v0p-dr-8sX"/>
-                    </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workplaces" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GgM-3i-UdJ" customClass="TitleLabel" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="136" y="344" width="142" height="33.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Найди своё место" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x31-sM-Vks" customClass="BodyLargeLabel" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="139" y="385.5" width="136.5" height="19"/>
-                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SGA-I6-lwD" customClass="BaseButton" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="16" y="484.5" width="382" height="56"/>
-                    <color key="backgroundColor" name="orange"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="56" id="hth-Wb-Hf4"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
-                    <state key="normal" title="Войти по почте или логину">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                    <connections>
-                        <action selector="clickLogin:" destination="-1" eventType="touchUpInside" id="Ryj-lQ-5Iy"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIX-2s-ejN" customClass="LightButton" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="16" y="560.5" width="382" height="56"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="56" id="UkS-IJ-BP2"/>
-                    </constraints>
-                    <state key="normal" title="Регистрация по почте"/>
-                    <connections>
-                        <action selector="clickRegistration:" destination="-1" eventType="touchUpInside" id="1Cu-yG-0vA"/>
-                    </connections>
-                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="St9-S3-gmh">
+                    <rect key="frame" x="88" y="144" width="238" height="306.5"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lovingDoodle" translatesAutoresizingMaskIntoConstraints="NO" id="qfV-OM-YLK">
+                            <rect key="frame" x="0.0" y="0.0" width="238" height="238"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="qfV-OM-YLK" secondAttribute="height" multiplier="1:1" id="POM-bL-zDv"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workplaces" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GgM-3i-UdJ" customClass="TitleLabel" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="246" width="238" height="33.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Найди своё место" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x31-sM-Vks" customClass="BodyLargeLabel" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="287.5" width="238" height="19"/>
+                            <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ECT-aL-RB1">
+                    <rect key="frame" x="20" y="610" width="374" height="132"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SGA-I6-lwD" customClass="BaseButton" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="56"/>
+                            <color key="backgroundColor" name="orange"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="56" id="hth-Wb-Hf4"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
+                            <state key="normal" title="Войти по почте или логину">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="didTapLogin:" destination="-1" eventType="touchUpInside" id="Ryj-lQ-5Iy"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIX-2s-ejN" customClass="LightButton" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="76" width="374" height="56"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="56" id="UkS-IJ-BP2"/>
+                            </constraints>
+                            <state key="normal" title="Регистрация по почте"/>
+                            <connections>
+                                <action selector="didTapRegistration:" destination="-1" eventType="touchUpInside" id="1Cu-yG-0vA"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="aIX-2s-ejN" firstAttribute="trailing" secondItem="SGA-I6-lwD" secondAttribute="trailing" id="6GP-zp-Kpq"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="SGA-I6-lwD" secondAttribute="trailing" constant="16" id="ELW-og-2Ka"/>
-                <constraint firstItem="SGA-I6-lwD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="EWR-r0-LGk"/>
-                <constraint firstItem="aIX-2s-ejN" firstAttribute="top" secondItem="SGA-I6-lwD" secondAttribute="bottom" constant="20" id="GVJ-w5-IGb"/>
-                <constraint firstItem="aIX-2s-ejN" firstAttribute="leading" secondItem="SGA-I6-lwD" secondAttribute="leading" id="Jjv-FH-2z1"/>
-                <constraint firstItem="qfV-OM-YLK" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="KOJ-x6-UZb"/>
-                <constraint firstItem="GgM-3i-UdJ" firstAttribute="top" secondItem="qfV-OM-YLK" secondAttribute="bottom" id="Ksd-up-Tw2"/>
-                <constraint firstItem="x31-sM-Vks" firstAttribute="top" secondItem="GgM-3i-UdJ" secondAttribute="bottom" constant="8" id="MUD-63-SM5"/>
-                <constraint firstItem="GgM-3i-UdJ" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="VfE-VB-SKT"/>
-                <constraint firstItem="x31-sM-Vks" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="hPj-og-i2v"/>
-                <constraint firstItem="qfV-OM-YLK" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="100" id="j32-pl-b1z"/>
-                <constraint firstItem="SGA-I6-lwD" firstAttribute="top" secondItem="x31-sM-Vks" secondAttribute="bottom" constant="80" id="jcb-UZ-sIl"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="St9-S3-gmh" secondAttribute="trailing" constant="88" id="D60-Gc-tgD"/>
+                <constraint firstAttribute="trailingMargin" secondItem="ECT-aL-RB1" secondAttribute="trailing" id="cQ3-cf-nhc"/>
+                <constraint firstItem="St9-S3-gmh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="88" id="fl7-Qi-iDx"/>
+                <constraint firstItem="ECT-aL-RB1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="ky5-uQ-euk"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ECT-aL-RB1" secondAttribute="bottom" priority="999" constant="120" id="lZu-1n-sr6"/>
+                <constraint firstItem="St9-S3-gmh" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="100" id="qc6-Y0-GrR"/>
+                <constraint firstItem="ECT-aL-RB1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="St9-S3-gmh" secondAttribute="bottom" constant="20" id="utn-Yd-ovf"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="75.669642857142847"/>
         </view>

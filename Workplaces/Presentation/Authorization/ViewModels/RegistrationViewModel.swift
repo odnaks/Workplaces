@@ -7,32 +7,24 @@
 
 import UIKit
 
-public struct RegistrationViewModel {
+struct RegistrationViewModel {
     
     // MARK: - Public Properties
     
     let email: String
     let password: String
-    let nickName: String?
-    let firstName: String?
-    let lastName: String?
-    let date: Date?
+    var nickName: String?
+    var firstName: String?
+    var lastName: String?
+    var birthday: Date?
     
     // MARK: - Initialization
     
-    public init(
+    init(
         email: String,
-        password: String,
-        nickName: String? = nil,
-        firstName: String? = nil,
-        lastName: String? = nil,
-        date: Date? = nil
+        password: String
     ) {
         self.email = email
         self.password = password
-        self.nickName = nickName
-        self.firstName = firstName
-        self.lastName = lastName
-        self.date = date
     }
 }

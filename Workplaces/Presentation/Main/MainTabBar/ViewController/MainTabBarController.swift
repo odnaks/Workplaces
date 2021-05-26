@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol MainTabBarControllerDelegate: class {
+protocol MainTabBarControllerDelegate: AnyObject {
     
     /// метод, вызываемый при нажатии на кнопку нового поста
     func mainTabBarControllerNewPost()
@@ -17,7 +17,7 @@ final class MainTabBarController: UITabBarController {
     
     // MARK: - Public Properties
     
-    public weak var mainTabBarDelegate: MainTabBarControllerDelegate?
+    weak var mainTabBarDelegate: MainTabBarControllerDelegate?
     
     // MARK: - Private Properties
     
@@ -26,12 +26,12 @@ final class MainTabBarController: UITabBarController {
     // MARK: - Public Methods
     
     /// Метод для конфигурации контроллеров в MainTabBarController
-    public func setup(_ viewControllers: [UIViewController]) {
+    func setup(_ viewControllers: [UIViewController]) {
         self.viewControllers = viewControllers
     }
     
     /// Метод для форс смены таба на хоум
-    public func switchToHome() {
+    func switchToHome() {
         customTabBar?.switchToHome()
     }
     

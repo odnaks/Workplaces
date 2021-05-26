@@ -15,7 +15,7 @@ protocol AuthorizationServiceProtocol {
     /// Token и сообщение об ошибке
     func login(
         with userCredentials: UserCredentials,
-        completion: @escaping (Result<Token, Error>) -> Void
+        completion: @escaping (Result<Token, AuthorizationError>) -> Void
     ) -> Progress
     
     /// Метод для проверки: авторизизован ли пользователь.
@@ -28,7 +28,7 @@ protocol AuthorizationServiceProtocol {
     /// Token и сообщение об ошибке
     func registration(
         with userCredentials: UserCredentials,
-        completion: @escaping (Result<Token, Error>) -> Void
+        completion: @escaping (Result<Token, AuthorizationError>) -> Void
     ) -> Progress
     
     /// Метод для отправки post запроса с bearer-кодом в header

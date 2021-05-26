@@ -12,27 +12,24 @@ final class LikedPostsFabric {
     // MARK: - Private Properties
     
     private let zeroFabric: ZeroFabric
-    private let listPostsFabric: ListPostsFabric
     
     // MARK: - Initialization
     
     init(
-        zeroFabric: ZeroFabric,
-        listPostsFabric: ListPostsFabric
+        zeroFabric: ZeroFabric
     ) {
         self.zeroFabric = zeroFabric
-        self.listPostsFabric = listPostsFabric
     }
     
     // MARK: - Public Methods
     
     /// Метод для получения LikedPostsViewController
-    public func getLikedPostsViewController() -> ListPostsViewController {
-        return listPostsFabric.getListPostsController(from: .myLiked)
+    func getLikedPostsViewController() -> ListPostsViewController {
+        return ListPostsViewController(listPostsType: .myLiked)
     }
     
     /// Метод для получения LikedPostsVoidController
-    public func getLikedPostsVoidController() -> ZeroViewController {
+    func getLikedPostsVoidController() -> ZeroViewController {
         return zeroFabric.getLikedPostsVoidController()
     }
     

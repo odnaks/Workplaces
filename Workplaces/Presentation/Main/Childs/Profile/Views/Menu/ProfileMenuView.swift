@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ProfileMenuDelegate: class {
+protocol ProfileMenuDelegate: AnyObject {
     /// метод, вызываемый при изменения раздела меню.
     /// принимает newState - порядковый номер выбранного раздела
     func profileMenu(newState: Int)
@@ -17,20 +17,20 @@ final class ProfileMenuView: XibView {
     
     // MARK: - Public Properties
     
-    public weak var delegate: ProfileMenuDelegate?
+    weak var delegate: ProfileMenuDelegate?
     
     // MARK: - Private Properties
     
-    @IBOutlet private weak var bgView: UIView?
-    @IBOutlet private var buttons: [UIButton]?
+    @IBOutlet private var bgView: UIView!
+    @IBOutlet private var buttons: [UIButton]!
     
     private var currentState: Int = 0
     
     // MARK: - Initialization
     
     override func commonInit() {
-        bgView?.layer.cornerRadius = 20
-        bgView?.layer.masksToBounds = true
+        bgView.layer.cornerRadius = 20
+        bgView.layer.masksToBounds = true
         
         updateButtonsState()
         delegate?.profileMenu(newState: currentState)
@@ -39,8 +39,6 @@ final class ProfileMenuView: XibView {
     // MARK: - Private Methods
     
     private func updateButtonsState() {
-        guard let buttons = buttons else { return }
-        
         for button in buttons {
             if button.tag == currentState {
                 button.isSelected = true
@@ -52,7 +50,7 @@ final class ProfileMenuView: XibView {
     
     // MARK: - IBAction
     
-    @IBAction private func clickButton(_ sender: UIButton) {
+    @IBAction private func didTapMenuButton(_ sender: UIButton) {
         currentState = sender.tag
         updateButtonsState()
         

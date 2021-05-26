@@ -7,7 +7,7 @@
 
 import UIKit
 
-public struct ProfileViewModel {
+struct ProfileViewModel {
     
     // MARK: - Public Properties
     
@@ -17,7 +17,7 @@ public struct ProfileViewModel {
     
     // MARK: - Initialization
     
-    public init(
+    init(
         name: String,
         years: Int? = nil,
         photo: URL? = nil

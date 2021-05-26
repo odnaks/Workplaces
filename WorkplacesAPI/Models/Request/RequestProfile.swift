@@ -14,14 +14,14 @@ public struct RequestProfile: Encodable {
     public let firstName: String?
     public let lastName: String?
     public let nickname: String?
-    public let avatarFile: Data?
+    public let avatarFile: String?
     public let birthDay: String?
     
     public init(
         firstName: String? = nil,
         lastName: String? = nil,
         nickname: String? = nil,
-        avatarFile: Data? = nil,
+        avatarFile: String? = nil,
         birthDay: String? = nil
     ) {
         self.firstName = firstName

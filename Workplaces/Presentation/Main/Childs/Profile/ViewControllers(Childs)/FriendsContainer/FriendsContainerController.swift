@@ -36,7 +36,7 @@ final class FriendsContainerController: UIViewController {
     // MARK: - Public Methods
     
     /// Метод для конфигурации загруженных постов в таблицу
-    public func configure(with friends: [FriendViewModel]) {
+    func configure(with friends: [FriendViewModel]) {
         if !friends.isEmpty {
             self.friends = friends
             showListFriends()

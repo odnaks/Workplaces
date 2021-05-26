@@ -27,26 +27,26 @@ final class MainFabric {
     // MARK: - Public Methods
     
     /// Метод для получения MainTabBarController
-    public func getMainTabBarController() -> MainTabBarController {
+    func getMainTabBarController() -> MainTabBarController {
         return MainTabBarController()
     }
     
     /// Метод для получения HomeCoordinatingController
-    public func getHomeCoordinatingController() -> HomeCoordinatingController {
+    func getHomeCoordinatingController() -> HomeCoordinatingController {
         return HomeCoordinatingController(
             homeFabric: homeFabric
         )
     }
     
     /// Метод для получения ProfileCoordinatingController
-    public func getProfileCoordinatingController() -> ProfileCoordinatingController {
+    func getProfileCoordinatingController() -> ProfileCoordinatingController {
         return ProfileCoordinatingController(
             profileFabric: profileFabric
         )
     }
     
     /// Метод для получения NewPostViewController
-    public func getNewPostViewController() -> NewPostViewController {
+    func getNewPostViewController() -> NewPostViewController {
         return NewPostViewController()
     }
     

@@ -13,7 +13,7 @@ private enum ProfileState: Int {
     case friends
 }
 
-protocol ProfileCoordinatingControllerDelegate: class {
+protocol ProfileCoordinatingControllerDelegate: AnyObject {
     
     /// метод, вызываемый при логауте
     func profileCoordinatingControllerLogout()
@@ -26,7 +26,7 @@ final class ProfileCoordinatingController: StackViewController {
     
     // MARK: - Public Properties
     
-    public weak var delegate: ProfileCoordinatingControllerDelegate?
+    weak var delegate: ProfileCoordinatingControllerDelegate?
     
     // MARK: - Private Properties
     
@@ -65,8 +65,13 @@ final class ProfileCoordinatingController: StackViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadData()
         setupStack()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        loadData()
     }
     
     // MARK: - Private Methods

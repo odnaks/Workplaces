@@ -7,13 +7,34 @@
 
 import UIKit
 
+protocol HomeVoidContainerControllerDelegate: AnyObject {
+    
+    /// метод, вызываемый, когда пользователь пишет текст в поисковой строке
+    func homeVoidContainerController(_ searchText: String)
+    
+    /// метод, вызываемый, когда пользователь нажал кнопку добавления друга
+    func homeVoidContainerControllerAddFriend(_ friendID: String)
+}
+
 final class HomeVoidContainerController: UIViewController {
+    
+    // MARK: - Public Properties
+    
+    weak var delegate: HomeVoidContainerControllerDelegate?
     
     // MARK: - Private Properties
     
     private let homeVoidNavigationController: UINavigationController
     private let voidController: ZeroViewController
     private let searchViewController: SearchFriendsViewController
+    
+    // MARK: - Public Methods
+    
+    /// Метод, вызываемый после загрузки списка юзеров при поиске.
+    /// `Users` - передаваемый параметр, создержащий юзеров для отображения
+    func updateUsersList(_ users: [FriendViewModel]) {
+        searchViewController.updateUsersList(users)
+    }
     
     // MARK: - Initialization
     
@@ -50,6 +71,7 @@ final class HomeVoidContainerController: UIViewController {
     }
     
     private func showSearchFriendsController() {
+        searchViewController.delegate = self
         homeVoidNavigationController.pushViewController(searchViewController, animated: true)
     }
 
@@ -60,5 +82,17 @@ final class HomeVoidContainerController: UIViewController {
 extension HomeVoidContainerController: ZeroViewControllerDelegate {
     func zeroViewController() {
         showSearchFriendsController()
+    }
+}
+
+// MARK: - SearchFriendsViewControllerDelegate
+
+extension HomeVoidContainerController: SearchFriendsViewControllerDelegate {
+    func searchFriendsViewControllerAddFriend(_ friendID: String) {
+        delegate?.homeVoidContainerControllerAddFriend(friendID)
+    }
+    
+    func searchFriendsViewController(_ searchText: String) {
+        delegate?.homeVoidContainerController(searchText)
     }
 }
