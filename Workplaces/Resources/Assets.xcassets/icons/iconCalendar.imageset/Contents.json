@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "iconCalendar@1x.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "iconCalendar@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "iconCalendar@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "iconCalendar.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

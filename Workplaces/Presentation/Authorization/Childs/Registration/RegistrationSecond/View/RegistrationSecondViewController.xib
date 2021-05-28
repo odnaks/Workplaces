@@ -12,10 +12,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegistrationSecondViewController" customModule="Workplaces" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="ArF-uy-u6C" id="WpQ-Ln-gfm"/>
                 <outlet property="dateTextField" destination="3cB-Bn-Kyt" id="dlf-Ir-a7c"/>
                 <outlet property="lastNameTextField" destination="9yQ-3c-E8e" id="aQV-4a-1uJ"/>
                 <outlet property="nameTextField" destination="6r5-ff-c9R" id="n7w-12-nlG"/>
                 <outlet property="nickNameTextField" destination="ieB-kP-M8T" id="UYp-YT-xcd"/>
+                <outlet property="registrationButton" destination="fdq-VA-4N8" id="pnB-Rz-hEb"/>
                 <outlet property="view" destination="Kmi-eD-1vL" id="Pa3-Co-0W3"/>
             </connections>
         </placeholder>
@@ -44,7 +46,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xBD-37-YbX">
                     <rect key="frame" x="20" y="98" width="374" height="252"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Никнейм" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ieB-kP-M8T" customClass="InputTextField" customModule="Workplaces" customModuleProvider="target">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Никнейм" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ieB-kP-M8T" customClass="TextFieldWithCleanButton" customModule="Workplaces" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="48" id="RzW-FM-Fv0"/>
@@ -52,7 +54,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Имя" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6r5-ff-c9R" customClass="InputTextField" customModule="Workplaces" customModuleProvider="target">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Имя" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6r5-ff-c9R" customClass="TextFieldWithCleanButton" customModule="Workplaces" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="68" width="374" height="48"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="48" id="rom-Xw-zXY"/>
@@ -60,7 +62,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Фамилия" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9yQ-3c-E8e" customClass="InputTextField" customModule="Workplaces" customModuleProvider="target">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Фамилия" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9yQ-3c-E8e" customClass="TextFieldWithCleanButton" customModule="Workplaces" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="136" width="374" height="48"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="48" id="Mmx-Cw-51d"/>
@@ -68,7 +70,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Дата рождения" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3cB-Bn-Kyt" customClass="InputDateField" customModule="Workplaces" customModuleProvider="target">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Дата рождения" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3cB-Bn-Kyt" customClass="DateField" customModule="Workplaces" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="204" width="374" height="48"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="48" id="UEE-2x-G8c"/>
@@ -88,6 +90,9 @@
                         <action selector="didTapRegistration:" destination="-1" eventType="touchUpInside" id="Xzh-DS-c8q"/>
                     </connections>
                 </button>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ArF-uy-u6C">
+                    <rect key="frame" x="197" y="443" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="C6F-O9-CSy"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -100,6 +105,8 @@
                 <constraint firstItem="C6F-O9-CSy" firstAttribute="leading" secondItem="WuE-SC-wpM" secondAttribute="leading" id="JyC-kY-NxT"/>
                 <constraint firstItem="xBD-37-YbX" firstAttribute="top" secondItem="DVN-Lp-JZk" secondAttribute="bottom" constant="50" id="UnQ-Md-pwT"/>
                 <constraint firstItem="C6F-O9-CSy" firstAttribute="bottom" secondItem="fdq-VA-4N8" secondAttribute="bottom" constant="16" id="dt9-SI-tZD"/>
+                <constraint firstItem="ArF-uy-u6C" firstAttribute="centerY" secondItem="C6F-O9-CSy" secondAttribute="centerY" id="eX1-e0-Eeb"/>
+                <constraint firstItem="ArF-uy-u6C" firstAttribute="centerX" secondItem="C6F-O9-CSy" secondAttribute="centerX" id="f88-C7-4hN"/>
                 <constraint firstAttribute="trailingMargin" secondItem="xBD-37-YbX" secondAttribute="trailing" id="fVw-4p-ZHk"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="109.82142857142857"/>

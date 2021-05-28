@@ -20,8 +20,9 @@ final class RegistrationFirstViewController: UIViewController {
     
     // MARK: - IBOutlet
     
-    @IBOutlet private var emailTextField: InputTextField!
-    @IBOutlet private var passwordTextField: InputTextField!
+    @IBOutlet private var emailTextField: TextFieldWithCleanButton!
+    @IBOutlet private var passwordTextField: TextFieldWithCleanButton!
+    @IBOutlet private var continueButton: BaseButton!
     
     // MARK: - Public Properties
     
@@ -55,6 +56,7 @@ final class RegistrationFirstViewController: UIViewController {
         setupKeyboardObservers()
         
         setupTextFields()
+        continueButton.isEnabled = false
     }
     
     // MARK: - Private methods
@@ -66,6 +68,16 @@ final class RegistrationFirstViewController: UIViewController {
     }
 
     // MARK: - IBAction
+    
+    @IBAction private func textFieldEditingChanged(_ sender: Any) {
+        let emailIsEmpty = emailTextField.text?.isEmpty ?? true
+        let passwordIsEmpty = passwordTextField.text?.isEmpty ?? true
+        if !emailIsEmpty && !passwordIsEmpty {
+            continueButton.isEnabled = true
+        } else {
+            continueButton.isEnabled = false
+        }
+    }
     
     @IBAction private func didTapLogin(_ sender: Any) {
         delegate?.registrationFirstViewControllerToLogin()

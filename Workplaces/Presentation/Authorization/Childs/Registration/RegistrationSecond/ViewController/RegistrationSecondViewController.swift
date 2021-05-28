@@ -25,10 +25,12 @@ final class RegistrationSecondViewController: UIViewController {
     
     // MARK: - IBOutlet
     
-    @IBOutlet private var nickNameTextField: InputTextField!
-    @IBOutlet private var nameTextField: InputTextField!
-    @IBOutlet private var lastNameTextField: InputTextField!
-    @IBOutlet private var dateTextField: InputDateField!
+    @IBOutlet private var nickNameTextField: TextFieldWithCleanButton!
+    @IBOutlet private var nameTextField: TextFieldWithCleanButton!
+    @IBOutlet private var lastNameTextField: TextFieldWithCleanButton!
+    @IBOutlet private var dateTextField: DateField!
+    @IBOutlet private var registrationButton: BaseButton!
+    @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Life Circle
     
@@ -41,9 +43,16 @@ final class RegistrationSecondViewController: UIViewController {
         setupTextFields()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        stopLoading()
+    }
+    
     // MARK: - IBAction
     
     @IBAction private func didTapRegistration(_ sender: Any) {
+        startLoading()
         delegate?.registrationSecondViewControllerRegistration(
             nickName: nickNameTextField.text,
             firstName: nameTextField.text,
@@ -57,6 +66,16 @@ final class RegistrationSecondViewController: UIViewController {
     private func setupTextFields() {
         nameTextField.textContentType = .name
         lastNameTextField.textContentType = .familyName
+    }
+    
+    private func startLoading() {
+        activityIndicator?.startAnimating()
+        registrationButton.isEnabled = false
+    }
+    
+    private func stopLoading() {
+        activityIndicator?.stopAnimating()
+        registrationButton.isEnabled = true
     }
     
 }

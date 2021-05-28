@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="ageTitleLabel" destination="Iwo-V8-j0F" id="zfU-ro-HRh"/>
                 <outlet property="bgView" destination="TGw-WI-mGU" id="Egi-Dx-Ho6"/>
+                <outlet property="editButton" destination="x0t-EU-IWp" id="g1f-Qt-ihG"/>
                 <outlet property="nameTitleLabel" destination="dIx-cI-dGL" id="daE-zt-w17"/>
                 <outlet property="profileContainerView" destination="Lct-Zf-fQi" id="wkJ-Ri-ckG"/>
                 <outlet property="profileImageView" destination="njn-TY-c36" id="HBG-oa-ZhX"/>

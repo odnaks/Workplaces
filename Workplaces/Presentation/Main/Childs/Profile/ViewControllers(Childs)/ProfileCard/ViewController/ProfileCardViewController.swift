@@ -34,6 +34,8 @@ final class ProfileCardViewController: UIViewController {
     @IBOutlet private var nameTitleLabel: UILabel!
     @IBOutlet private var ageTitleLabel: UILabel!
     
+    @IBOutlet private var editButton: UIButton!
+    
     // MARK: - Life Circle
     
     override func viewDidLoad() {
@@ -73,6 +75,8 @@ final class ProfileCardViewController: UIViewController {
         
         nameTitleLabel.text = ""
         ageTitleLabel.text = ""
+        
+        editButton.isExclusiveTouch = true
     }
     
     private func setProfileImage(_ image: URL) {

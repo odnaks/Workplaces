@@ -13,7 +13,7 @@ extension UIViewController {
     func setupBackNavItem(with title: String) {
         navigationItem.title = title
         navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: .icon24Back,
+            image: .iconBack,
             style: .plain,
             target: self,
             action: #selector(goBack)

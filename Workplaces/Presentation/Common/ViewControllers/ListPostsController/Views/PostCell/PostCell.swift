@@ -57,10 +57,7 @@ final class PostCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        backgroundView?.layer.cornerRadius = 24
-        photoContainer.layer.cornerRadius = 12
-        layoutMargins = .standart
+        setupUI()
     }
     
     override func layoutSubviews() {
@@ -70,6 +67,13 @@ final class PostCell: UITableViewCell {
     }
     
     // MARK: - Private Methods
+    
+    private func setupUI() {
+        backgroundView?.layer.cornerRadius = 24
+        photoContainer.layer.cornerRadius = 12
+        layoutMargins = .standart
+        likeButton.isExclusiveTouch = true
+    }
     
     private func updateLike() {
         let imageButton: UIImage = isLiked ? .iconHeartLiked : .iconHeart

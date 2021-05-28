@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegistrationFirstViewController" customModule="Workplaces" customModuleProvider="target">
             <connections>
+                <outlet property="continueButton" destination="6x3-qN-E9z" id="Qev-HP-BoC"/>
                 <outlet property="emailTextField" destination="rtF-7w-Jqj" id="Tgh-Ov-N7p"/>
                 <outlet property="passwordTextField" destination="95p-ro-3T0" id="Wux-yc-9iT"/>
                 <outlet property="view" destination="iN0-l3-epB" id="E3y-y9-OCv"/>
@@ -42,21 +43,27 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Elq-qH-EvW">
                     <rect key="frame" x="20" y="98" width="374" height="116"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rtF-7w-Jqj" customClass="InputTextField" customModule="Workplaces" customModuleProvider="target">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rtF-7w-Jqj" customClass="TextFieldWithCleanButton" customModule="Workplaces" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="48" id="KMU-On-KZu"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <action selector="textFieldEditingChanged:" destination="-1" eventType="editingChanged" id="R66-lv-ZRl"/>
+                            </connections>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="95p-ro-3T0" customClass="InputTextField" customModule="Workplaces" customModuleProvider="target">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="95p-ro-3T0" customClass="TextFieldWithCleanButton" customModule="Workplaces" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="68" width="374" height="48"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="48" id="Nyo-T5-NPG"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <action selector="textFieldEditingChanged:" destination="-1" eventType="editingChanged" id="U8X-lj-DPe"/>
+                            </connections>
                         </textField>
                     </subviews>
                 </stackView>

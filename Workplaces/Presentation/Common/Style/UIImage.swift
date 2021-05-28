@@ -14,7 +14,7 @@ extension UIImage {
     static var iconHeartLiked: UIImage { return UIImage(named: #function)! }
     static var iconHeart: UIImage { return UIImage(named: #function)! }
     static var iconCalendar: UIImage { return UIImage(named: #function)! }
-    static var icon24Back: UIImage { return UIImage(named: #function)! }
+    static var iconBack: UIImage { return UIImage(named: #function)! }
     static var iconSearch: UIImage { return UIImage(named: #function)! }
     static var iconPlus: UIImage { return UIImage(named: #function)! }
     

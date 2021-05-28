@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -18,18 +20,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esU-2y-OPZ">
-                    <rect key="frame" x="16" y="16" width="24" height="24"/>
+                    <rect key="frame" x="16" y="60" width="24" height="24"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="esU-2y-OPZ" secondAttribute="height" multiplier="1:1" id="K6I-Ya-X39"/>
                         <constraint firstAttribute="height" constant="24" id="SgW-V2-TfN"/>
                     </constraints>
-                    <state key="normal" title="Button" image="icon24Back"/>
+                    <state key="normal" title="Button" image="iconBack"/>
                     <connections>
                         <action selector="didTapBack:" destination="-1" eventType="touchUpInside" id="bI2-yz-n5R"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6s0-Ex-6Pz" customClass="BaseButton" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="16" y="780" width="382" height="56"/>
+                    <rect key="frame" x="16" y="746" width="382" height="56"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="lmY-mY-PKf"/>
                     </constraints>
@@ -50,7 +52,7 @@
         </view>
     </objects>
     <resources>
-        <image name="icon24Back" width="24" height="24"/>
+        <image name="iconBack" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

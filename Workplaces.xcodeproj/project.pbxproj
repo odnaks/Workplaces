@@ -98,6 +98,7 @@
 		F06EFA7C264BE61A00440AC8 /* ProfileCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06EFA7B264BE61A00440AC8 /* ProfileCardViewController.swift */; };
 		F06EFA86264BE65600440AC8 /* ProfileCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F06EFA85264BE65600440AC8 /* ProfileCardViewController.xib */; };
 		F06EFA8B264BEE7000440AC8 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06EFA8A264BEE7000440AC8 /* StackViewController.swift */; };
+		F0783C2E265ED049002ED90E /* TextFieldWithBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0783C2D265ED049002ED90E /* TextFieldWithBorder.swift */; };
 		F079471A262ECB9E0003FE7F /* UIViewController+childVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0794719262ECB9E0003FE7F /* UIViewController+childVC.swift */; };
 		F0794726262EDC6E0003FE7F /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0794725262EDC6E0003FE7F /* FeedService.swift */; };
 		F079473E262EE25A0003FE7F /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079473D262EE25A0003FE7F /* ProfileService.swift */; };
@@ -118,7 +119,7 @@
 		F09F97722653CEB700350820 /* FriendSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09F97712653CEB700350820 /* FriendSearchCell.swift */; };
 		F09F97772653CF2F00350820 /* FriendSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09F97762653CF2F00350820 /* FriendSearchCell.xib */; };
 		F09F97802653D18400350820 /* SearchFriendsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09F977F2653D18400350820 /* SearchFriendsDataSource.swift */; };
-		F09F97852653FAFC00350820 /* InputDateField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09F97842653FAFC00350820 /* InputDateField.swift */; };
+		F09F97852653FAFC00350820 /* DateField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09F97842653FAFC00350820 /* DateField.swift */; };
 		F0A2262E264A712E00C694A9 /* FriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0A2262D264A712E00C694A9 /* FriendsViewController.xib */; };
 		F0A22637264A76D000C694A9 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A22636264A76D000C694A9 /* FriendCell.swift */; };
 		F0A2263C264A76D800C694A9 /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0A2263B264A76D800C694A9 /* FriendCell.xib */; };
@@ -153,7 +154,7 @@
 		F0B7C1C42640CEA0005CAFE4 /* FakeEmptySubEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B7C1C32640CEA0005CAFE4 /* FakeEmptySubEndpoint.swift */; };
 		F0D9645F262E17DB00F2E3CA /* StartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0D9645E262E17DB00F2E3CA /* StartViewController.xib */; };
 		F0D96468262E29E700F2E3CA /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0D96467262E29E700F2E3CA /* LoginViewController.xib */; };
-		F0D9646C262E2DBE00F2E3CA /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D9646B262E2DBE00F2E3CA /* InputTextField.swift */; };
+		F0D9646C262E2DBE00F2E3CA /* TextFieldWithCleanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D9646B262E2DBE00F2E3CA /* TextFieldWithCleanButton.swift */; };
 		F0D9646F262E334B00F2E3CA /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D9646E262E334B00F2E3CA /* UIImage.swift */; };
 		F0D9647E262E3D5800F2E3CA /* CompletedAuthorizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0D9647D262E3D5800F2E3CA /* CompletedAuthorizationViewController.xib */; };
 		F0D96481262EAFC400F2E3CA /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D96480262EAFC400F2E3CA /* TabItem.swift */; };
@@ -352,6 +353,7 @@
 		F06EFA7B264BE61A00440AC8 /* ProfileCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardViewController.swift; sourceTree = "<group>"; };
 		F06EFA85264BE65600440AC8 /* ProfileCardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCardViewController.xib; sourceTree = "<group>"; };
 		F06EFA8A264BEE7000440AC8 /* StackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
+		F0783C2D265ED049002ED90E /* TextFieldWithBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithBorder.swift; sourceTree = "<group>"; };
 		F0794719262ECB9E0003FE7F /* UIViewController+childVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+childVC.swift"; sourceTree = "<group>"; };
 		F0794725262EDC6E0003FE7F /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		F079473D262EE25A0003FE7F /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
@@ -374,7 +376,7 @@
 		F09F97712653CEB700350820 /* FriendSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSearchCell.swift; sourceTree = "<group>"; };
 		F09F97762653CF2F00350820 /* FriendSearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendSearchCell.xib; sourceTree = "<group>"; };
 		F09F977F2653D18400350820 /* SearchFriendsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsDataSource.swift; sourceTree = "<group>"; };
-		F09F97842653FAFC00350820 /* InputDateField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDateField.swift; sourceTree = "<group>"; };
+		F09F97842653FAFC00350820 /* DateField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateField.swift; sourceTree = "<group>"; };
 		F0A2262D264A712E00C694A9 /* FriendsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendsViewController.xib; sourceTree = "<group>"; };
 		F0A22636264A76D000C694A9 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		F0A2263B264A76D800C694A9 /* FriendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
@@ -409,7 +411,7 @@
 		F0B7C1C32640CEA0005CAFE4 /* FakeEmptySubEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeEmptySubEndpoint.swift; sourceTree = "<group>"; };
 		F0D9645E262E17DB00F2E3CA /* StartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartViewController.xib; sourceTree = "<group>"; };
 		F0D96467262E29E700F2E3CA /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		F0D9646B262E2DBE00F2E3CA /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
+		F0D9646B262E2DBE00F2E3CA /* TextFieldWithCleanButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithCleanButton.swift; sourceTree = "<group>"; };
 		F0D9646E262E334B00F2E3CA /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		F0D9647D262E3D5800F2E3CA /* CompletedAuthorizationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompletedAuthorizationViewController.xib; sourceTree = "<group>"; };
 		F0D96480262EAFC400F2E3CA /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
@@ -958,6 +960,16 @@
 			path = TitleHeader;
 			sourceTree = "<group>";
 		};
+		F04B4E47265ED33600F41B5F /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				F0D9646B262E2DBE00F2E3CA /* TextFieldWithCleanButton.swift */,
+				F09F97842653FAFC00350820 /* DateField.swift */,
+				F0783C2D265ED049002ED90E /* TextFieldWithBorder.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
 		F04DA2D9265091DC00B1782C /* Childs */ = {
 			isa = PBXGroup;
 			children = (
@@ -1371,8 +1383,7 @@
 			children = (
 				F01AA307262B78D300785D08 /* LaunchScreen.storyboard */,
 				F032FC792630C49C001A5292 /* XibView.swift */,
-				F0D9646B262E2DBE00F2E3CA /* InputTextField.swift */,
-				F09F97842653FAFC00350820 /* InputDateField.swift */,
+				F04B4E47265ED33600F41B5F /* TextFields */,
 				F032FCA12630E421001A5292 /* Labels.swift */,
 				F04ABD05265C3DD70089E660 /* SearchBar.swift */,
 				F039276A2653668D0048C96B /* TitleHeader */,
@@ -2192,9 +2203,10 @@
 				F05EC8922650BDFC0028AD9F /* FriendsContainerController.swift in Sources */,
 				F04DA2F72650A1FA00B1782C /* HomeVoidContainerController.swift in Sources */,
 				F02A84C92650532B0053893F /* RegistrationContainerController.swift in Sources */,
+				F0783C2E265ED049002ED90E /* TextFieldWithBorder.swift in Sources */,
 				F0A22641264A7A3000C694A9 /* FriendsDataSource.swift in Sources */,
 				F0271E722641A7D900EB6C13 /* PostViewModel.swift in Sources */,
-				F09F97852653FAFC00350820 /* InputDateField.swift in Sources */,
+				F09F97852653FAFC00350820 /* DateField.swift in Sources */,
 				F099A706264A67EE006A4730 /* UserViewModelMapper.swift in Sources */,
 				F02A851026507E930053893F /* LoginViewModelMapper.swift in Sources */,
 				F0A7E879265AB8F30056553F /* CABasicAnimation+animations.swift in Sources */,
@@ -2220,7 +2232,7 @@
 				F0392733265310350048C96B /* UIImage+imageWithColor.swift in Sources */,
 				F05EC88D2650BD510028AD9F /* FriendsFabric.swift in Sources */,
 				F04DA30C2650A9EF00B1782C /* SearchFriendsViewController.swift in Sources */,
-				F0D9646C262E2DBE00F2E3CA /* InputTextField.swift in Sources */,
+				F0D9646C262E2DBE00F2E3CA /* TextFieldWithCleanButton.swift in Sources */,
 				F039274E26533ACF0048C96B /* UIViewController+setupKeyboardObservers.swift in Sources */,
 				F032FC7E2630C6A5001A5292 /* AuthorizationServiceProtocol.swift in Sources */,
 				F0E547392641801000D05C2E /* ProfileMenuView.swift in Sources */,

@@ -103,6 +103,7 @@ final class TabBarView: XibView {
     private func setupTabs() {
         for tab in tabViews {
             tab.tintColor = .grey
+            tab.isExclusiveTouch = true
         }
     }
     

@@ -24,8 +24,8 @@ final class LoginViewController: UIViewController {
     
     // MARK: - IBOutlet
     
-    @IBOutlet private var emailTextField: InputTextField!
-    @IBOutlet private var passwordTextField: InputTextField!
+    @IBOutlet private var emailTextField: TextFieldWithCleanButton!
+    @IBOutlet private var passwordTextField: TextFieldWithCleanButton!
     @IBOutlet private var enterButton: UIButton!
     @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     
@@ -33,19 +33,19 @@ final class LoginViewController: UIViewController {
     
     /// Метод, вызываемый при получении с сервера ошибки о валидации email
     func showEmailError() {
-        activityIndicator?.stopAnimating()
+        stopLoading()
         emailTextField.status = .withError
     }
     
     /// Метод, вызываемый при получении с сервера ошибки о валидации пароля
     func showPasswordError() {
-        activityIndicator?.stopAnimating()
+        stopLoading()
         passwordTextField.status = .withError
     }
     
     /// Метод, вызываемый при получении с сервера ошибки
     func showError() {
-        activityIndicator?.stopAnimating()
+        stopLoading()
         emailTextField.status = .withError
         passwordTextField.status = .withError
     }
@@ -58,7 +58,6 @@ final class LoginViewController: UIViewController {
         view.layoutMargins = .standart
         setupBackNavItem(with: "Вход")
         setupKeyboardObservers()
-        activityIndicator?.stopAnimating()
         
         setupTextFields()
     }
@@ -67,6 +66,8 @@ final class LoginViewController: UIViewController {
         super.viewWillAppear(animated)
         
         navigationController?.navigationBar.isHidden = false
+        stopLoading()
+        enterButton.isEnabled = false
     }
     
     // MARK: - Private methods
@@ -77,7 +78,27 @@ final class LoginViewController: UIViewController {
         passwordTextField.isSecureTextEntry = true
     }
     
+    private func startLoading() {
+        activityIndicator?.startAnimating()
+        enterButton.isEnabled = false
+    }
+    
+    private func stopLoading() {
+        activityIndicator?.stopAnimating()
+        enterButton.isEnabled = true
+    }
+    
     // MARK: - IBAction
+    
+    @IBAction private func textFieldEditingChanged(_ sender: Any) {
+        let emailIsEmpty = emailTextField.text?.isEmpty ?? true
+        let passwordIsEmpty = passwordTextField.text?.isEmpty ?? true
+        if !emailIsEmpty && !passwordIsEmpty {
+            enterButton.isEnabled = true
+        } else {
+            enterButton.isEnabled = false
+        }
+    }
     
     @IBAction private func didTapEnter(_ sender: Any) {
         guard let email = emailTextField.text,
@@ -88,7 +109,7 @@ final class LoginViewController: UIViewController {
             email: email,
             password: password
         )
-        activityIndicator?.startAnimating()
+        startLoading()
         delegate?.loginViewController(with: loginViewModel)
     }
     

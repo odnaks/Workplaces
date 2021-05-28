@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,6 +28,7 @@
                         <constraint firstAttribute="width" constant="28" id="YN3-R0-NP8"/>
                         <constraint firstAttribute="width" secondItem="0aG-dz-12D" secondAttribute="height" multiplier="1:1" id="hRg-Da-xKh"/>
                     </constraints>
+                    <color key="tintColor" name="grey"/>
                     <state key="normal" image="tabHome"/>
                     <connections>
                         <action selector="didTapTab:" destination="-1" eventType="touchUpInside" id="Bv6-n3-SZ6"/>
@@ -34,6 +36,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V28-57-Eyw">
                     <rect key="frame" x="74" y="16" width="28" height="28"/>
+                    <color key="tintColor" name="grey"/>
                     <state key="normal" image="tabNew"/>
                     <connections>
                         <action selector="didTapNewPost:" destination="-1" eventType="touchUpInside" id="EJV-ew-jyH"/>
@@ -41,6 +44,7 @@
                 </button>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceg-pe-72r">
                     <rect key="frame" x="126" y="16" width="28" height="28"/>
+                    <color key="tintColor" name="grey"/>
                     <state key="normal" image="tabProfile"/>
                     <connections>
                         <action selector="didTapTab:" destination="-1" eventType="touchUpInside" id="eU7-Bb-QyH"/>
@@ -68,6 +72,9 @@
         <image name="tabHome" width="28" height="28"/>
         <image name="tabNew" width="28" height="28"/>
         <image name="tabProfile" width="28" height="28"/>
+        <namedColor name="grey">
+            <color red="0.85882352941176465" green="0.8901960784313725" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
