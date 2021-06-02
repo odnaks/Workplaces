@@ -7,7 +7,7 @@
 
 import WorkplacesAPI
 
-class MockCredentialsStorage: CredentialsStorageProtocol {
+class MockCredentialsStorage: TokenStorageProtocol {
     
     // MARK: - Public Properties
     

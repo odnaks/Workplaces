@@ -20,17 +20,20 @@ final public class BearerRequestInterceptor: Alamofire.RequestInterceptor {
     /// - Warning: declared as open variable for debug purposes only.
     private var baseURL: URL
 
-    private var credentialsStorage: CredentialsStorage
+    private let credentialsStorage: TokenStorageProtocol
+    private let retryManager: RetryManagerProtocol
     
     /// Creates a `BaseRequestInterceptor` instance with specified Base `URL`.
     ///
     /// - Parameter baseURL: Base `URL` for adapter.
     public init(
         baseURL: URL,
-        credentialsStorage: CredentialsStorage
+        credentialsStorage: TokenStorageProtocol,
+        retryManager: RetryManagerProtocol
     ) {
         self.baseURL = baseURL
         self.credentialsStorage = credentialsStorage
+        self.retryManager = retryManager
     }
     
     // MARK: - Alamofire.RequestInterceptor
@@ -58,7 +61,7 @@ final public class BearerRequestInterceptor: Alamofire.RequestInterceptor {
         dueTo error: Error,
         completion: @escaping (RetryResult) -> Void) {
         
-        return completion(.doNotRetry)
+        retryManager.retry(request: request, with: completion, and: error)
     }
     
     // MARK: - Private methods

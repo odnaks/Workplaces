@@ -16,7 +16,7 @@ final class FeedService: APIService, FeedServiceProtocol {
         completion: @escaping (Result<[Post], Error>) -> Void
     ) -> Progress {
         let endpoint = FeedEndpoint()
-        return apiClient.bearerRequest(endpoint, completionHandler: completion)
+        return apiClient.request(endpoint, completionHandler: completion)
     }
     
     func likePost(
@@ -24,7 +24,7 @@ final class FeedService: APIService, FeedServiceProtocol {
         completion: @escaping (Result<Void, Error>) -> Void
     ) -> Progress {
         let endpoint = LikePostEndpoint(id: id)
-        return apiClient.bearerRequest(endpoint, completionHandler: completion)
+        return apiClient.request(endpoint, completionHandler: completion)
     }
     
     func dislikePost(
@@ -32,14 +32,14 @@ final class FeedService: APIService, FeedServiceProtocol {
         completion: @escaping (Result<Void, Error>) -> Void
     ) -> Progress {
         let endpoint = DislikePostEndpoint(id: id)
-        return apiClient.bearerRequest(endpoint, completionHandler: completion)
+        return apiClient.request(endpoint, completionHandler: completion)
     }
     
     func getFavorite(
         completion: @escaping (Result<[Post], Error>) -> Void
     ) -> Progress {
         let endpoint = FavoriteEndpoint()
-        return apiClient.bearerRequest(endpoint, completionHandler: completion)
+        return apiClient.request(endpoint, completionHandler: completion)
     }
     
     func searchPost(
@@ -47,6 +47,6 @@ final class FeedService: APIService, FeedServiceProtocol {
         completion: @escaping (Result<[Post], Error>) -> Void
     ) -> Progress {
         let endpoint = SearchPostEndpoint(postData: postData)
-        return apiClient.bearerRequest(endpoint, completionHandler: completion)
+        return apiClient.request(endpoint, completionHandler: completion)
     }
 }

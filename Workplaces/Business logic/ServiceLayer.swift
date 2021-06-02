@@ -16,30 +16,34 @@ final class ServiceLayer {
     
     // MARK: - Public Properties
     
-    let authorizationService: AuthorizationServiceProtocol
-    let feedService: FeedServiceProtocol
-    let profileService: ProfileServiceProtocol
+    lazy var authorizationService: AuthorizationServiceProtocol = AuthorizationService(
+        apiClient: apiClient,
+        credentialsStorage: credentialsStorage
+    )
+    lazy var feedService: FeedServiceProtocol = FeedService(apiClient: apiClient)
+    lazy var profileService: ProfileServiceProtocol = ProfileService(apiClient: apiClient)
+    lazy var tokenSerice: TokenServiceProtocol = TokenService(
+        apiClient: apiClient,
+        credentialsStorage: credentialsStorage
+    )
     
-    // MARK: - Initialization
-
-    private init() {
-        
-        let credentialsStorage: CredentialsStorage = CredentialsStorage()
-        
-        let apiClient: Client = AlamofireClient(
-            requestInterceptor: BearerRequestInterceptor(
-                baseURL: URL(string: "https://interns2021.redmadrobot.com/")!,
-                credentialsStorage: credentialsStorage
-            ),
-            configuration: .ephemeral
-        )
-        
-        authorizationService = AuthorizationService(
-            apiClient: apiClient,
-            credentialsStorage: credentialsStorage
-        )
-        feedService = FeedService(apiClient: apiClient)
-        profileService = ProfileService(apiClient: apiClient)
-    }
+    // MARK: - Private Properties
+    
+    private lazy var credentialsStorage: TokenStorageProtocol = TokenStorage()
+    
+    private lazy var retryManager: RetryManagerProtocol = RetryManager(
+        tokenService: { self.tokenSerice }
+    )
+    
+    private lazy var interceptor: BearerRequestInterceptor = BearerRequestInterceptor(
+        baseURL: URL(string: "https://interns2021.redmadrobot.com/")!,
+        credentialsStorage: credentialsStorage,
+        retryManager: retryManager
+    )
+    
+    private lazy var apiClient: Client = AlamofireClient(
+        requestInterceptor: interceptor,
+        configuration: .ephemeral
+    )
 
 }

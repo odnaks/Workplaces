@@ -16,7 +16,7 @@ final class ProfileService: APIService, ProfileServiceProtocol {
         completion: @escaping (Result<UserProfile, Error>) -> Void
     ) -> Progress {
         let endpoint = ProfileEndpoint()
-        return apiClient.bearerRequest(endpoint, completionHandler: completion)
+        return apiClient.request(endpoint, completionHandler: completion)
     }
     
     func change(
@@ -24,14 +24,14 @@ final class ProfileService: APIService, ProfileServiceProtocol {
         completion: @escaping (Result<UserProfile, Error>) -> Void
     ) -> Progress {
         let endpoint = ChangeProfileEndpoint(profile: profile)
-        return apiClient.bearerRequest(endpoint, completionHandler: completion)
+        return apiClient.request(endpoint, completionHandler: completion)
     }
     
     func getFriends(
         completion: @escaping (Result<[UserProfile], Error>) -> Void
     ) -> Progress {
         let endpoint = FriendsEndpoint()
-        return apiClient.bearerRequest(endpoint, completionHandler: completion)
+        return apiClient.request(endpoint, completionHandler: completion)
     }
     
     func addFriend(
@@ -39,7 +39,7 @@ final class ProfileService: APIService, ProfileServiceProtocol {
         completion: @escaping (Result<Void, Error>) -> Void
     ) -> Progress {
         let endpoint = AddFriendEndpoint(friendId: id)
-        return apiClient.bearerRequest(endpoint, completionHandler: completion)
+        return apiClient.request(endpoint, completionHandler: completion)
     }
     
     func deleteFriend(
@@ -47,14 +47,14 @@ final class ProfileService: APIService, ProfileServiceProtocol {
         completion: @escaping (Result<Void, Error>) -> Void
     ) -> Progress {
         let endpoint = DeleteFriendEndpoint(friendId: id)
-        return apiClient.bearerRequest(endpoint, completionHandler: completion)
+        return apiClient.request(endpoint, completionHandler: completion)
     }
     
     func getPosts(
         completion: @escaping (Result<[Post], Error>) -> Void
     ) -> Progress {
         let endpoint = ProfilePostsEndpoint()
-        return apiClient.bearerRequest(endpoint, completionHandler: completion)
+        return apiClient.request(endpoint, completionHandler: completion)
     }
     
     func addPost(
@@ -62,7 +62,7 @@ final class ProfileService: APIService, ProfileServiceProtocol {
         completion: @escaping (Result<[Post], Error>) -> Void
     ) -> Progress {
         let endpoint = AddPostEndpoint(post: post)
-        return apiClient.bearerRequest(endpoint, completionHandler: completion)
+        return apiClient.request(endpoint, completionHandler: completion)
     }
     
     func searchUser(
@@ -70,7 +70,7 @@ final class ProfileService: APIService, ProfileServiceProtocol {
         completion: @escaping (Result<[UserProfile], Error>) -> Void
     ) -> Progress {
         let endpoint = SearchUserEndpoint(userData: userData)
-        return apiClient.bearerRequest(endpoint, completionHandler: completion)
+        return apiClient.request(endpoint, completionHandler: completion)
     }
 
 }

@@ -13,7 +13,7 @@ final class CredentialsStorageTest: XCTestCase {
     // MARK: - Private Properties
     
     private var objectStorage: MockObjectStorage!
-    private var credentialsStorage: CredentialsStorage!
+    private var credentialsStorage: TokenStorage!
     
     // MARK: - SetUp
     
@@ -21,7 +21,7 @@ final class CredentialsStorageTest: XCTestCase {
         super.setUp()
         
         objectStorage = MockObjectStorage()
-        credentialsStorage = CredentialsStorage(
+        credentialsStorage = TokenStorage(
             storage: objectStorage
         )
     }

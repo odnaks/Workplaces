@@ -1,5 +1,5 @@
 //
-//  CredentialsStorageProtocol.swift
+//  TokenStorageProtocol.swift
 //  WorkplacesAPI
 //
 //  Created by Kseniya Lukoshkina on 04.05.2021.
@@ -7,6 +7,6 @@
 
 import Foundation
 
-public protocol CredentialsStorageProtocol: AnyObject {
+public protocol TokenStorageProtocol: AnyObject {
     var token: Token? { get set }
 }

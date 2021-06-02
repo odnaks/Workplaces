@@ -36,12 +36,5 @@ protocol AuthorizationServiceProtocol {
     func logout(
         completion: @escaping (Result<Void, Error>) -> Void
     ) -> Progress
-    
-    /// Метод для отправки post запроса с refresh-токеном в теле
-    /// для обновления токена. В completionHanler возвращает
-    /// Token и сообщение об ошибке
-    func refresh(
-        completion: @escaping (Result<Token, Error>) -> Void
-    ) -> Progress
 
 }

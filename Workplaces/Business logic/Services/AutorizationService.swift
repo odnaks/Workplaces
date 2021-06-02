@@ -13,13 +13,13 @@ final class AuthorizationService: AuthorizationServiceProtocol {
     // MARK: - Private Properties
     
     private let apiClient: Client
-    private let credentialsStorage: CredentialsStorageProtocol
+    private let credentialsStorage: TokenStorageProtocol
     
     // MARK: - Initialization
     
     init(
         apiClient: Client,
-        credentialsStorage: CredentialsStorageProtocol
+        credentialsStorage: TokenStorageProtocol
     ) {
         self.apiClient = apiClient
         self.credentialsStorage = credentialsStorage
@@ -73,22 +73,6 @@ final class AuthorizationService: AuthorizationServiceProtocol {
         let endpoint = LogoutEndpoint()
         return apiClient.request(endpoint) { result in
             
-            completion(result)
-        }
-    }
-    
-    func refresh(
-        completion: @escaping (Result<Token, Error>) -> Void
-    ) -> Progress {
-        let token = credentialsStorage.token
-        let endpoint = RefreshEndpoint(token: token)
-        return apiClient.request(endpoint) { result in
-            switch result {
-            case .success(let token):
-                self.save(token)
-            case .failure:
-                break
-            }
             completion(result)
         }
     }
