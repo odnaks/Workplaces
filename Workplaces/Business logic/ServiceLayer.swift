@@ -22,17 +22,18 @@ final class ServiceLayer {
     )
     lazy var feedService: FeedServiceProtocol = FeedService(apiClient: apiClient)
     lazy var profileService: ProfileServiceProtocol = ProfileService(apiClient: apiClient)
-    lazy var tokenSerice: TokenServiceProtocol = TokenService(
+    lazy var tokenService: TokenServiceProtocol = TokenService(
         apiClient: apiClient,
         credentialsStorage: credentialsStorage
     )
+    lazy var securitySerice: SecurityServiceProtocol = SecurityService()
     
     // MARK: - Private Properties
     
     private lazy var credentialsStorage: TokenStorageProtocol = TokenStorage()
     
     private lazy var retryManager: RetryManagerProtocol = RetryManager(
-        tokenService: { self.tokenSerice }
+        tokenService: { self.tokenService }
     )
     
     private lazy var interceptor: BearerRequestInterceptor = BearerRequestInterceptor(

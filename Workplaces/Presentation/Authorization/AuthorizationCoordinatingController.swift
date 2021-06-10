@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import WorkplacesAPI
 
-protocol AuthorizationCoordinatingControllerDelegate: AnyObject {
+public protocol AuthorizationCoordinatingControllerDelegate: AnyObject {
     
     /// метод, вызываемый по завершении сценария авторизации
     func authorizationCoordinatingControllerDone()
@@ -23,29 +24,37 @@ final class AuthorizationCoordinatingController: UIViewController {
     
     private let authorizationService: AuthorizationServiceProtocol
     private let profileService: ProfileServiceProtocol
+    private let securityService: SecurityServiceProtocol
+    
     private let authorizationFabric: AuthorizationFabric
     
     private let rootNavigationController: UINavigationController
     private let startViewController: StartViewController
     private var loginViewController: LoginViewController
     private var registrationContainerController: RegistrationContainerController
+    private var passwordViewController: PasswordViewController
     private let completedLoginViewController: CompletedAuthorizationViewController
+    
+    private var refreshToken: String?
     
     // MARK: - Initialization
     
-    init(
+    public init(
         authorizationService: AuthorizationServiceProtocol = ServiceLayer.shared.authorizationService,
         profileService: ProfileServiceProtocol = ServiceLayer.shared.profileService,
+        securityService: SecurityServiceProtocol = ServiceLayer.shared.securitySerice,
         authorizationFabric: AuthorizationFabric
     ) {
         self.authorizationService = authorizationService
         self.profileService = profileService
         self.authorizationFabric = authorizationFabric
+        self.securityService = securityService
         
         self.startViewController = authorizationFabric.getStartViewController()
         self.loginViewController = authorizationFabric.getLoginViewController()
         self.registrationContainerController = authorizationFabric.getRegistrationContainerController()
         self.completedLoginViewController = authorizationFabric.getCompletedLoginViewController()
+        self.passwordViewController = authorizationFabric.getPasswordViewController()
         self.rootNavigationController = authorizationFabric.getAuthorizationNavigationController()
         
         super.init(nibName: nil, bundle: nil)
@@ -80,7 +89,8 @@ final class AuthorizationCoordinatingController: UIViewController {
         ) { result in
             switch result {
             case .success:
-                self.routeToCompletedAuthorization()
+                self.routeToPassword()
+//                self.routeToCompletedAuthorization()
             case .failure(let error):
                 self.showLoginError(error)
             }
@@ -106,7 +116,8 @@ final class AuthorizationCoordinatingController: UIViewController {
         _ = profileService.change(requestProfile) { result in
             switch result {
             case .success:
-                self.routeToCompletedAuthorization()
+                self.routeToPassword()
+//                self.routeToCompletedAuthorization()
             case .failure:
                 self.showRegistrationError(.defaultError)
             }
@@ -140,6 +151,11 @@ final class AuthorizationCoordinatingController: UIViewController {
         rootNavigationController.navigationBar.isHidden = true
     }
     
+    private func saveToken(_ password: String) {
+        guard let token = refreshToken else { return }
+        securityService.saveRefreshToken(token, with: password)
+    }
+    
     // MARK: - Routing
     
     private func showStart() {
@@ -162,6 +178,10 @@ final class AuthorizationCoordinatingController: UIViewController {
     private func routeToCompletedAuthorization() {
         completedLoginViewController.delegate = self
         rootNavigationController.pushViewController(completedLoginViewController, animated: true)
+    }
+    private func routeToPassword() {
+        passwordViewController.delegate = self
+        rootNavigationController.pushViewController(passwordViewController, animated: true)
     }
 }
 
@@ -208,5 +228,15 @@ extension AuthorizationCoordinatingController: RegistrationContainerControllerDe
 extension AuthorizationCoordinatingController: CompletedAuthorizationViewControllerDelegate {
     func completedAuthorizationViewControllerDone() {
         delegate?.authorizationCoordinatingControllerDone()
+    }
+}
+
+// MARK: - PasswordViewControllerDelegate
+
+extension AuthorizationCoordinatingController: PasswordViewControllerDelegate {
+    func passwordViewController(_ password: String) {
+        saveToken(password)
+        securityService.saveProtectionState(.password)
+        routeToCompletedAuthorization()
     }
 }

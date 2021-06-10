@@ -13,6 +13,7 @@ public protocol TokenServiceProtocol {
     /// Метод для обновления токена.
     /// В completionHanler возвращает массив `Token` и сообщение об ошибке
     func refresh(
-        completion: @escaping (Result<Token, Error>) -> Void
+        with token: String,
+        completion: @escaping (Bool) -> Void
     ) -> Progress
 }

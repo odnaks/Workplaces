@@ -50,4 +50,9 @@ final class AuthorizationFabric {
         return UINavigationController()
     }
     
+    /// Метод для получения PasswordViewController
+    func getPasswordViewController() -> PasswordViewController {
+        return PasswordViewController()
+    }
+    
 }

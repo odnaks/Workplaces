@@ -71,16 +71,16 @@ final public class BearerRequestInterceptor: Alamofire.RequestInterceptor {
     }
     
     private func appendingBearer(to request: URLRequest) -> URLRequest {
-        guard let token = getToken() else {
+        guard let accessToken = getToken() else {
             return request
         }
         var requestWithBearer = request
-        requestWithBearer.addValue("Bearer \(token.accessToken)", forHTTPHeaderField: "Authorization")
+        requestWithBearer.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         return requestWithBearer
     }
     
-    private func getToken() -> Token? {
-        return credentialsStorage.token
+    private func getToken() -> String? {
+        return credentialsStorage.accessToken
     }
 
 }

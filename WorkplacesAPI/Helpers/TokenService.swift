@@ -27,24 +27,24 @@ public final class TokenService: TokenServiceProtocol {
     // MARK: - Public Methods
     
     public func refresh(
-        completion: @escaping (Result<Token, Error>) -> Void
+        with token: String,
+        completion: @escaping (Bool) -> Void
     ) -> Progress {
-        let token = credentialsStorage.token
         let endpoint = RefreshEndpoint(token: token)
         return apiClient.request(endpoint) { result in
             switch result {
             case .success(let token):
-                self.save(token)
+                self.save(token.accessToken)
+                completion(true)
             case .failure:
-                break
+                completion(false)
             }
-            completion(result)
         }
     }
     
     // MARK: - Private Methods
     
-    private func save(_ token: Token) {
-        credentialsStorage.token = token
+    private func save(_ accessToken: String) {
+        credentialsStorage.accessToken = accessToken
     }
 }
