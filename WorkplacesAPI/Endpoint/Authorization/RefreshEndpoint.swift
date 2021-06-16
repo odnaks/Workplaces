@@ -11,14 +11,14 @@ public struct RefreshEndpoint: JsonEndpoint {
     
     public typealias Content = Token
     
-    private let refreshToken: String?
+    private let token: Token?
     
-    public init(token: String?) {
-        self.refreshToken = token
+    public init(token: Token?) {
+        self.token = token
     }
     
     public func makeRequest() throws -> URLRequest {
-        let refreshTokenDic = ["refresh_token": refreshToken!]
+        let refreshTokenDic = ["refresh_token": token?.refreshToken]
         
         let jsonData = try JSONSerialization.data(
             withJSONObject: refreshTokenDic,

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import WorkplacesAPI
 
 final class RootFabric {
     
@@ -39,10 +38,5 @@ final class RootFabric {
         return MainCoordinatingController(
             mainFabric: mainFabric
         )
-    }
-    
-    /// Метод для полученияPasswordViewController
-    func getPasswordViewController() -> PasswordViewController {
-        return PasswordViewController()
     }
 }

@@ -40,11 +40,12 @@ final public class RetryManager: RetryManagerProtocol {
             return
         }
         if checkErrorToRefreshToken(error) {
-            refreshToken { success in
-                if success {
+            refreshToken { result in
+                switch result {
+                case .success:
                     self.completionRetry(request)
-                } else {
-                    self.completionRetry(request, with: error)
+                case .failure(let refreshError):
+                    self.completionRetry(request, with: refreshError)
                 }
             }
         } else if checkErrorToRetry(error) {
@@ -56,8 +57,8 @@ final public class RetryManager: RetryManagerProtocol {
     
     // MARK: - Public methods
     
-    private func refreshToken(_ completion: @escaping (Bool) -> Void) {
-        _ = tokenService().refresh(with: "", completion: completion)
+    private func refreshToken(_ completion: @escaping (Result<Token, Error>) -> Void) {
+        _ = tokenService().refresh(completion: completion)
     }
     
     private func completionRetry(_ request: Request) {
